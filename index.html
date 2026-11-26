@@ -2964,8 +2964,108 @@ const C=(()=>{
    subDel:id=>run(k=>k.Fs.deleteDoc(k.Fs.doc(db,'submissions',id))),
    backup:()=>C.list(),restore:null};
 })();
-const S=cfgNow()?C:L;
-const cloud=S.mode==='firebase';
+/* ====== v8 : base de données Appwrite (remplace Firebase quand le site est en ligne) ====== */
+const APPWRITE_CONFIG={endpoint:'https://cloud.appwrite.io/v1',projectId:'6aff3e0c0001cc8dc8c6',databaseId:'sigdata'};
+const awCfg=()=>{let c=null;try{c=JSON.parse(localStorage.getItem('sigdata_aw_cfg')||'null')}catch(e){}return Object.assign({},APPWRITE_CONFIG,c||{})};
+const AW=(function(){
+  const cfg=awCfg(),DB=cfg.databaseId||'sigdata',TEAM='sa';
+  const SDK='https://cdn.jsdelivr.net/npm/appwrite@16.0.2/dist/iife/sdk.js';
+  let boot_,acc,dbs,tm,Q,ID,P,R;
+  const load=()=>window.Appwrite?Promise.resolve():new Promise((ok,ko)=>{const s=document.createElement('script');s.src=SDK;s.onload=ok;s.onerror=()=>ko(new Error('Module Appwrite introuvable : vérifiez la connexion internet.'));document.head.appendChild(s)});
+  const boot=()=>boot_||(boot_=(async()=>{try{await load();const A=window.Appwrite,cl=new A.Client().setEndpoint(cfg.endpoint).setProject(cfg.projectId);
+    acc=new A.Account(cl);dbs=new A.Databases(cl);tm=new A.Teams(cl);Q=A.Query;ID=A.ID;P=A.Permission;R=A.Role;return 1}catch(e){boot_=null;throw e}})());
+  const authEmail=id=>id.includes('@')?id:id+'@login.statmen.ci';
+  const here=()=>location.origin+location.pathname;
+  function fail(e){const t=(e&&e.type)||'',c=e&&e.code;let m=null;
+    if(t==='user_invalid_credentials'||t==='user_not_found'||(c===401&&/credentials/i.test(e.message||'')))m='Identifiant ou mot de passe incorrect.';
+    else if(t==='user_already_exists')m='Cet identifiant existe déjà dans Appwrite (compte existant). Supprimez-le dans Appwrite > Auth ou choisissez un autre identifiant.';
+    else if(t==='general_rate_limit_exceeded'||c===429)m='Trop de tentatives. Réessayez dans quelques minutes.';
+    else if(t==='password_recently_used'||t==='password_personal_data'||t==='general_argument_invalid'&&/password/i.test(e.message||''))m='Mot de passe refusé : '+e.message;
+    else if(t==='collection_not_found'||t==='database_not_found'||t==='attribute_not_found')m='Base Appwrite non initialisée : exécutez le script setup_appwrite.py (voir GUIDE_APPWRITE.md).';
+    else if(c===401||t==='user_unauthorized'||t==='general_unauthorized_scope')m='Accès refusé par les permissions Appwrite : vérifiez le script setup_appwrite.py et que vous êtes connecté.';
+    else if(t==='general_access_forbidden'||/origin|platform|CORS/i.test(e&&e.message||''))m='Domaine non autorisé : ajoutez ce site comme plateforme Web dans Appwrite > Overview > Add platform.';
+    else if(/Failed to fetch|NetworkError|network/i.test(e&&e.message||''))m='Connexion à Appwrite impossible (internet ou domaine non autorisé : Overview > Add platform > Web).';
+    return new Error(m||(e&&e.message)||'Erreur Appwrite')}
+  const run=async f=>{try{await boot();return await f()}catch(e){throw e instanceof Error&&e.code===undefined&&!e.type?e:fail(e)}};
+  /* identifiants de documents : 36 caractères max, [a-zA-Z0-9._-] */
+  const h53=s=>{let a=0xdeadbeef,b=0x41c6ce57;for(let i=0;i<s.length;i++){const c=s.charCodeAt(i);a=Math.imul(a^c,2654435761);b=Math.imul(b^c,1597334677)}a=Math.imul(a^a>>>16,2246822507)^Math.imul(b^b>>>13,3266489909);b=Math.imul(b^b>>>16,2246822507)^Math.imul(a^a>>>13,3266489909);return(4294967296*(2097151&b)+(a>>>0)).toString(36)};
+  const aid=x=>{x=String(x);return/^[a-zA-Z0-9][a-zA-Z0-9._-]{0,35}$/.test(x)?x:'h'+h53(x)+h53(x+'#')};
+  const enc=(o,id)=>({d:JSON.stringify(id!=null&&aid(id)!==String(id)?Object.assign({},o,{_id:String(id)}):o)});
+  const dec=d=>{let o={};try{o=JSON.parse(d.d||'{}')}catch(e){}const id=o._id||d.$id;delete o._id;return Object.assign({id},o)};
+  const nf=e=>e&&(e.code===404||/not_found/.test(e.type||''));
+  const get=async(c,id)=>{try{return dec(await dbs.getDocument(DB,c,aid(id)))}catch(e){if(nf(e)&&e.type!=='collection_not_found'&&e.type!=='database_not_found')return null;throw e}};
+  const put=async(c,id,o,perms)=>{const i=aid(id);try{await dbs.updateDocument(DB,c,i,enc(o,id))}catch(e){if(nf(e)&&e.type==='document_not_found')await dbs.createDocument(DB,c,i,enc(o,id),perms);else throw e}};
+  const patch=async(c,id,p)=>{const o=await get(c,id);if(!o)throw new Error('Document introuvable.');const x=Object.assign({},o,p);delete x.id;await dbs.updateDocument(DB,c,aid(id),enc(x,id))};
+  const del=async(c,id)=>{try{await dbs.deleteDocument(DB,c,aid(id))}catch(e){if(!nf(e))throw e}};
+  const all=async(c,qs,max)=>{const out=[];let cur=null;max=max||5000;for(;;){const q=[Q.limit(100)].concat(qs||[]);if(cur)q.push(Q.cursorAfter(cur));const r=await dbs.listDocuments(DB,c,q);out.push(...r.documents);if(r.documents.length<100||out.length>=max)break;cur=r.documents[r.documents.length-1].$id}return out};
+  const inTeam=async()=>{try{const r=await tm.list();return r.teams.some(t=>t.$id===TEAM)}catch(e){return false}};
+  const selfPerms=uid=>[P.read(R.user(uid)),P.update(R.user(uid))];
+  const prof=async(uid)=>{const p=await get('users',uid);if(!p)return null;const sa=await inTeam();p.id=uid;if(p.role==='super_admin'&&!sa)p.role='viewer';if(sa)p.role='super_admin';return p};
+  const pub=d=>{const o=dec(d);return o};
+  return{mode:'appwrite',label:'Appwrite · '+(cfg.projectId||''),
+   init:()=>run(async()=>{let u;try{u=await acc.get()}catch(e){return null}const p=await prof(u.$id);if(!p||!p.active){try{await acc.deleteSession('current')}catch(e){}return null}return p}).catch(()=>null),
+   needSetup:()=>run(async()=>!(await get('config','init'))),
+   setupAdmin:o=>run(async()=>{
+     const uid=ID.unique(),now=new Date().toISOString();
+     await acc.create(uid,authEmail(o.ident),o.pw,o.name);
+     await acc.createEmailPasswordSession(authEmail(o.ident),o.pw);
+     await tm.create(TEAM,'Super administrateurs');
+     const p={name:o.name,ident:o.ident,type:o.ident.includes('@')?'email':'login',role:'super_admin',struct:'',active:true,must:false,created:now,last:now};
+     await dbs.createDocument(DB,'config','init',enc({at:now,by:uid}));
+     await dbs.createDocument(DB,'users',uid,enc(p),selfPerms(uid));
+     return Object.assign({id:uid},p)}),
+   login:(id,pw)=>run(async()=>{
+     try{await acc.deleteSession('current')}catch(e){}
+     await acc.createEmailPasswordSession(authEmail(id),pw);const u=await acc.get(),p=await prof(u.$id);
+     if(!p||!p.active){try{await acc.deleteSession('current')}catch(e){}throw new Error(p?'Ce compte est désactivé. Contactez le super administrateur.':'Ce compte n\'est plus autorisé. Contactez le super administrateur.')}
+     p.last=new Date().toISOString();try{await patch('users',p.id,{last:p.last})}catch(e){}return p}),
+   logout:()=>run(()=>acc.deleteSession('current')),
+   list:()=>run(async()=>(await all('users')).map(dec).sort((a,b)=>String(a.created).localeCompare(String(b.created)))),
+   create:o=>run(async()=>{
+     if(o.role==='super_admin')throw new Error('Avec Appwrite, un second super administrateur s\'ajoute dans Appwrite > Auth > Teams > « Super administrateurs ». Créez ce compte avec un autre profil puis ajoutez-le à l\'équipe.');
+     const uid=ID.unique();await acc.create(uid,authEmail(o.ident),o.pw,o.name);
+     const p={name:o.name,ident:o.ident,type:o.ident.includes('@')?'email':'login',role:o.role,struct:o.struct||'',active:o.active!==false,must:!!o.must,created:new Date().toISOString(),last:null};
+     try{await dbs.createDocument(DB,'users',uid,enc(p),selfPerms(uid))}catch(e){throw new Error('Compte créé dans Appwrite Auth mais profil non enregistré ('+fail(e).message+'). Supprimez « '+o.ident+' » dans Appwrite > Auth puis recommencez.')}
+     return Object.assign({id:uid},p)}),
+   update:(id,p)=>run(()=>patch('users',id,p)),
+   remove:id=>run(()=>del('users',id)),
+   resetPw:u=>run(async()=>{if(u.type!=='email')throw new Error('Un compte « login » n\'a pas d\'e-mail : sa réinitialisation n\'est pas possible depuis le site. Désactivez-le et créez un nouveau login.');await acc.createRecovery(u.ident,here());return{mailed:true}}),
+   recover:email=>run(async()=>{try{await acc.createRecovery(email,here())}catch(e){if(e&&(e.type==='user_not_found'||e.code===404))return;throw e}}),
+   resetFinish:(uid,secret,pw)=>run(()=>acc.updateRecovery(uid,secret,pw)),
+   changePw:(old,nw)=>run(async()=>{const u=await acc.get().catch(()=>null);if(!u)throw new Error('Session expirée : reconnectez-vous.');
+     if(old!=null&&old===nw)throw new Error('Le nouveau mot de passe doit être différent de l\'ancien.');
+     try{await acc.updatePassword(nw,old==null?undefined:old)}catch(e){if(old!=null&&(e.code===401||e.type==='user_invalid_credentials'))throw new Error('Mot de passe actuel incorrect.');throw e}
+     try{await patch('users',u.$id,{must:false})}catch(e){}}),
+   log:async(a,t)=>{try{await boot();await dbs.createDocument(DB,'audit',ID.unique(),enc({t:new Date().toISOString(),by:me?me.ident:'—',a,target:t||''}))}catch(e){}},
+   auditList:()=>run(async()=>(await dbs.listDocuments(DB,'audit',[Q.orderDesc('$createdAt'),Q.limit(150)])).documents.map(dec)),
+   wipe:()=>run(async()=>{for(const d of await all('users'))if(d.$id!==me.id)await del('users',d.$id)}),
+   adsLoad:()=>run(async()=>{const [a,s]=await Promise.all([all('ads'),get('settings','ads')]);const slots=s||{};delete slots.id;return{items:a.map(dec),slots}}),
+   adSave:it=>run(()=>{const {id,...r}=it;return put('ads',id,r)}),
+   adDel:id=>run(()=>del('ads',id)),
+   slotsSave:s=>run(()=>put('settings','ads',s)),
+   docGet:id=>run(async()=>{const x=await get('settings',id);if(!x)return null;delete x.id;return x}),
+   docSet:(id,d)=>run(()=>d==null?del('settings',id):put('settings',id,d)),
+   formsList:()=>run(async()=>(await all('forms')).map(dec)),
+   formGet:id=>run(()=>get('forms',id)),
+   formSave:f=>run(()=>{const {id,...r}=f;return put('forms',id,r)}),
+   formDel:id=>run(()=>del('forms',id)),
+   subCreate:(s,hard,soft)=>run(async()=>{const {id,...r}=s;
+     for(const h of hard||[]){if(await get('dedupe',h)){const x=new Error('dup');x.dup=true;throw x}}
+     await dbs.createDocument(DB,'submissions',aid(id),enc(r,id));
+     for(const h of hard||[])await dbs.createDocument(DB,'dedupe',aid(h),enc({f:r.formId,t:r.at},h)).catch(()=>{});
+     (soft||[]).forEach(h=>{dbs.createDocument(DB,'dedupe',aid(h),enc({f:r.formId,t:r.at},h)).catch(()=>{})})}),
+   ddHas:id=>run(async()=>!!(await get('dedupe',id))),
+   ddPut:(ids,f)=>run(async()=>{const t=new Date().toISOString();for(const h of ids)await put('dedupe',h,{f:f||'',t},[P.read(R.any())])}),
+   ddDel:ids=>run(async()=>{for(const h of ids)await del('dedupe',h)}),
+   subList:()=>run(async()=>(await all('submissions',[Q.orderDesc('$createdAt')],1500)).map(dec).sort((a,b)=>String(b.at).localeCompare(String(a.at)))),
+   subUpdate:(id,p)=>run(()=>patch('submissions',id,p)),
+   subDel:id=>run(()=>del('submissions',id)),
+   backup:()=>AW.list(),restore:null};
+})();
+
+const web=/^https?:$/.test(location.protocol);
+const S=web&&awCfg().projectId?AW:(web&&cfgNow()?C:L);
+const cloud=S.mode!=='local';
 
 /* ====================== INTERFACE ====================== */
 const ov=document.createElement('div');ov.className='mdl';ov.id='authOv';ov.innerHTML='<div class="mdl-box" id="authBox"></div>';document.body.appendChild(ov);
@@ -3042,6 +3142,15 @@ function viewMe(){
    <button class="btn btn-w sm" data-go="mypw">${ic('lock')} Changer mon mot de passe</button>
    <button class="btn btn-w sm" data-go="logout">${ic('logout')} Se déconnecter</button>
   </div>`);
+}
+function viewResetAW(uid,secret){
+  show(head('lock','Nouveau mot de passe','Choisissez votre nouveau mot de passe.')+`
+  <form class="mf" id="fRst" data-u="${esc(uid)}" data-s="${esc(secret)}">
+   <div class="fl"><span>Nouveau mot de passe</span>${pwField('rsPw','8 caractères minimum',1)}${meter('rsPw')}</div>
+   <div class="fl"><span>Confirmer</span>${pwField('rsPw2','Retapez le mot de passe')}</div>
+   <div class="merr" id="rsErr" role="alert"></div>
+   <button class="btn btn-g" type="submit">Enregistrer ${ic('check')}</button>
+  </form>`);
 }
 function viewForce(){
   forced=true;
@@ -3221,9 +3330,9 @@ function tLog(){
 function tSec(){
   return `<div class="sec2"><h4>${ic('lock')}Mon mot de passe</h4><p class="mnote">Changez régulièrement le mot de passe du super administrateur.</p><div class="macts" style="padding:12px 0 0"><button class="btn btn-w sm" data-go="mypw">Changer mon mot de passe</button></div></div>
   <div class="sec2"><h4>${ic('key')}Récupération du mot de passe</h4><p class="mnote">${cloud?'Envoie un lien de réinitialisation à l\'adresse e-mail d\'un compte (le vôtre ou celui d\'un autre super administrateur). Cette même fenêtre est accessible, discrètement, depuis le bas de la page publique.':'Disponible lorsque Firebase est relié.'}</p><div class="macts" style="padding:12px 0 0"><button class="btn btn-w sm" data-go="recov"${cloud?'':' disabled'}>${ic('mail')} Envoyer un lien de réinitialisation</button></div></div>
-  <div class="sec2"><h4>${ic('db')}Sauvegarde</h4><p class="mnote">${cloud?'Les comptes sont conservés par Firebase. Vous pouvez exporter la liste des profils (sans mots de passe).':'Exportez la liste des comptes (mots de passe chiffrés) pour la conserver ou la transférer vers un autre navigateur.'}</p>
+  <div class="sec2"><h4>${ic('db')}Sauvegarde</h4><p class="mnote">${cloud?'Les comptes sont conservés par le serveur. Vous pouvez exporter la liste des profils (sans mots de passe).':'Exportez la liste des comptes (mots de passe chiffrés) pour la conserver ou la transférer vers un autre navigateur.'}</p>
    <div class="macts" style="padding:12px 0 0"><button class="btn btn-g sm" data-act="bkpExport">${ic('down')} Exporter la sauvegarde</button>${cloud?'':`<label class="btn btn-w sm" style="cursor:pointer">${ic('up')} Restaurer une sauvegarde<input type="file" id="bkpFile" accept=".json" hidden></label>`}</div></div>
-  <div class="sec2"><h4>${ic('wifi')}Connexion des données</h4><p class="mnote">${cloud?'Firebase est actif : '+esc(S.label)+'.':'Mode local : les comptes restent dans ce navigateur.'}</p><div class="macts" style="padding:12px 0 0"><button class="btn btn-w sm" data-go="fb">${cloud?'Voir la configuration':'Relier à Firebase'}</button></div></div>
+  <div class="sec2"><h4>${ic('wifi')}Connexion des données</h4><p class="mnote">${cloud?esc(S.label)+' est actif.':'Mode local : les comptes restent dans ce navigateur.'}</p><div class="macts" style="padding:12px 0 0"><button class="btn btn-w sm" data-go="fb">${cloud?'Voir la configuration':'Relier à Firebase'}</button></div></div>
   <div class="sec2 dg"><h4>${ic('alert')}Zone sensible</h4><p class="mnote">Supprime tous les comptes sauf le vôtre.${cloud?' Les identifiants restent à supprimer dans Firebase > Authentication.':''} Action irréversible.</p>
    <div class="macts" style="padding:12px 0 0"><button class="btn btn-d sm" data-act="wipe">${ic('trash')} Supprimer tous les autres comptes</button></div></div>`;
 }
@@ -3371,6 +3480,12 @@ box.addEventListener('submit',async e=>{
     btn.disabled=true;try{me=await S.setupAdmin({name,ident,pw})}catch(x){btn.disabled=false;return err('suErr',x.message)}
     log('Création du super administrateur',ident);updateUI();toast('Super administrateur créé');return viewConsole('users');
   }
+  if(f==='fRst'){
+    const pw=$$b('#rsPw').value;if(!goodPw(pw,'rsErr'))return;
+    if(pw!==$$b('#rsPw2').value)return err('rsErr','Les mots de passe ne correspondent pas.');
+    btn.disabled=true;try{await S.resetFinish(e.target.dataset.u,e.target.dataset.s,pw)}catch(x){btn.disabled=false;return err('rsErr',x.message)}
+    try{history.replaceState(null,'',location.pathname+location.hash)}catch(_){}toast('Mot de passe modifié : connectez-vous.');return viewLogin();
+  }
   if(f==='fForce'||f==='fMyPw'){
     const p=f==='fForce'?'fp':'mp',pw=$$b('#'+p+'Pw').value;
     if(!goodPw(pw,p+'Err'))return;
@@ -3427,6 +3542,7 @@ document.addEventListener('click',e=>{if(!e.target.closest('#um'))umOpen(false)}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#um').classList.contains('open')){umOpen(false);$('#authBtn').focus()}});
 const sa=$('#sAdmin');if(sa)sa.onclick=e=>{e.preventDefault();if(isSA())viewConsole('users')};
 S.init().then(u=>{me=u;updateUI();if(me&&me.must)viewForce()});
+{const q=new URLSearchParams(location.search);if(S.resetFinish&&q.get('userId')&&q.get('secret'))setTimeout(()=>viewResetAW(q.get('userId'),q.get('secret')),300)}
 setTimeout(()=>{S.needSetup().then(n=>{window.__ns=n}).catch(()=>{})},0);
 
 /* ====== v5 : annonces et publicités (affichage public + menu Paramètres) ====== */
@@ -3533,7 +3649,7 @@ async function viewSettings(t){
   const body=sTab==='ads'?sAds():sSlots();
   show(head('sliders','Paramètres','Annonces et publicités affichées à tous les visiteurs')+
    `<div class="mtabs">${STABS.map(x=>`<button class="mtab${x[0]===sTab?' on':''}" data-ad="tab" data-id="${x[0]}">${ic(x[1])}${x[2]}</button>`).join('')}</div>
-    <div class="mbody"><div class="modeb ${cloud?'cl':'lo'}">${ic(cloud?'wifi':'laptop')}<span>${cloud?'Firebase actif : toute mise à jour est visible par les autres utilisateurs.':'Mode local : les annonces ne sont visibles que dans ce navigateur. Reliez Firebase pour les afficher aux autres utilisateurs.'}</span>${cloud?'':`<button data-go="fb">Relier à Firebase</button>`}</div>${body}</div>`,true);
+    <div class="mbody"><div class="modeb ${cloud?'cl':'lo'}">${ic(cloud?'wifi':'laptop')}<span>${cloud?'Base de données en ligne active : toute mise à jour est visible par les autres utilisateurs.':'Mode local : les annonces ne sont visibles que dans ce navigateur. Reliez Firebase pour les afficher aux autres utilisateurs.'}</span>${cloud?'':`<button data-go="fb">Relier à Firebase</button>`}</div>${body}</div>`,true);
 }
 function adCard(it){
   const th=THEMES[it.theme]||THEMES.orange,st=adStatus(it),img=safeImg(it.image),sl=SLOTS[it.slot];
@@ -3914,7 +4030,7 @@ async function viewRem(t){
   const body={forms:rForms,recv:rRecv,cons:rCons}[RV.tab]();
   show(head('inbox','Consolidation des remontées','Formulaires partagés par lien et données reçues')+
    `<div class="mtabs">${RTABS.map(x=>`<button class="mtab${x[0]===RV.tab?' on':''}" data-fm="tab" data-id="${x[0]}">${ic(x[1])}${x[2]}${x[0]==='recv'&&subCount()?`<b class="tbadge">${subCount()}</b>`:''}</button>`).join('')}</div>
-    <div class="mbody"><div class="modeb ${cloud?'cl':'lo'}">${ic(cloud?'wifi':'laptop')}<span>${cloud?'Firebase actif : les données envoyées par lien arrivent ici en direct.':'Mode local : les liens ne fonctionnent que sur cet ordinateur. Reliez Firebase pour recevoir les données de plusieurs personnes.'}</span>${cloud?'':`<button data-go="fb">Relier à Firebase</button>`}</div>${body}</div>`,true);
+    <div class="mbody"><div class="modeb ${cloud?'cl':'lo'}">${ic(cloud?'wifi':'laptop')}<span>${cloud?'Base de données en ligne active : les données envoyées par lien arrivent ici en direct.':'Mode local : les liens ne fonctionnent que sur cet ordinateur. Reliez Firebase pour recevoir les données de plusieurs personnes.'}</span>${cloud?'':`<button data-go="fb">Relier à Firebase</button>`}</div>${body}</div>`,true);
 }
 function fCard(f){
   const st=fState(f),n=subs.filter(s=>s.formId===f.id).length,nf=(f.fields||[]).filter(x=>x.type!=='section').length;
