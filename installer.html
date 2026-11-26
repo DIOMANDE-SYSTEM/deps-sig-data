@@ -23,7 +23,8 @@ async function call(m,path,body){const r=await fetch($('e').value.replace(/\/$/,
  const j=await r.json().catch(()=>({}));if(r.status===409)return{exists:true};if(!r.ok)throw new Error(r.status+' : '+(j.message||'erreur'));return j}
 $('go').onclick=async()=>{$('log').textContent='Démarrage…';$('go').disabled=true;
  try{if(!$('k').value.trim())throw new Error('Collez d\'abord la clé API.');
-  await call('POST','/databases',{databaseId:DB,name:'SIG-DATA'});log('Base « sigdata » : OK');
+  let ex=false;try{await call('GET','/databases/'+DB);ex=true}catch(e){if(!/^404/.test(e.message))throw e}
+  if(!ex)await call('POST','/databases',{databaseId:DB,name:'SIG-DATA'});log('Base « sigdata » : '+(ex?'déjà créée, on continue':'OK'));
   for(const [c,[ps,ds]] of Object.entries(COLS)){
    await call('POST','/databases/'+DB+'/collections',{collectionId:c,name:c,permissions:ps.map(([k,r])=>k+'("'+r+'")'),documentSecurity:ds});
    await call('POST','/databases/'+DB+'/collections/'+c+'/attributes/string',{key:'d',size:1000000,required:false});log('Table « '+c+' » : OK')}
