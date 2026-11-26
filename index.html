@@ -2965,7 +2965,7 @@ const C=(()=>{
    backup:()=>C.list(),restore:null};
 })();
 /* ====== v8 : base de données Appwrite (remplace Firebase quand le site est en ligne) ====== */
-const APPWRITE_CONFIG={endpoint:'https://cloud.appwrite.io/v1',projectId:'6aff3e0c0001cc8dc8c6',databaseId:'sigdata'};
+const APPWRITE_CONFIG={endpoint:'https://fra.cloud.appwrite.io/v1',projectId:'6aff3d55001b21adad75',databaseId:'sigdata'};
 const awCfg=()=>{let c=null;try{c=JSON.parse(localStorage.getItem('sigdata_aw_cfg')||'null')}catch(e){}return Object.assign({},APPWRITE_CONFIG,c||{})};
 const AW=(function(){
   const cfg=awCfg(),DB=cfg.databaseId||'sigdata',TEAM='sa';
@@ -3097,14 +3097,14 @@ const refresh=async()=>{users=await S.list();if(me){const m=users.find(u=>u.id==
 async function viewLogin(){
   const c=window.__ns;
   if(c===true){viewSetup();S.needSetup().then(n=>{window.__ns=n;if(!n&&$$b('#fSetup'))viewLogin()}).catch(()=>{});return}
-  if(c===undefined)S.needSetup().then(n=>{window.__ns=n;if(n&&$$b('#fLogin'))viewSetup()}).catch(e=>toast(e.message));
+  S.needSetup().then(n=>{window.__ns=n;if(n&&$$b('#fLogin'))return viewSetup();const d=$$b('#lgDiag');if(d){d.className='mnote';d.style.color='#00875A';d.textContent='● Base en ligne connectée ('+S.label+'). Un super administrateur existe déjà.'}}).catch(e=>{const d=$$b('#lgDiag');if(d){d.className='mnote';d.style.color='#C0392B';d.textContent='● Base en ligne : '+e.message}});
   show(head('key','Connexion','Accédez à votre espace SIG-DATA.')+`
   <form class="mf" id="fLogin">
    <label>E-mail ou identifiant<input id="lgId" required autocomplete="username" placeholder="prenom.nom@exemple.ci"></label>
    <div class="fl"><span>Mot de passe</span>${pwField('lgPw')}</div>
    <div class="merr" id="lgErr" role="alert"></div>
    <button class="btn btn-o" type="submit">Se connecter ${ic('arrow')}</button>
-   <button type="button" class="lnk" data-go="recov">${ic('key')} Mot de passe oublié ?</button><p class="mnote">Les comptes sont créés par le super administrateur de la DEPS. Sans e-mail réel, demandez-lui une réinitialisation.</p>${fbLink()}
+   <button type="button" class="lnk" data-go="recov">${ic('key')} Mot de passe oublié ?</button><p class="mnote">Les comptes sont créés par le super administrateur de la DEPS. Sans e-mail réel, demandez-lui une réinitialisation.</p><p id="lgDiag" class="mnote" style="color:#8A94A6">● Vérification de la base en ligne…</p>${fbLink()}
   </form>`);
   $$b('#lgId').focus();
 }
