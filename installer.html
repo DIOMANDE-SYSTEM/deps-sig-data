@@ -1,0 +1,36 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex">
+<title>Installation de la base SIG-DATA (Appwrite)</title>
+<style>body{font-family:system-ui,Segoe UI,sans-serif;max-width:680px;margin:24px auto;padding:0 16px;color:#17233a;background:#fffaf4}
+h1{font-size:22px;border-left:6px solid #FF6A00;padding-left:10px}label{display:block;font-weight:700;margin:14px 0 4px}
+input{width:100%;padding:12px;border:1.5px solid #d9dfe8;border-radius:10px;font:inherit;box-sizing:border-box}
+button{margin-top:18px;padding:14px 22px;border:0;border-radius:12px;background:linear-gradient(90deg,#FF6A00,#00A859);color:#fff;font:700 16px inherit;cursor:pointer}
+button:disabled{opacity:.5}pre{background:#0f1b2d;color:#d7ffe9;padding:14px;border-radius:12px;white-space:pre-wrap;min-height:90px;font-size:13px}
+.w{background:#fff3e0;border:1px solid #ffb877;padding:10px 12px;border-radius:10px;font-size:14px}</style></head><body>
+<h1>Installation de la base SIG-DATA</h1>
+<p class="w">La clé API reste dans votre navigateur et n'est envoyée qu'à Appwrite. Quand tout est terminé : <b>supprimez la clé dans Appwrite</b> et supprimez ce fichier <code>installer.html</code> du dépôt.</p>
+<label>Clé API Appwrite (créée dans Clés API)</label><input id="k" type="password" autocomplete="off" placeholder="Collez la clé ici">
+<label>Endpoint</label><input id="e" value="https://fra.cloud.appwrite.io/v1">
+<label>ID du projet</label><input id="p" value="6aff3d55001b21adad75">
+<button id="go">Créer les tables</button><pre id="log">En attente…</pre>
+<script>
+const $=i=>document.getElementById(i),log=t=>{$('log').textContent+='\n'+t};
+const A='any',U='users',T='team:sa',DB='sigdata';
+const COLS={config:[[['read',A],['create',U]],false],users:[[['create',T],['read',T],['update',T],['delete',T]],true],
+settings:[[['read',A],['create',T],['update',T],['delete',T]],false],ads:[[['read',A],['create',T],['update',T],['delete',T]],false],
+forms:[[['read',A],['create',T],['update',T],['delete',T]],false],submissions:[[['create',A],['read',T],['update',T],['delete',T]],false],
+dedupe:[[['create',A],['read',A],['update',T],['delete',T]],false],audit:[[['create',U],['read',T]],false]};
+async function call(m,path,body){const r=await fetch($('e').value.replace(/\/$/,'')+path,{method:m,headers:{'X-Appwrite-Project':$('p').value.trim(),'X-Appwrite-Key':$('k').value.trim(),'Content-Type':'application/json'},body:body?JSON.stringify(body):undefined});
+ const j=await r.json().catch(()=>({}));if(r.status===409)return{exists:true};if(!r.ok)throw new Error(r.status+' : '+(j.message||'erreur'));return j}
+$('go').onclick=async()=>{$('log').textContent='Démarrage…';$('go').disabled=true;
+ try{if(!$('k').value.trim())throw new Error('Collez d\'abord la clé API.');
+  await call('POST','/databases',{databaseId:DB,name:'SIG-DATA'});log('Base « sigdata » : OK');
+  for(const [c,[ps,ds]] of Object.entries(COLS)){
+   await call('POST','/databases/'+DB+'/collections',{collectionId:c,name:c,permissions:ps.map(([k,r])=>k+'("'+r+'")'),documentSecurity:ds});
+   await call('POST','/databases/'+DB+'/collections/'+c+'/attributes/string',{key:'d',size:1000000,required:false});log('Table « '+c+' » : OK')}
+  log('Vérification des attributs…');
+  for(const c of Object.keys(COLS)){let ok=false;for(let i=0;i<60&&!ok;i++){const a=await call('GET','/databases/'+DB+'/collections/'+c+'/attributes/d');if(a.status==='available')ok=true;else await new Promise(r=>setTimeout(r,1000))}
+   if(!ok)throw new Error('Table '+c+' pas encore prête : cliquez à nouveau dans une minute.')}
+  log('\n✔ TERMINÉ. Supprimez maintenant la clé API dans Appwrite et ce fichier du dépôt.')
+ }catch(e){log('\n✖ '+e.message+(/Failed to fetch/.test(e.message)?'\n(Ouvrez cette page depuis https://diomande-system.github.io/… et vérifiez que l\'application Web est créée dans Appwrite.)':''))}
+ $('go').disabled=false};
+</script></body></html>
