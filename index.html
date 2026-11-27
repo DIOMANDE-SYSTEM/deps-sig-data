@@ -1427,6 +1427,35 @@ body.mdl-lock #v6dock{display:none!important}
  .v6pill.on{animation:v6glow 2.2s ease-in-out infinite}
 }
 </style>
+<style>
+.v7ck{display:inline-flex;align-items:center;gap:6px;margin-left:auto;font:700 12px var(--f-body);color:#34495E;cursor:pointer}
+.v6tb7{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 10px}
+.v7all{display:inline-flex;gap:6px;align-items:center;font:700 12.5px var(--f-body);color:#0C2036}
+.btn.dng,.v6b.dng{color:#B3261E;border-color:#F0B8B2}
+.v7k{font:800 10px var(--f-body);letter-spacing:.08em;text-transform:uppercase;font-style:normal;color:#fff;background:var(--c);padding:2px 8px;border-radius:999px}
+.v6li input[type=checkbox],.ut input[type=checkbox]{width:17px;height:17px;accent-color:#FF6A00;flex:none}
+</style>
+<style>
+.v8h{display:none!important}
+.fcard.v8off{opacity:.72;filter:grayscale(.55);background:#f3f4f6}
+.v8ext{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;border-top:1px dashed #C7CDD4;padding-top:10px;font:700 12.5px var(--f-body);color:#6B7B8C}
+.v8c{border:1.5px dashed #0B6BCB;border-radius:14px;padding:12px;margin-top:12px;display:grid;gap:8px;background:#F3F8FE}
+.v8c b{color:#0B6BCB;display:flex;gap:6px;align-items:center;font-size:13px}
+.v8cv{display:flex;flex-wrap:wrap;gap:6px 14px}
+.v8cv .chk{display:inline-flex;gap:6px;align-items:center;font:600 13px var(--f-body)}
+.v8grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:6px}
+.v8grid label{display:grid;gap:4px;font:700 13px var(--f-body)}
+.v8coh{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}.v8coh small{color:#6B7B8C;font-weight:600}
+.v8f{display:flex;flex-wrap:wrap;gap:8px;align-items:center}.v8fs{font:600 13px var(--f-body);color:#34495E}
+.v8dr{margin:0 0 10px;padding:8px 12px;border-radius:12px;background:#FFF6EC;border:1px solid #FFD2A6;font:600 12.5px var(--f-body);color:#7A4300}
+.v8dr:has(#v8ds:empty){display:none}
+.v8lk{background:none;border:0;color:#B3261E;text-decoration:underline;font:700 12.5px var(--f-body);cursor:pointer;padding:0}
+.v8cf{position:relative;margin:12px 0;padding:10px 14px;border-radius:12px;border:1.5px solid #00A859;overflow:hidden;display:flex;gap:12px;align-items:center;font:600 13px var(--f-body)}
+.v8cf b{font-size:24px;color:#087a43}.v8cf i{position:absolute;left:0;bottom:0;height:4px;background:#00A859}
+.v8h4{margin:6px 0 0;padding-left:18px;font:600 13px var(--f-body);color:#34495E}
+.v8fl{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
+.v8cam{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:99999;display:grid;place-items:center}.v8cam>div{background:#fff;padding:12px;border-radius:16px;max-width:94vw}.v8cam video{max-width:90vw;max-height:70vh;border-radius:10px;background:#000}.v8cb{display:flex;gap:8px;justify-content:center;margin-top:10px}
+</style>
 </head>
 <body>
 <div class="print-head" aria-hidden="true"><table><tr><td class="l" style="width:22%"><img data-asset="dep" alt=""></td><td class="c"><b>RÉPUBLIQUE DE CÔTE D'IVOIRE</b><i>Union – Discipline – Travail</i><span>MINISTÈRE DE L'ÉDUCATION NATIONALE, DE L'ALPHABÉTISATION ET DE L'ENSEIGNEMENT TECHNIQUE</span><em>DIRECTION DES ÉTUDES, DE LA PLANIFICATION ET DES STATISTIQUES (DEPS)</em></td><td class="r" style="width:22%"><img data-asset="armPng" alt=""></td></tr></table><div class="tri2"></div><div class="pt"><b id="phTitle"></b><span id="phDate"></span></div></div>
@@ -1531,6 +1560,11 @@ body.mdl-lock #v6dock{display:none!important}
           <button class="um-it sa" role="menuitem" data-m="console" style="--c:#00875A"><svg class="ico"><use href="#i-gear"/></svg>Gestion des utilisateurs</button>
           <button class="um-it sa" role="menuitem" data-m="new" style="--c:#FF6A00"><svg class="ico"><use href="#i-userplus"/></svg>Créer un accès (compte)</button>
           <button class="um-it sa" role="menuitem" data-m="rem" style="--c:#1F6FEB"><svg class="ico"><use href="#i-inbox"/></svg>Consolidation des remontées</button>
+          <button class="um-it sa" role="menuitem" data-m="models" style="--c:#00A859"><svg class="ico"><use href="#i-book"/></svg>Modèles de formulaires</button>
+          <button class="um-it sa" role="menuitem" data-m="trash" style="--c:#C0392B"><svg class="ico"><use href="#i-trash"/></svg>Corbeille</button>
+          <button class="um-it sa" role="menuitem" data-m="visit" style="--c:#0B6BCB"><svg class="ico"><use href="#i-building"/></svg>Visites et conformité</button>
+          <button class="um-it sa" role="menuitem" data-m="carte" style="--c:#00A859"><svg class="ico"><use href="#i-bars"/></svg>Carte scolaire consolidée</button>
+          <button class="um-it sa" role="menuitem" data-m="geo" style="--c:#FF6A00"><svg class="ico"><use href="#i-pin"/></svg>DRENAET / IEPP (référentiel)</button>
           <button class="um-it sa" role="menuitem" data-m="settings" style="--c:#7B3FE4"><svg class="ico"><use href="#i-sliders"/></svg>Paramètres et annonces</button>
           <div class="um-sec ad">Évaluations</div>
           <button class="um-it ad" role="menuitem" data-m="scores" style="--c:#7B3FE4"><svg class="ico"><use href="#i-star"/></svg>Résultats notés (pré / post-test)</button>
@@ -3398,7 +3432,7 @@ async function viewConsole(t,fast){
 function rows(){
   const q=plain(F.q);
   const L2=users.filter(u=>(!F.r||u.role===F.r)&&(!F.s||(F.s==='on')===u.active)&&(!q||plain(u.name+' '+u.ident+' '+(u.struct||'')).includes(q)));
-  if(!L2.length)return `<tr><td colspan="6"><div class="empty">Aucun utilisateur ne correspond.</div></td></tr>`;
+  if(!L2.length)return `<tr><td colspan="7"><div class="empty">Aucun utilisateur ne correspond.</div></td></tr>`;
   return L2.map(u=>{const self=me&&u.id===me.id,rl=ROLES[u.role]||['?','#888'];return `<tr>
    <td><div class="un"><span class="av" style="--c:${rl[1]}">${esc(ini(u.name))}</span><div><b>${esc(u.name)}${self?' (vous)':''}</b><small>${ic(u.type==='email'?'mail':'user-x')}${esc(u.ident)}</small></div></div></td>
    <td>${roleBadge(u.role)}</td><td>${esc(u.struct||'—')}</td>
@@ -3661,7 +3695,7 @@ $('#authBtn').onclick=e=>{e.stopPropagation();if(me&&me.must)return viewForce();
 $('#umMenu').addEventListener('click',e=>{const b=e.target.closest('[data-m]');if(!b)return;const k=b.dataset.m;umOpen(false);
   if(k==='login')return viewLogin();if(k==='recov')return viewRecov();if(k==='setup')return viewSetup();if(k==='scores')return viewDash();if(k==='act')return viewAct();if(k==='eval')return viewEval();if(k==='xlform')return document.getElementById('xlFile').click();if(k==='me')return viewMe();if(k==='mypw')return viewMyPw();
   if(k==='console')return isSA()&&viewConsole('users');if(k==='new')return isSA()&&viewConsole('new');
-  if(k==='rem')return isSA()&&viewRem('forms');if(k==='settings')return isSA()&&viewSettings('ads');
+  if(k==='visit')return isSA()&&viewVisit8();if(k==='carte')return isSA()&&(async()=>{await visitList8();viewCarte8()})();if(k==='geo')return isSA()&&viewGeo8();if(k==='models')return isSA()&&(async()=>{try{forms=await S.formsList()}catch(x){}viewModels()})();if(k==='trash')return isSA()&&(async()=>{try{[forms,subs]=await Promise.all([S.formsList(),S.subList()])}catch(x){}viewTrash('all')})();if(k==='rem')return isSA()&&viewRem('forms');if(k==='settings')return isSA()&&viewSettings('ads');
   if(k==='docs'){location.hash='#documents';return}
   if(k==='print'){const p=$('#printBtn');if(p)p.click();return}
   if(k==='logout')return logout()});
@@ -4725,7 +4759,7 @@ async function snap6(f){
 {const o=viewShare;viewShare=async function(id){await o(id);sh6(id)}}
 {const o=viewNewForm;viewNewForm=function(){o();const b=$$b('.mbody');if(b)b.insertAdjacentHTML('afterbegin',`<div class="v6row">${bar6()}</div>`)}}
 {const o=viewRem;viewRem=async function(t){await o(t);if(RV.tab==='forms'){const b=$$b('.mbody');if(b&&!b.querySelector('.v6row'))b.insertAdjacentHTML('afterbegin',`<div class="v6row">${bar6()}</div>`)}updDock()}}
-const bar6=()=>`<button class="v6b" data-v6="lib">${ic('star')} Bibliothèque de modèles</button><button class="v6b" data-v6="doc">${ic('up')} Importer un document</button><button class="v6b" data-v6="xltpl">${ic('down')} Modèle Excel</button><button class="v6b" data-v6="xlin">${ic('sheet')} Importer un Excel normalisé</button><button class="v6b" data-v6="ai">${ic('bolt')} Assistant de conception</button><button class="v6b" data-v6="drafts">${ic('layers')} Brouillons (${drafts6().length})</button><button class="v6b" data-v6="bk">${ic('shield')} Sauvegardes</button>`;
+const bar6=()=>`<button class="v6b" data-v6="lib">${ic('star')} Bibliothèque de modèles</button><button class="v6b" data-v6="doc">${ic('up')} Importer un document</button><button class="v6b" data-v6="xltpl">${ic('down')} Modèle Excel</button><button class="v6b" data-v6="xlin">${ic('sheet')} Importer un Excel normalisé</button><button class="v6b" data-v6="ai">${ic('bolt')} Assistant de conception</button><button class="v6b" data-v6="drafts">${ic('layers')} Brouillons (${drafts6().length})</button><button class="v6b" data-v6="bk">${ic('shield')} Sauvegardes</button><button class="v6b" data-v7="models">${ic('book')} Modèles de formulaires</button><button class="v6b" data-v7="trash">${ic('trash')} Corbeille (${trash7().length})</button>`;
 function tb6(){
   const l=$$b('#fbList');if(!l||$$b('#v6tb'))return;const h=l.previousElementSibling;if(!h)return;
   const n=FB.id?subs.filter(s=>s.formId===FB.id).length:0;
@@ -5037,13 +5071,524 @@ document.addEventListener('click',async e=>{
   }catch(x){toast(x.message||String(x))}});
 updDock();
 
+/* ================= v17 : corbeille + modèles de formulaires ================= */
+const V7={f:'all'};
+const trash7=()=>L6.get('sd7_trash',[]);
+function trashAdd(e){
+  const a=trash7();a.unshift({id:'t'+Date.now().toString(36)+Math.random().toString(36).slice(2,5),at:Date.now(),...e});
+  if(!L6.set('sd7_trash',a))throw new Error('Corbeille pleine : l\'élément n\'a pas été supprimé. Videz la corbeille (ou supprimez définitivement des éléments) puis recommencez.')}
+const trashPut=a=>L6.set('sd7_trash',a);
+/* tout formulaire / toute réponse supprimé passe d'abord par la corbeille (même chemin pour la suppression à l'unité ou groupée) */
+{const od=S.formDel;S.formDel=async function(id){
+  const f=(forms||[]).find(x=>x.id===id);
+  if(f){let keys=null;if(f.quiz){try{keys=await S.keyGet(id)}catch(e){}}
+    trashAdd({type:'form',title:f.title,form:cp6(f),keys,n:(subs||[]).filter(s=>s.formId===id).length})}
+  return od.call(S,id)}}
+{const od=S.subDel;S.subDel=async function(id){
+  const s=(subs||[]).find(x=>x.id===id);
+  if(s)trashAdd({type:'sub',title:s.ref+' — '+(s.formTitle||''),sub:cp6(s)});
+  return od.call(S,id)}}
+const nQ7=f=>(f.fields||[]).filter(x=>x.type!=='section').length;
+const KT7={form:['Formulaire','#FF6A00'],sub:['Réponse','#0B6BCB'],model:['Modèle','#00A859']};
+function viewTrash(flt){
+  V7.f=flt||V7.f||'all';const all=trash7(),L=all.filter(x=>V7.f==='all'||x.type===V7.f),cnt=k=>all.filter(x=>x.type===k).length;
+  const chip=(k,l)=>`<button class="v6t${V7.f===k?' on':''}" data-v7="tfilter" data-id="${k}">${l}</button>`;
+  show(head('trash','Corbeille','Les éléments supprimés sont gardés ici jusqu\'à suppression définitive')+`<div class="mbody">
+   <div class="v6note">${ic('shield')}<span>Rien n'est perdu à la suppression : un formulaire, une réponse ou un modèle supprimé arrive ici et peut être <b>restauré</b>. Seule la suppression définitive, ou « Vider la corbeille », efface sans retour. La corbeille est conservée sur cet appareil.</span></div>
+   <div class="v6tabs">${chip('all','Tout ('+all.length+')')}${chip('form','Formulaires ('+cnt('form')+')')}${chip('sub','Réponses ('+cnt('sub')+')')}${chip('model','Modèles ('+cnt('model')+')')}</div>
+   <div class="v6tb7"><label class="v7all"><input type="checkbox" data-v7="tall"> Tout sélectionner</label><button class="btn btn-g sm" data-v7="trest">${ic('undo')} Restaurer la sélection</button><button class="btn btn-w sm dng" data-v7="tdelsel">${ic('trash')} Supprimer définitivement la sélection</button><button class="btn btn-w sm dng" data-v7="tempty" ${all.length?'':'disabled'}>${ic('x')} Vider la corbeille</button></div>
+   <div class="v6list" style="max-height:52vh">${L.slice(0,300).map(x=>{const k=KT7[x.type]||['?','#888'];const det=x.type==='form'?`${nQ7(x.form)} question(s) · ${x.n||0} réponse(s) conservée(s)`:x.type==='sub'?esc(Object.entries(x.sub.data||{}).filter(([a,b])=>valTxt(b)!=='').slice(0,2).map(([a,b])=>(x.sub.labels&&x.sub.labels[a]||'')+' : '+valTxt(b)).join(' · ')):`${nQ7(x.form)} question(s)`;
+     return `<div class="v6li"><input type="checkbox" data-tk="${x.id}"><span><em class="v7k" style="--c:${k[1]}">${k[0]}</em> <b style="display:inline;color:#0C2036">${esc(x.title)}</b><br><small>Supprimé le ${hm6(x.at)} · ${det}</small></span><button class="btn btn-g sm" data-v7="trest1" data-id="${x.id}">${ic('undo')} Restaurer</button><button class="ib2 d" data-v7="tdel1" data-id="${x.id}" title="Supprimer définitivement">${ic('trash')}</button></div>`}).join('')||`<div class="empty" style="padding:22px">${ic('check')} La corbeille est vide.</div>`}</div>
+   ${L.length>300?'<p class="mnote">Affichage limité à 300 éléments.</p>':''}
+   <div class="macts" style="padding:14px 0 0"><button class="btn btn-w sm" data-fm="tab" data-id="forms">${ic('arrowdown','')} Retour aux formulaires</button></div></div>`,true)}
+const tsel7=()=>[...box.querySelectorAll('[data-tk]:checked')].map(c=>c.dataset.tk);
+async function restore7(ids){
+  const all=trash7();let ok=0,ko=0,left=all.slice();
+  for(const id of ids){const e=all.find(x=>x.id===id);if(!e)continue;
+    try{
+      if(e.type==='form'){let f=cp6(e.form);const ex=(await S.formsList()).some(x=>x.id===f.id);if(ex){f.id=newFormId();f.title+=' (restauré)'}
+        await S.formSave(f);if(e.keys)await S.keySave(f.id,e.keys)}
+      else if(e.type==='sub'){await S.subCreate(cp6(e.sub),[],[]);try{if(typeof ddReindex==='function')await ddReindex()}catch(x){}}
+      else if(e.type==='model'){const m=L6.get('sd6_lib',[]);if(!m.some(z=>z.id===e.model.id))m.unshift(e.model);L6.set('sd6_lib',m)}
+      left=left.filter(x=>x.id!==id);ok++}catch(x){ko++}}
+  trashPut(left);return{ok,ko}}
+async function afterTrash7(msg){toast(msg);try{[forms,subs]=await Promise.all([S.formsList(),S.subList()])}catch(e){}updRemBadge();viewTrash()}
+
+/* ---------- suppression sélectionnée (formulaires / réponses) ---------- */
+async function delSubs7(){
+  const ids=[...document.querySelectorAll('[data-v7sub]:checked')].map(c=>c.dataset.v7sub);if(!ids.length)return toast('Cochez d\'abord les réponses à supprimer');
+  if(!confirm('Supprimer '+ids.length+' réponse(s) ?\n\nElles iront dans la corbeille (restaurables). Les empreintes anti-doublons seront libérées.'))return;
+  let n=0;for(const id of ids){const s=subs.find(x=>x.id===id);if(!s)continue;try{await ddRelease(s)}catch(e){}await S.subDel(id);n++}
+  subs=subs.filter(x=>!ids.includes(x.id));log('Réceptions supprimées (sélection)',n+' élément(s)');toast(n+' réponse(s) placée(s) dans la corbeille');return viewRem('recv')}
+async function delForms7(){
+  const ids=[...document.querySelectorAll('[data-v7f]:checked')].map(c=>c.dataset.v7f);if(!ids.length)return toast('Cochez d\'abord les formulaires à supprimer');
+  if(!confirm('Supprimer '+ids.length+' formulaire(s) ?\n\nIls iront dans la corbeille (restaurables). Leurs réponses déjà reçues sont conservées, mais les liens ne fonctionneront plus.'))return;
+  for(const id of ids)await S.formDel(id);log('Formulaires supprimés (sélection)',ids.length+' élément(s)');toast(ids.length+' formulaire(s) placé(s) dans la corbeille');return viewRem('forms')}
+
+/* ---------- modèles de formulaires ---------- */
+const mod7=()=>L6.get('sd6_lib',[]);
+function viewModels(){
+  const M=mod7(),F=forms||[];
+  show(head('book','Modèles de formulaires','Gardez vos formulaires conçus pour vos prochaines activités')+`<div class="mbody">
+   <div class="v6note">${ic('help')}<span>Un modèle est une <b>copie</b> d'un formulaire déjà conçu (questions, choix et, pour les tests notés, bonnes réponses). Vous le réutilisez pour une nouvelle activité sans refaire la conception ; le formulaire d'origine n'est jamais modifié. Les modèles sont conservés sur cet appareil et inclus dans la sauvegarde .json.</span></div>
+   <h4 class="h4s">${ic('plus')} Garder un formulaire existant comme modèle</h4>
+   <div class="v6wa"><select id="v7mf" class="v6in" style="flex:1;min-width:220px">${F.length?F.map(f=>`<option value="${esc(f.id)}">${esc(f.title)}</option>`).join(''):'<option value="">Aucun formulaire</option>'}</select><input id="v7mn" class="v6in" style="flex:1;min-width:200px" placeholder="Nom du modèle (facultatif)"><button class="btn btn-g sm" data-v7="mkeep">${ic('check')} Garder comme modèle</button></div>
+   <h4 class="h4s" style="margin-top:18px">${ic('book')} Mes modèles (${M.length})</h4>
+   ${M.length?`<div class="v6tb7"><label class="v7all"><input type="checkbox" data-v7="mall"> Tout sélectionner</label><button class="btn btn-w sm dng" data-v7="mdelsel">${ic('trash')} Supprimer la sélection</button></div>`:''}
+   <div class="v6list" style="max-height:48vh">${M.map(m=>`<div class="v6li"><input type="checkbox" data-mk="${esc(m.id)}"><span><b style="display:inline;color:#0C2036">${esc(m.n)}</b> ${m.form.quiz?'<em class="v7k" style="--c:#FF6A00">noté</em>':m.form.eval?'<em class="v7k" style="--c:#0E8F7E">évaluation</em>':''}<br><small>${nQ7(m.form)} question(s)${m.at?' · gardé le '+hm6(m.at):''}</small></span><button class="btn btn-o sm" data-v7="muse" data-id="${esc(m.id)}">${ic('copy')} Utiliser</button><button class="btn btn-w sm" data-v7="mprev" data-id="${esc(m.id)}">${ic('eye')}</button><button class="btn btn-w sm" data-v7="mren" data-id="${esc(m.id)}">${ic('edit')}</button><button class="ib2 d" data-v7="mdel1" data-id="${esc(m.id)}" title="Supprimer">${ic('trash')}</button></div>`).join('')||`<div class="empty" style="padding:20px">Aucun modèle gardé pour le moment. Choisissez un formulaire ci-dessus, ou utilisez le bouton « Garder comme modèle » d'un formulaire.</div>`}</div>
+   <div class="macts" style="padding:14px 0 0"><button class="btn btn-w sm" data-v6="lib">${ic('star')} Bibliothèque de modèles</button><button class="btn btn-w sm" data-v7="trash">${ic('trash')} Corbeille (${trash7().length})</button></div></div>`,true)}
+async function keep7(id,name){
+  const f=(forms||[]).find(x=>x.id===id);if(!f)throw new Error('Choisissez un formulaire.');
+  let keys=null;if(f.quiz){try{keys=await S.keyGet(id)}catch(e){}}
+  const c=cp6(f);delete c.updated;delete c.by;const m=mod7();
+  m.unshift({id:'m'+Date.now().toString(36)+Math.random().toString(36).slice(2,4),n:(name||f.title).trim(),d:'Modèle personnel',at:Date.now(),form:{...c,id:null},keys:keys||{}});
+  if(!L6.set('sd6_lib',m.slice(0,80)))throw new Error('Stockage plein : supprimez des modèles inutiles.');
+  toast('« '+(name||f.title)+' » gardé comme modèle')}
+function modelDel7(ids){
+  const m=mod7();ids.forEach(id=>{const x=m.find(z=>z.id===id);if(x)trashAdd({type:'model',title:x.n,model:cp6(x),form:x.form})});
+  L6.set('sd6_lib',m.filter(z=>!ids.includes(z.id)))}
+
+/* ---------- clics ---------- */
+document.addEventListener('click',async e=>{
+  const t=e.target.closest('[data-v7]');if(!t||!isSA())return;const a=t.dataset.v7,id=t.dataset.id;
+  try{
+   if(a==='trash'){p6x();try{[forms,subs]=await Promise.all([S.formsList(),S.subList()])}catch(x){}return viewTrash('all')}
+   if(a==='models'){try{forms=await S.formsList()}catch(x){}return viewModels()}
+   if(a==='tfilter')return viewTrash(id);
+   if(a==='tall'){box.querySelectorAll('[data-tk]').forEach(c=>c.checked=t.checked);return}
+   if(a==='mall'){box.querySelectorAll('[data-mk]').forEach(c=>c.checked=t.checked);return}
+   if(a==='allsub'){document.querySelectorAll('[data-v7sub]').forEach(c=>c.checked=t.checked);return}
+   if(a==='trest'||a==='trest1'){const ids=a==='trest1'?[id]:tsel7();if(!ids.length)return toast('Cochez d\'abord les éléments à restaurer');const r=await restore7(ids);return afterTrash7(r.ok+' élément(s) restauré(s)'+(r.ko?' · '+r.ko+' échec(s)':''))}
+   if(a==='tdel1'||a==='tdelsel'){const ids=a==='tdel1'?[id]:tsel7();if(!ids.length)return toast('Cochez d\'abord les éléments à supprimer');
+      if(!confirm('Supprimer définitivement '+ids.length+' élément(s) ?\n\nCette action est irréversible.'))return;trashPut(trash7().filter(x=>!ids.includes(x.id)));log('Corbeille : suppression définitive',ids.length+' élément(s)');return afterTrash7(ids.length+' élément(s) supprimé(s) définitivement')}
+   if(a==='tempty'){const n=trash7().length;if(!n)return;if(!confirm('Vider la corbeille ?\n\n'+n+' élément(s) seront supprimés définitivement.'))return;if(!confirm('Dernière confirmation : cette action est IRRÉVERSIBLE. Vider la corbeille maintenant ?'))return;trashPut([]);log('Corbeille vidée',n+' élément(s)');return afterTrash7('Corbeille vidée')}
+   if(a==='delsubs')return delSubs7();
+   if(a==='delforms')return delForms7();
+   if(a==='tomodel'){const f=forms.find(x=>x.id===id);const n=prompt('Nom du modèle :',f?f.title:'');if(n===null)return;return keep7(id,n)}
+   if(a==='mkeep'){await keep7($$b('#v7mf').value,$$b('#v7mn').value.trim());return viewModels()}
+   if(a==='muse'){return libUse6('M:'+id)}
+   if(a==='mprev')return libPrev6('M:'+id);
+   if(a==='mren'){const m=mod7(),x=m.find(z=>z.id===id);if(!x)return;const n=prompt('Nouveau nom du modèle :',x.n);if(!n||!n.trim())return;x.n=n.trim();L6.set('sd6_lib',m);return viewModels()}
+   if(a==='mdel1'||a==='mdelsel'){const ids=a==='mdel1'?[id]:[...box.querySelectorAll('[data-mk]:checked')].map(c=>c.dataset.mk);if(!ids.length)return toast('Cochez d\'abord les modèles à supprimer');
+      if(!confirm('Supprimer '+ids.length+' modèle(s) ? Ils iront dans la corbeille (restaurables).'))return;modelDel7(ids);toast(ids.length+' modèle(s) placé(s) dans la corbeille');return viewModels()}
+  }catch(x){toast(x.message||String(x))}});
+{const o=viewRem;viewRem=async function(t){await o(t);if(RV.tab==='forms'){const r=$$b('.v6row');if(r&&!r.querySelector('[data-v7="delforms"]'))r.insertAdjacentHTML('beforeend',`<button class="v6b dng" data-v7="delforms">${ic('trash')} Supprimer la sélection</button>`)}}}
+
+/* ================= v18 : expiration, conditions, pièces jointes, brouillons, visites & conformité, carte scolaire ================= */
+const V8={ct:'sp'};
+const x8=s=>String(s==null?'':s);
+const isOpt8=q=>!!q&&['select','radio','checkbox'].includes(q.type);
+FTYPES.file=['Pièce jointe (PDF / photo)','clip'];
+SUBST.instr=['En instruction','#0B6BCB'];SUBST.rejet=['Rejeté','#6B7B8C'];
+let PF8={};
+
+/* ---------- 1. référentiel DRENAET / IEPP modifiable ---------- */
+function geoApply8(g){
+  if(!g)return;
+  (g.dren||[]).forEach(d=>{if(!PN.DREN.includes(d)){PN.DREN.push(d)}if(!PN.REF[d])PN.REF[d]=[]});
+  Object.keys(g.iepp||{}).forEach(d=>{if(!PN.REF[d]){PN.REF[d]=[];if(!PN.DREN.includes(d))PN.DREN.push(d)}
+    (g.iepp[d]||[]).forEach(i=>{if(!PN.REF[d].includes(i))PN.REF[d].push(i)})});
+  PN.DREN.sort((a,b)=>a.localeCompare(b,'fr'));Object.keys(PN.REF).forEach(d=>PN.REF[d].sort((a,b)=>a.localeCompare(b,'fr')));
+}
+const geoGet8=()=>L6.get('sd8_geo',{dren:[],iepp:{}});
+async function geoLoad8(){let g=null;try{g=await S.docGet('geo8')}catch(e){}
+  const l=geoGet8();if(g&&(g.dren||g.iepp)){const m={dren:[...new Set([...(l.dren||[]),...(g.dren||[])])],iepp:{}};
+    [l.iepp,g.iepp].forEach(o=>Object.keys(o||{}).forEach(d=>{m.iepp[d]=[...new Set([...(m.iepp[d]||[]),...o[d]])]}));g=m}
+  else g=l;geoApply8(g);return g}
+async function geoSave8(g){L6.set('sd8_geo',g);let ok=true;try{await S.docSet('geo8',g)}catch(e){ok=false}return ok}
+{const o=openPublic;openPublic=async function(id){try{await geoLoad8()}catch(e){}return o(id)}}
+async function viewGeo8(){
+  const g=await geoLoad8();const ex=d=>(g.iepp&&g.iepp[d])||[];
+  const nI=PN.DREN.reduce((a,d)=>a+PN.REF[d].length,0);
+  show(head('pin','Référentiel DRENAET / IEPP','Ajouter les DRENAET ou IEPP manquantes — elles apparaissent aussitôt dans tous les formulaires')+`<div class="mbody">
+   <div class="v6note">${ic('help')}<span>La liste officielle (${PN.DREN.length} DRENAET, ${nI} IEPP) reste intacte. Vos ajouts sont enregistrés à part et fusionnés à la liste : ils sont proposés dans les champs « DRENAET » et « IEPP » des formulaires et de la carte scolaire.</span></div>
+   <div class="v8grid"><div class="fg"><h4 class="h4s">${ic('plus')} Ajouter une DRENAET</h4><label>Nom<input id="gdN" maxlength="80" placeholder="Ex. DRENAET NOUVELLE"></label><div class="macts" style="padding:0"><button class="btn btn-g sm" data-v8="gdadd">${ic('plus')} Ajouter la DRENAET</button></div></div>
+   <div class="fg"><h4 class="h4s">${ic('plus')} Ajouter une IEPP</h4><label>DRENAET de rattachement<select id="giD">${PN.DREN.map(d=>`<option>${esc(d)}</option>`).join('')}</select></label><label>Nom de l'IEPP<input id="giN" maxlength="80" placeholder="Ex. IEPP NOUVELLE"></label><div class="macts" style="padding:0"><button class="btn btn-g sm" data-v8="giadd">${ic('plus')} Ajouter l'IEPP</button></div></div></div>
+   <h4 class="h4s" style="margin-top:16px">Ajouts effectués</h4><div class="tw"><table class="ut dt" style="min-width:0"><tbody>${
+    (g.dren||[]).map(d=>`<tr><th>DRENAET</th><td>${esc(d)}</td><td><button class="ib2 d" data-v8="gdel" data-d="${esc(d)}">${ic('trash')}</button></td></tr>`).join('')+
+    Object.keys(g.iepp||{}).flatMap(d=>ex(d).map(i=>`<tr><th>IEPP</th><td>${esc(i)} <small>(${esc(d)})</small></td><td><button class="ib2 d" data-v8="gdel" data-d="${esc(d)}" data-i="${esc(i)}">${ic('trash')}</button></td></tr>`)).join('')||'<tr><td colspan="3"><div class="empty" style="padding:14px">Aucun ajout pour le moment.</div></td></tr>'}</tbody></table></div>
+   <div class="macts" style="padding:14px 0 0"><button class="btn btn-w sm" data-v8="visit">Retour aux visites</button></div></div>`,true);
+}
+async function geoAct8(a,t){
+  const g=await geoLoad8();const base=JSON.parse(JSON.stringify({dren:g.dren||[],iepp:g.iepp||{}}));
+  if(a==='gdadd'){const n=$$b('#gdN').value.trim().toUpperCase().replace(/\s+/g,' ');if(n.length<4)return toast('Saisissez le nom de la DRENAET');if(PN.DREN.includes(n))return toast('Cette DRENAET existe déjà');base.dren.push(n)}
+  if(a==='giadd'){const d=$$b('#giD').value,n=$$b('#giN').value.trim().toUpperCase().replace(/\s+/g,' ');if(n.length<4)return toast('Saisissez le nom de l\'IEPP');if((PN.REF[d]||[]).includes(n))return toast('Cette IEPP existe déjà dans cette DRENAET');(base.iepp[d]=base.iepp[d]||[]).push(n)}
+  if(a==='gdel'){const d=t.dataset.d,i=t.dataset.i;if(!confirm('Retirer cet ajout du référentiel ?'))return;
+    if(i){base.iepp[d]=(base.iepp[d]||[]).filter(x=>x!==i);PN.REF[d]=(PN.REF[d]||[]).filter(x=>x!==i)}
+    else{base.dren=base.dren.filter(x=>x!==d);delete base.iepp[d];delete PN.REF[d];PN.DREN.splice(PN.DREN.indexOf(d),1)}}
+  const ok=await geoSave8(base);geoApply8(base);log('Référentiel DRENAET/IEPP modifié',a);toast(ok?'Référentiel mis à jour':'Enregistré sur cet appareil (synchronisation en ligne indisponible)');return viewGeo8()}
+
+/* ---------- 2. expiration des formulaires : grisé + prolongation ---------- */
+{const o=fCard;fCard=function(f){let h=o(f);
+  if(fState(f)==='end'&&isSA()){h=h.replace('class="fcard"','class="fcard v8off"');
+    h=h.replace(/<\/div>\s*$/,`<div class="v8ext"><span>${ic('clock')} Clôturé${f.closes?' depuis le '+esc(f.closes):''} — non modifiable par les répondants</span><button class="btn btn-g sm" data-v8="ext" data-id="${esc(f.id)}">${ic('refresh')} Prolonger / réactiver</button></div></div>`)}
+  return h}}
+function viewExt8(id){
+  const f=forms.find(x=>x.id===id);if(!f)return;const d=new Date(Date.now()+7*864e5),p=n=>String(n).padStart(2,'0');
+  show(head('clock','Prolonger le formulaire',esc(f.title))+`<div class="mbody"><div class="v6note">${ic('help')}<span>Ce formulaire est clôturé${f.closes?' depuis le <b>'+esc(f.closes)+'</b>':''}. Choisissez une nouvelle date de clôture pour rouvrir le lien aux répondants. Les réponses déjà reçues sont conservées.</span></div>
+   <label class="fg"><span style="font-weight:700;font-size:13px">Nouvelle date de clôture</span><input type="date" id="exD" value="${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())}" min="${fToday()}"></label>
+   <label class="fg"><span style="font-weight:700;font-size:13px">Motif de la prolongation (facultatif, gardé dans l'historique)</span><input id="exM" maxlength="160"></label>
+   <div class="rg" id="exE" role="alert" style="color:#B3261E;font-weight:700"></div>
+   <div class="macts" style="padding:14px 0 0"><button class="btn btn-g sm" data-v8="extok" data-id="${esc(f.id)}">${ic('check')} Prolonger</button><button class="btn btn-w sm" data-fm="tab" data-id="forms">Annuler</button></div></div>`);
+}
+async function extOk8(id){
+  const f=forms.find(x=>x.id===id);if(!f)return;const d=$$b('#exD').value,m=$$b('#exM').value.trim();
+  if(!/^\d{4}-\d{2}-\d{2}$/.test(d)||d<fToday())return err('exE','Choisissez une date à partir d\'aujourd\'hui.');
+  const nf={...f,closes:d,active:true,updated:new Date().toISOString(),by:me.ident,ext:[...(f.ext||[]),{at:new Date().toISOString(),by:me.ident,from:f.closes||'',to:d,m}]};
+  if(nf.opens&&nf.opens>d)nf.opens='';
+  await S.formSave(nf);log('Formulaire prolongé',f.title+' → '+d);toast('Formulaire rouvert jusqu\'au '+d);return viewRem('forms')}
+
+/* ---------- 3. questions conditionnelles ---------- */
+function condHidden8(fields,data){
+  const h=new Set();
+  for(const q of fields){const c=q.cond;if(!c||!c.q)continue;
+    if(h.has(c.q)){h.add(q.id);continue}
+    const v=data[c.q],a=Array.isArray(v)?v:[v];
+    if(!a.some(z=>(c.v||[]).includes(z)))h.add(q.id)}
+  return h}
+function readRaw8(root){
+  const d={};root.querySelectorAll('[name]').forEach(el=>{const n=el.name;if(!n||n==='website')return;
+    if(el.type==='checkbox'){d[n]=d[n]||[];if(el.checked)d[n].push(el.value)}
+    else if(el.type==='radio'){if(el.checked)d[n]=el.value;else if(!(n in d))d[n]=''}
+    else if(el.type==='file'){}
+    else d[n]=el.value});
+  return d}
+function condApply8(root){
+  if(!root)return;const els=[...root.querySelectorAll('[data-c]')];if(!els.length)return;
+  const data=readRaw8(root),hid=new Set();
+  els.forEach(el=>{let c=null;try{c=JSON.parse(el.dataset.c)}catch(e){}if(!c)return;const id=el.dataset.f;
+    let hide;if(hid.has(c.q))hide=true;else{const v=data[c.q],a=Array.isArray(v)?v:[v];hide=!a.some(z=>(c.v||[]).includes(z))}
+    if(hide)hid.add(id);el.classList.toggle('v8h',hide);el.setAttribute('aria-hidden',hide?'true':'false')})}
+{const o=fieldHTML;fieldHTML=function(f,k){
+  let h=f.type==='file'?fileHTML8(f,k):o(f,k);
+  if(f.cond&&f.cond.q&&(f.cond.v||[]).length){
+    const a=` data-c="${esc(JSON.stringify({q:f.cond.q,v:f.cond.v}))}" data-f="${f.id}"`;
+    h=h.replace(/^<div class="(q|qs)"(?: data-f="[^"]*")?/,(m,c)=>`<div class="${c}"${a}`)}
+  return h}}
+{const o=collect;collect=function(f,root){
+  const r=o(f,root);
+  (f.fields||[]).forEach(q=>{if(q.type==='file'&&r.errs[q.id]&&PF8[q.id])delete r.errs[q.id]});
+  const hid=condHidden8(f.fields||[],r.data);
+  hid.forEach(id=>{delete r.errs[id];if(id in r.data)r.data[id]=Array.isArray(r.data[id])?[]:''});
+  return r}}
+{const o=drawPrev;drawPrev=function(){o();condApply8($$b('#fbPrev'))}}
+document.addEventListener('change',e=>{const r=e.target.closest&&e.target.closest('#pfForm,#fbPrev,#v8ed');if(r)condApply8(r)});
+document.addEventListener('input',e=>{const r=e.target.closest&&e.target.closest('#pfForm,#fbPrev,#v8ed');if(r)condApply8(r)});
+/* éditeur : bloc « question conditionnelle » + « réponse conforme » */
+{const o=fcHTML;fcHTML=function(q,i,n){
+  let h=o(q,i,n);if(fbOpen!==q.id)return h;
+  const prev=FB.fields.slice(0,i).filter(isOpt8),c=q.cond||{},par=FB.fields.find(x=>x.id===c.q);
+  let blk=`<div class="v8c"><b>${ic('layers')} Question conditionnelle</b><label>Afficher cette question seulement si…<select data-v8="cq" data-id="${q.id}"><option value="">— toujours affichée —</option>${prev.map(p=>`<option value="${p.id}"${p.id===c.q?' selected':''}>${esc(p.label||'(sans intitulé)')}</option>`).join('')}</select></label>`;
+  if(par&&isOpt8(par))blk+=`<div class="v8cv">${(par.options||[]).map(z=>`<label class="chk"><input type="checkbox" data-v8="cv" data-id="${q.id}" value="${esc(z)}"${(c.v||[]).includes(z)?' checked':''}> ${esc(z)}</label>`).join('')}</div><small>… a pour réponse l'une des valeurs cochées (OUI / NON ou plusieurs choix).</small>`;
+  else if(!prev.length)blk+=`<small>Aucune question à choix placée avant celle-ci : ajoutez d'abord une question « Choix unique », « Choix multiples » ou « Liste ».</small>`;
+  if(isOpt8(q)&&q.type!=='checkbox')blk+=`<label style="margin-top:8px">Réponse(s) comptée(s) « conforme » (visites de conformité)<small> — laissez vide si la question n'est pas un contrôle</small></label><div class="v8cv">${(q.options||[]).map(z=>`<label class="chk"><input type="checkbox" data-v8="okv" data-id="${q.id}" value="${esc(z)}"${(q.ok||[]).includes(z)?' checked':''}> ${esc(z)}</label>`).join('')}</div>`;
+  blk+='</div>';
+  return h.replace(/<\/div>\s*<\/div>\s*$/,blk+'</div></div>')}}
+function coh8(fields){
+  const out=[];fields.forEach((q,i)=>{const c=q.cond;if(!c||!c.q)return;const pi=fields.findIndex(x=>x.id===c.q),L=q.label||'(sans intitulé)';
+    if(pi<0)out.push({id:q.id,m:`« ${L} » dépend d'une question supprimée.`,fix:'drop'});
+    else if(pi>=i)out.push({id:q.id,m:`« ${L} » dépend d'une question placée après elle (« ${fields[pi].label} »).`,fix:'drop'});
+    else if(!isOpt8(fields[pi]))out.push({id:q.id,m:`« ${L} » : la question « ${fields[pi].label} » n'est plus une question à choix.`,fix:'drop'});
+    else{const bad=(c.v||[]).filter(v=>!(fields[pi].options||[]).includes(v));
+      if(bad.length)out.push({id:q.id,m:`« ${L} » : le choix « ${bad.join(' ; ')} » n'existe plus dans « ${fields[pi].label} ».`,fix:'filter'});
+      else if(!(c.v||[]).length)out.push({id:q.id,m:`« ${L} » : aucune valeur de déclenchement cochée.`,fix:'drop'})}});
+  fields.forEach(q=>{if(q.ok){const bad=(q.ok||[]).filter(v=>!(q.options||[]).includes(v));if(bad.length)out.push({id:q.id,m:`« ${q.label} » : réponse conforme introuvable (${bad.join(' ; ')}).`,fix:'okfix'})}});
+  return out}
+function cohFix8(fields){
+  coh8(fields).forEach(p=>{const q=fields.find(x=>x.id===p.id);if(!q)return;
+    if(p.fix==='drop')delete q.cond;
+    else if(p.fix==='filter'){const par=fields.find(x=>x.id===q.cond.q);q.cond.v=q.cond.v.filter(v=>(par.options||[]).includes(v));if(!q.cond.v.length)delete q.cond}
+    else if(p.fix==='okfix'){q.ok=(q.ok||[]).filter(v=>(q.options||[]).includes(v));if(!q.ok.length)delete q.ok}})}
+{const o=saveForm;saveForm=async function(){
+  syncMeta();const p=coh8(FB.fields);
+  if(p.length)return err('fmEditErr','Incohérence dans les conditions : '+p.slice(0,3).map(x=>x.m).join(' ')+(p.length>3?' (+'+(p.length-3)+' autre(s))':'')+' — cliquez sur « Vérifier / réparer les conditions ».');
+  return o()}}
+{const o=viewFormEdit;viewFormEdit=async function(...a){await o(...a);
+  const e=$$b('#fmEditErr');if(e&&!$$b('[data-v8="cohbtn"]'))e.insertAdjacentHTML('beforebegin',`<div class="v8coh"><button class="btn btn-w sm" type="button" data-v8="cohbtn">${ic('shield')} Vérifier / réparer les conditions</button><small>Contrôle automatique avant publication : conditions orphelines, choix supprimés, ordre des questions.</small></div>`)}}
+
+/* ---------- 4. pièces jointes (PDF / photos) ---------- */
+function fileHTML8(f,k){
+  const id=(k||'q')+'_'+f.id,req=f.required?'<i class="rq" title="Obligatoire">*</i>':'',cam=f.cam?1:0;
+  const acc=cam?'image/*':'.pdf,image/*',pc=!/Android|iPhone|iPad|Mobile/i.test(navigator.userAgent)&&!!(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia);
+  return `<div class="q" data-f="${f.id}"><label class="ql" for="${id}">${esc(lblClean(f.label))}${req}</label>${f.help?`<small class="qh">${esc(f.help)}</small>`:''}
+   <div class="v8f"><label class="btn btn-g sm" style="cursor:pointer">${ic('image')} Prendre une photo<input type="file" data-v8file="${f.id}" data-cam="${cam}" accept="image/*" capture="environment" hidden></label>${pc?`<button type="button" class="btn btn-w sm" data-v8="webcam" data-id="${f.id}" data-cam="${cam}">${ic('laptop')} Caméra de l'ordinateur</button>`:''}<label class="btn btn-w sm" style="cursor:pointer">${ic('clip')} ${cam?'Galerie / fichier':'Joindre un PDF ou une photo'}<input type="file" id="${id}" data-v8file="${f.id}" data-cam="${cam}" accept="${acc}" hidden></label><span class="v8fs" data-fs="${f.id}">Aucun fichier</span><button type="button" class="ib2 d" data-v8="fclr" data-id="${f.id}" hidden title="Retirer">${ic('trash')}</button></div>
+   <input type="hidden" name="${f.id}" value=""><div class="qe" role="alert"></div></div>`}
+function img8(file,small){return new Promise((res,rej)=>{const r=new FileReader();r.onerror=()=>rej(new Error('Lecture impossible.'));
+  r.onload=()=>{const im=new Image();im.onerror=()=>rej(new Error('Image illisible.'));
+   im.onload=()=>{let w=im.width,h=im.height;const M=small?800:1100;if(w>M){h=Math.round(h*M/w);w=M}const c=document.createElement('canvas');c.width=w;c.height=h;const g=c.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,w,h);g.drawImage(im,0,0,w,h);
+    let q=small?.6:.8,lim=small?95000:230000,d=c.toDataURL('image/jpeg',q);while(d.length>lim&&q>.3){q-=.08;d=c.toDataURL('image/jpeg',q)}
+    d.length>lim*1.4?rej(new Error('Photo trop lourde : reprenez-la en plus petit format.')):res(d)};im.src=r.result};r.readAsDataURL(file)})}
+const rd8=file=>new Promise((res,rej)=>{const r=new FileReader();r.onerror=()=>rej(new Error('Lecture impossible.'));r.onload=()=>res(r.result);r.readAsDataURL(file)});
+const fsz8=()=>Object.values(PF8).reduce((a,x)=>a+(x&&x.d?x.d.length:0),0);
+async function procFile8(root,id,file,small){
+  const st=root.querySelector('.v8fs'),hid=root.querySelector('input[type=hidden]'),clr=root.querySelector('[data-v8="fclr"]');
+  if(!file)return;st.textContent='Lecture…';
+  try{let d,ty=file.type;
+    if(/^image\//.test(ty)||(!ty&&/\.(jpe?g|png|webp|heic)$/i.test(file.name)))d=await img8(file,small);
+    else if(!small&&(/pdf$/i.test(ty)||/\.pdf$/i.test(file.name))){if(file.size>300*1024)throw new Error('PDF trop lourd (max 300 Ko). Compressez-le ou joignez une photo.');d=await rd8(file);ty='application/pdf'}
+    else throw new Error(small?'Format non accepté : photo uniquement.':'Format non accepté : PDF ou photo uniquement.');
+    const old=PF8[id];delete PF8[id];if(fsz8()+d.length>900000){if(old)PF8[id]=old;throw new Error('Total des pièces jointes trop lourd pour un envoi (max ~900 Ko au total) : retirez une photo.')}
+    if(/^data:image/.test(d))ty='image/jpeg';
+    PF8[id]={n:(file.name||'photo.jpg').slice(0,80),t:ty,d};hid.value='📎 '+(file.name||'photo.jpg').slice(0,60);
+    st.textContent=(file.name||'photo')+' ('+Math.round(d.length*.75/1024)+' Ko)';if(/^data:image/.test(d)){const im=document.createElement('img');im.src=d;im.alt='';im.style.cssText='height:44px;border-radius:8px;margin-left:8px;vertical-align:middle';st.appendChild(im)}
+    clr.hidden=false;root.classList.remove('bad');const qe=root.querySelector('.qe');if(qe)qe.textContent=''}
+  catch(x){st.textContent=x.message||String(x)}}
+document.addEventListener('change',async e=>{
+  const t=e.target;if(!t||!t.dataset||!t.dataset.v8file)return;await procFile8(t.closest('.q'),t.dataset.v8file,t.files[0],t.dataset.cam==='1');t.value=''});
+async function webcam8(id,small,root){
+  let stm;try{stm=await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}})}catch(e){return toast('Caméra inaccessible : autorisez-la dans le navigateur, ou utilisez « Galerie / fichier ».')}
+  const o=document.createElement('div');o.className='v8cam';o.innerHTML='<div><video autoplay playsinline muted></video><div class="v8cb"><button type="button" class="btn btn-g sm" data-c="snap">Capturer</button><button type="button" class="btn btn-w sm" data-c="x">Annuler</button></div></div>';document.body.appendChild(o);
+  const v=o.querySelector('video');v.srcObject=stm;const end=()=>{stm.getTracks().forEach(t=>t.stop());o.remove()};
+  o.addEventListener('click',async e=>{const c=e.target.dataset&&e.target.dataset.c;if(!c)return;if(c==='x')return end();
+    const cv=document.createElement('canvas');cv.width=v.videoWidth||640;cv.height=v.videoHeight||480;cv.getContext('2d').drawImage(v,0,0);
+    const bl=await new Promise(r=>cv.toBlob(r,'image/jpeg',.9));end();await procFile8(root,id,new File([bl],'photo-'+Date.now().toString(36)+'.jpg',{type:'image/jpeg'}),small)})}
+{const o=S.subCreate;S.subCreate=function(s,h,so){
+  const ks=Object.keys(PF8).filter(k=>PF8[k]&&s.data&&s.data[k]);if(ks.length){s.files={};ks.forEach(k=>s.files[k]=PF8[k])}
+  return o.call(S,s,h,so)}}
+const fdl8=(f,n)=>{const a=document.createElement('a');a.href=f.d;a.download=f.n||n||'piece';document.body.appendChild(a);a.click();a.remove()};
+
+/* ---------- 5. brouillon du répondant (lien public) ---------- */
+const dK8=()=>'sd8_pf_'+(new URLSearchParams(location.search).get('f')||(location.hash.match(/^#f=([\w-]+)/)||[])[1]||'x');
+let dT8=null;
+function dSave8(){const r=document.getElementById('pfForm');if(!r)return;const d=readRaw8(r);
+  const any=Object.values(d).some(v=>Array.isArray(v)?v.length:String(v||'').trim());if(!any)return;
+  const ok=L6.set(dK8(),{at:Date.now(),data:d});const s=document.getElementById('v8ds');if(s)s.textContent=ok?'💾 Brouillon enregistré sur cet appareil à '+new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'})+' — vous pouvez fermer la page et reprendre plus tard.':''}
+function dRestore8(r){
+  r.insertAdjacentHTML('afterbegin',`<div class="v8dr" id="v8dr"><span id="v8ds"></span></div>`);
+  const b=L6.get(dK8(),null);if(!b||!b.data)return;
+  Object.keys(b.data).forEach(n=>{const v=b.data[n];const els=r.querySelectorAll(`[name="${n}"]`);if(!els.length)return;
+    els.forEach(el=>{if(el.type==='file'||el.type==='hidden')return;if(el.type==='checkbox')el.checked=Array.isArray(v)&&v.includes(el.value);else if(el.type==='radio')el.checked=el.value===v;else el.value=Array.isArray(v)?v.join(';'):v})});
+  condApply8(r);const s=document.getElementById('v8ds');
+  if(s)s.innerHTML='↩ Brouillon retrouvé (enregistré le '+new Date(b.at).toLocaleString('fr-FR',{dateStyle:'short',timeStyle:'short'})+'). <button type="button" class="v8lk" data-v8="dclr">Effacer le brouillon et recommencer</button>'+(r.querySelector('[data-v8file]')?' <i>Les pièces jointes sont à joindre à nouveau.</i>':'')}
+document.addEventListener('input',e=>{if(!e.target.closest||!e.target.closest('#pfForm'))return;clearTimeout(dT8);dT8=setTimeout(dSave8,500)});
+document.addEventListener('change',e=>{if(!e.target.closest||!e.target.closest('#pfForm'))return;clearTimeout(dT8);dT8=setTimeout(dSave8,300)});
+new MutationObserver(()=>{
+  const r=document.getElementById('pfForm');if(r&&!r.dataset.c8){r.dataset.c8='1';condApply8(r);dRestore8(r)}
+  if(document.querySelector('.pf-ok')&&!document.body.dataset.v8done){document.body.dataset.v8done='1';try{localStorage.removeItem(dK8())}catch(e){}PF8={}}
+}).observe(document.body,{childList:true,subtree:true});
+
+/* ---------- 6. historique, correction, suivi des réponses ---------- */
+{const o=S.subUpdate;S.subUpdate=async function(id,p){
+  const cur=(subs||[]).find(x=>x.id===id);
+  if(cur&&!('hist' in p)){const act=[];
+    if(p.status&&p.status!==cur.status)act.push('Statut : '+(SUBST[cur.status]||[cur.status])[0]+' → '+(SUBST[p.status]||[p.status])[0]);
+    if('note' in p&&x8(p.note)!==x8(cur.note))act.push('Note interne modifiée');
+    if(act.length){p={...p,hist:[...(cur.hist||[]),{at:new Date().toISOString(),by:(me&&me.ident)||'?',act:act.join(' ; ')}]}}}
+  const r=await o.call(S,id,p);if(cur&&p.hist)cur.hist=p.hist;return r}}
+function hist8(s){const h=s.hist||[];return `<h4 class="h4s" style="margin-top:14px">${ic('clock')} Historique des modifications et validations</h4>${h.length?`<ul class="v8h4">${h.slice().reverse().map(x=>`<li><b>${dt(x.at)}</b> · ${esc(x.by||'')} — ${esc(x.act)}</li>`).join('')}</ul>`:'<p class="mnote">Aucune modification enregistrée depuis la réception.</p>'}`}
+function conf8(f,s){
+  let ok=0,ko=0;(f.fields||[]).forEach(q=>{if(!q.ok||!q.ok.length)return;const v=(s.data||{})[q.id];if(v===''||v==null||v==='Sans objet')return;if(q.ok.includes(v))ok++;else ko++});
+  const n=ok+ko;return{ok,ko,n,pct:n?Math.round(ok*100/n):null}}
+const avis8=p=>p==null?'—':p>=85?'Conforme':p>=60?'Conforme sous réserves':'Non conforme';
+function extra8(s,f){
+  let h='';
+  if(s.files&&Object.keys(s.files).length)h+=`<h4 class="h4s" style="margin-top:14px">${ic('clip')} Pièces jointes</h4><div class="v8fl">${Object.keys(s.files).map(k=>`<button class="btn btn-w sm" data-v8="fget" data-id="${esc(s.id)}" data-k="${esc(k)}">${ic('down')} ${esc((f&&(f.fields.find(q=>q.id===k)||{}).label)||'Pièce')} — ${esc(s.files[k].n)}</button>`).join('')}</div>`;
+  if(f&&(f.fields||[]).some(q=>q.ok)){const c=conf8(f,s);if(c.n)h+=`<div class="v8cf"><b>${c.pct}%</b><span>de conformité (${c.ok} conforme(s) / ${c.n} contrôle(s)) — avis indicatif : <b>${avis8(c.pct)}</b></span><i style="width:${c.pct}%"></i></div>`}
+  return h+hist8(s)}
+{const o=viewSub;viewSub=function(id){o(id);
+  const s=subs.find(x=>x.id===id);if(!s)return;const f=fById(s.formId),ac=$$b('.macts');if(!ac)return;
+  ac.insertAdjacentHTML('beforebegin',extra8(s,f));
+  ac.insertAdjacentHTML('beforeend',`<button class="btn btn-w sm" data-v8="sedit" data-id="${esc(s.id)}">${ic('edit')} Corriger les réponses</button><button class="btn btn-w sm" data-v8="sst" data-id="${esc(s.id)}" data-st="instr">En instruction</button><button class="btn btn-w sm dng" data-v8="sst" data-id="${esc(s.id)}" data-st="rejet">Rejeter</button><button class="btn btn-o sm" data-v8="fiche" data-id="${esc(s.id)}">${ic('print')} Fiche / rapport</button>`)}}
+function viewSubEdit8(id){
+  const s=subs.find(x=>x.id===id);if(!s)return;const f=fById(s.formId);if(!f)return toast('Formulaire d\'origine introuvable');
+  show(head('edit','Corriger la réponse '+esc(s.ref),esc(f.title)+' — corrections tracées dans l\'historique')+`<div class="mbody"><div class="v6note">${ic('shield')}<span>Les valeurs d'origine ne sont pas perdues : chaque correction est inscrite dans l'historique avec la date et l'auteur.</span></div><div id="v8ed" class="pf-card" style="box-shadow:none;margin:0">${formBody({...f,fields:f.fields.filter(q=>q.type!=='file')},'e')}</div><div class="rg" id="v8eE" role="alert" style="color:#B3261E;font-weight:700"></div>
+   <div class="macts" style="padding:14px 0 0"><button class="btn btn-g sm" data-v8="seditok" data-id="${esc(s.id)}">${ic('check')} Enregistrer la correction</button><button class="btn btn-w sm" data-v8="sopen" data-id="${esc(s.id)}">Annuler</button></div></div>`,true);
+  const r=$$b('#v8ed');Object.keys(s.data||{}).forEach(n=>{const v=s.data[n];r.querySelectorAll(`[name="${n}"]`).forEach(el=>{if(el.type==='checkbox')el.checked=Array.isArray(v)&&v.includes(el.value);else if(el.type==='radio')el.checked=el.value===v;else el.value=Array.isArray(v)?v.join(';'):v})});condApply8(r)}
+async function subEditOk8(id){
+  const s=subs.find(x=>x.id===id),f=s&&fById(s.formId);if(!s||!f)return;const r=$$b('#v8ed');
+  const ff={...f,fields:f.fields.filter(q=>q.type!=='file')};const {data,errs}=collect(ff,r);
+  $$('.q',r).forEach(q=>{const m=errs[q.dataset.f];q.classList.toggle('bad',!!m);const e=q.querySelector('.qe');if(e)e.textContent=m||''});
+  if(Object.keys(errs).length)return err('v8eE','Corrigez les champs signalés.');
+  const nd={...s.data,...data},chg=Object.keys(nd).filter(k=>valTxt(nd[k])!==valTxt((s.data||{})[k]));
+  if(!chg.length){toast('Aucun changement');return viewSub(id)}
+  const lab=k=>(s.labels&&s.labels[k])||((f.fields.find(q=>q.id===k)||{}).label)||k;
+  const detail=chg.slice(0,6).map(k=>lab(k)+' : « '+valTxt((s.data||{})[k]).slice(0,40)+' » → « '+valTxt(nd[k]).slice(0,40)+' »').join(' | ')+(chg.length>6?' (+'+(chg.length-6)+')':'');
+  const hist=[...(s.hist||[]),{at:new Date().toISOString(),by:me.ident,act:'Réponses corrigées ('+chg.length+') — '+detail}];
+  await S.subUpdate(id,{data:nd,hist});s.data=nd;s.hist=hist;log('Réponse corrigée',s.ref);toast('Correction enregistrée');return viewSub(id)}
+
+/* ---------- 7. en-tête modifiable des fiches et rapports ---------- */
+const HDR0={rep:'RÉPUBLIQUE DE CÔTE D\'IVOIRE',devise:'Union – Discipline – Travail',min:'MINISTÈRE DE L\'ÉDUCATION NATIONALE, DE L\'ALPHABÉTISATION ET DE L\'ENSEIGNEMENT TECHNIQUE',dir:'DIRECTION DES ÉTUDES ET DE LA PLANIFICATION (DEPS)',titre:'FICHE DE VISITE DE CONFORMITÉ',pied:'Document généré par SIG-DATA · DEPS-MENAET'};
+const hdr8=()=>({...HDR0,...L6.get('sd8_hdr',{})});
+async function viewHdr8(){
+  try{const g=await S.docGet('hdr8');if(g&&g.rep)L6.set('sd8_hdr',g)}catch(e){}
+  const h=hdr8(),F=(k,l)=>`<label>${l}<input id="hd_${k}" value="${esc(h[k])}" maxlength="200"></label>`;
+  show(head('edit','En-tête des fiches et rapports','Modifiable : s\'applique à toutes les fiches imprimées')+`<div class="mbody"><div class="fg">${F('rep','Ligne 1 (République)')}${F('devise','Devise')}${F('min','Ministère')}${F('dir','Direction / service')}${F('titre','Titre par défaut du document')}${F('pied','Pied de page')}</div>
+   <div class="macts" style="padding:14px 0 0"><button class="btn btn-g sm" data-v8="hdrok">${ic('check')} Enregistrer</button><button class="btn btn-w sm" data-v8="hdrrst">Valeurs d'origine</button><button class="btn btn-w sm" data-v8="visit">Retour</button></div></div>`)}
+async function hdrOk8(reset){
+  const h=reset?{}:Object.fromEntries(Object.keys(HDR0).map(k=>[k,$$b('#hd_'+k).value.trim()||HDR0[k]]));
+  L6.set('sd8_hdr',h);try{await S.docSet('hdr8',reset?null:h)}catch(e){}toast(reset?'En-tête d\'origine rétabli':'En-tête enregistré');return viewHdr8()}
+
+/* ---------- 8. fiche / rapport imprimable ---------- */
+function ficheHTML8(items,title,f){
+  const h=hdr8(),A=window.__A||{};
+  const head=`<table class="hd"><tr><td style="width:20%"><img src="${esc(A.dep||'')}" style="height:64px"></td><td class="c"><b>${esc(h.rep)}</b><i>${esc(h.devise)}</i><span>${esc(h.min)}</span><em>${esc(h.dir)}</em></td><td style="width:20%;text-align:right"><img src="${esc(A.arm||'')}" style="height:64px"></td></tr></table>`;
+  const body=items.map(s=>{const ff=f||fById(s.formId);if(!ff)return '';const c=conf8(ff,s);
+    let rows='',sec='';
+    (ff.fields||[]).forEach(q=>{
+      if(q.type==='section'){rows+=`<tr class="sc"><td colspan="2">${esc(q.label)}</td></tr>`;return}
+      const v=(s.data||{})[q.id],t=valTxt(v)||'—';let cls='';
+      if(q.ok&&q.ok.length&&v&&v!=='Sans objet')cls=q.ok.includes(v)?'ok':'ko';
+      let ex='';if(q.type==='file'&&s.files&&s.files[q.id]&&/^data:image/.test(s.files[q.id].d))ex=`<br><img src="${s.files[q.id].d}" style="max-width:260px;max-height:200px;margin-top:4px">`;
+      else if(q.type==='file'&&s.files&&s.files[q.id])ex=' (document PDF joint : '+esc(s.files[q.id].n)+')';
+      rows+=`<tr><th>${esc(lblClean(q.label))}</th><td class="${cls}">${esc(t)}${ex}</td></tr>`});
+    const sum=c.n?`<div class="sm"><b>Taux de conformité : ${c.pct} %</b> (${c.ok} conforme(s) sur ${c.n} contrôle(s)) — avis indicatif de la plateforme : <b>${avis8(c.pct)}</b></div>`:'';
+    return `<section>${head}<h1>${esc(title||h.titre)}</h1><p class="rf">Référence ${esc(s.ref)} · ${esc(s.formTitle||'')} · reçue le ${esc(dt(s.at))} · statut : ${esc((SUBST[s.status]||[s.status])[0])}</p>${sum}<table class="dd">${rows}</table>
+     ${s.note?`<p><b>Note :</b> ${esc(s.note)}</p>`:''}<table class="sg"><tr><td>Le chef de l'équipe de visite<br><br><br></td><td>Le promoteur / responsable de l'établissement<br><br><br></td><td>Visa de la hiérarchie<br><br><br></td></tr></table>
+     ${(s.hist&&s.hist.length)?`<p class="hs"><b>Historique :</b> ${s.hist.map(x=>esc(dt(x.at)+' — '+x.act)).join(' · ')}</p>`:''}<p class="ft">${esc(h.pied)} · ${esc(new Date().toLocaleDateString('fr-FR'))}</p></section>`}).join('');
+  return `<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>${esc(title||h.titre)}</title><style>
+  body{font:13px/1.4 Arial,sans-serif;color:#111;margin:0;padding:18px}section{page-break-after:always;max-width:820px;margin:0 auto 30px}section:last-child{page-break-after:auto}
+  .hd{width:100%;border-collapse:collapse}.hd td{vertical-align:middle;text-align:center}.hd .c b{display:block;font-size:13px}.hd .c i{display:block;font-size:11px}.hd .c span{display:block;font-size:11px;margin-top:4px}.hd .c em{display:block;font-size:11px;font-style:normal;font-weight:700}
+  h1{text-align:center;font-size:17px;margin:14px 0 4px;border-top:3px solid #FF6A00;border-bottom:3px solid #00A859;padding:6px 0}.rf{text-align:center;color:#444;font-size:12px}
+  table.dd{width:100%;border-collapse:collapse;margin:8px 0}.dd th,.dd td{border:1px solid #999;padding:5px 8px;text-align:left;vertical-align:top}.dd th{width:42%;background:#f4f4f4;font-weight:600}.dd .sc td{background:#0C2036;color:#fff;font-weight:700;letter-spacing:.04em}.dd td.ok{color:#087a43;font-weight:700}.dd td.ko{color:#B3261E;font-weight:700}
+  .sm{border:2px solid #00A859;padding:8px 10px;margin:8px 0;border-radius:6px}.sg{width:100%;border-collapse:collapse;margin-top:18px}.sg td{border:1px solid #999;padding:8px;height:78px;width:33%;font-size:12px}.hs{font-size:11px;color:#444}.ft{text-align:center;font-size:10px;color:#666;margin-top:14px}
+  .bar{position:fixed;top:8px;right:8px}.bar button{padding:8px 14px;font-weight:700;background:#FF6A00;color:#fff;border:0;border-radius:8px;cursor:pointer}@media print{.bar{display:none}body{padding:0}}
+  </style></head><body><div class="bar"><button onclick="print()">Imprimer / Enregistrer en PDF</button></div>${body}</body></html>`}
+function fiche8(items,title,f){
+  const w=window.open('','_blank');if(!w)return toast('Fenêtre bloquée : autorisez les fenêtres pop-up pour ce site, puis recommencez.');
+  w.document.open();w.document.write(ficheHTML8(items,title,f));w.document.close()}
+
+/* ---------- 9. visites et contrôles de conformité (9 opérations) ---------- */
+const OPS8=[
+ ['creation','Création d\'un établissement','Justification, site, besoins et financement'],
+ ['ouverture','Ouverture','Conformité des infrastructures, du personnel et de la gestion avant ouverture'],
+ ['homologation','Homologation','Établissement en fonctionnement : conformité du dossier et de la vie scolaire'],
+ ['erection','Érection collège → lycée','Capacités du 2nd cycle : salles, laboratoires, enseignants, effectifs'],
+ ['extension','Extension','Nouvelles salles ou structures, besoins, ratio élèves/salle'],
+ ['renommage','Changement de dénomination','Ancienne / nouvelle dénomination, motifs, pièces'],
+ ['fermeture','Fermeture','Motif, reversement des élèves, patrimoine, archives'],
+ ['rehab','Réhabilitation','État des ouvrages, nature et coût des travaux'],
+ ['construction','Construction (du bornage à la réception)','Suivi par phase : bornage, fondations, élévation, toiture, finitions, réception']];
+const NIV8=[['pre','Préscolaire'],['prim','Primaire'],['col','Collège (1er cycle)'],['lyc','Lycée (2nd cycle)'],['sec','Secondaire 1er et 2nd cycle']];
+const OKC8=['Conforme','Non conforme','Sans objet'],ETAT8=['Achevé','Inachevé','Inexistant'],TAUX8=['Moins de 25 %','25 à 50 %','50 à 75 %','75 à 100 %'];
+function visitFields8(op,niv,st){
+  const sec=n=>mkF(n,'section'),T=(l,o)=>mkF(l,'text',o),N=(l,o)=>mkF(l,'number',o),A=(l,o)=>mkF(l,'textarea',o),D=(l,o)=>mkF(l,'date',o),R=(l,o,h)=>mkF(l,'radio',{o,h}),C=(l,o)=>mkF(l,'checkbox',{o});
+  const cf=(l,h)=>{const q=mkF(l,'radio',{o:OKC8,h:h||''});q.ok=['Conforme'];return q};
+  const et=l=>{const q=mkF(l,'radio',{o:ETAT8});q.ok=['Achevé'];return q};
+  const bon=l=>{const q=mkF(l,'radio',{o:['Bon','Moyen','Mauvais','À reconstruire']});q.ok=['Bon'];return q};
+  const sd=['col','lyc','sec'].includes(niv);let F=[];const bs=R('Base (1, 2, 3 ou 4)',['Base 1','Base 2','Base 3','Base 4']);bs.ck='base';const ph=l=>{const q=mkF(l,'file',{h:'Prendre la photo avec l\'appareil photo (téléphone, tablette, ordinateur) ou la choisir dans la galerie'});q.cam=true;return q};
+  const nom=T('Nom de l\'établissement ou du projet',{r:1});nom.ck='nom';
+  const dr=mkF('DRENAET','drenaet',{r:1});dr.ck='dren';const ie=mkF('IEPP / circonscription','iepp',{r:1});ie.ck='iepp';
+  const reg=T('Région');reg.ck='reg';const dep=T('Département');dep.ck='dep';const sp=T('Sous-préfecture ou commune',{r:1});sp.ck='sp';
+  F.push(sec('Identification de la visite'),dr,ie,reg,dep,sp,T('Localité / village'),nom,R('Statut',['Public','Privé']),R('Zone',['Urbaine (U)','Rurale (R)']),...(sd?[bs]:[]),D('Date de la visite',{r:1}),A('Équipe de visite (noms et fonctions)',{r:1}),T('Contact du promoteur / responsable'),T('Coordonnées GPS (latitude, longitude)'));
+  if(op==='creation')F.push(sec('Justification de la création'),N('Population scolarisable dans la zone'),N('Effectif attendu'),T('Établissement le plus proche (nom)'),R('Distance du plus proche établissement',['Moins de 3 km','3 à 5 km','Plus de 5 km']),cf('Demande de la communauté / lettre d\'engagement'),cf('Terrain disponible et sécurisé'),T('Structure de financement'),N('Coût estimatif (FCFA)'));
+  if(op!=='rehab'){const bo=R('Bornage du terrain',['Réalisé','Partiel','Non réalisé']);bo.ok=['Réalisé'];
+    F.push(sec('Bornage du terrain (photos)'),bo,N('Nombre de bornes posées'),cf('Plan de bornage / levé du géomètre disponible'),T('Géomètre ou service ayant réalisé le bornage'),ph('Photo borne 1 (angle Nord)'),ph('Photo borne 2 (angle Est)'),ph('Photo borne 3 (angle Sud)'),ph('Photo borne 4 (angle Ouest)'),ph('Photo du site — vue d\'ensemble'))}
+  F.push(sec('Site et environnement'),cf('Site accessible en toute saison'),N('Superficie du terrain (m²)'),cf('Titre foncier / attestation de propriété du terrain'),C('Risques à proximité',['Inondation / bas-fond','Éboulement / glissement','Ligne haute tension','Cours d\'eau','Voie à grande circulation','Aucun']),C('Nuisances',['Bruit','Odeurs','Marché','Débit de boissons','Cimetière','Atelier / usine','Aucune']));
+  if(op==='homologation')F.push(sec('Fonctionnement et dossier'),D('Date d\'ouverture de l\'établissement'),N('Années de fonctionnement'),N('Effectif garçons'),N('Effectif filles'),N('Taux de réussite aux examens (%)'),cf('Autorisation d\'ouverture'),cf('Dossier de création complet'),cf('Registres et dossiers d\'élèves tenus'));
+  if(op==='erection')F.push(sec('Capacités du 2nd cycle'),N('Effectif de 3e'),N('Taux de passage 3e → 2nde (%)'),N('Salles supplémentaires requises'),cf('Enseignants qualifiés pour le 2nd cycle'),A('Séries / filières demandées'),et('Laboratoire de sciences'),et('Salle informatique'));
+  if(op==='extension')F.push(sec('Extension demandée'),C('Nature de l\'extension',['Salles de classe','Bloc administratif','Sanitaires','Laboratoire','Cantine','Clôture','Autre']),N('Ratio élèves / salle actuel'),cf('Terrain disponible pour l\'extension'),A('Justification (effectifs, besoins)'),N('Coût estimatif (FCFA)'));
+  if(op==='renommage')F.push(sec('Changement de dénomination'),T('Ancienne dénomination',{r:1}),T('Nouvelle dénomination proposée',{r:1}),A('Motif du changement'),cf('Délibération / acte du promoteur ou du conseil'),cf('Accord de la communauté'),cf('Absence d\'homonymie dans la circonscription'));
+  if(op==='fermeture')F.push(sec('Fermeture'),R('Motif',['Effectif insuffisant','Insécurité du site','Non-conformité grave','Demande du promoteur','Autre']),N('Effectif à reverser'),A('Établissement(s) d\'accueil proposé(s)'),A('Sort du personnel'),A('Inventaire du patrimoine (bâtiments, mobilier)'),cf('Archives et dossiers d\'élèves sécurisés'));
+  if(op==='rehab')F.push(sec('État des ouvrages à réhabiliter'),bon('Toitures'),bon('Murs et structures'),bon('Sols'),bon('Menuiseries (portes, fenêtres)'),bon('Électricité'),bon('Plomberie / sanitaires'),bon('Clôture'),A('Nature des travaux à exécuter'),N('Estimation du coût (FCFA)'),R('Priorité',['Urgente','Haute','Normale']));
+  if(op==='construction'){F.push(sec('Entreprise et calendrier'),T('Entreprise / maître d\'œuvre'),D('Date de démarrage des travaux'),D('Date de réception prévue'),cf('Conformité aux plans approuvés'),cf('Qualité des matériaux'));
+    [['Bornage et terrassement'],['Fondations'],['Élévation (murs, poteaux)'],['Toiture'],['Second œuvre (enduits, sols, menuiseries)'],['Électricité et plomberie'],['Finitions et abords']].forEach(([p])=>F.push(sec('Phase : '+p),et('État — '+p),R('Taux d\'exécution — '+p,TAUX8)));
+    F.push(sec('Réception'),R('Type de réception',['Aucune','Provisoire','Définitive']),A('Réserves à lever'))}
+  if(op==='ouverture'||op==='creation'||op==='extension'||op==='erection'||op==='homologation'){
+    F.push(sec('Infrastructures et équipements'),N('Nombre de salles de classe'),et('Salles de classe'),ph('Salles de classe — photo 1'),ph('Salles de classe — photo 2'),et('Bloc administratif'),ph('Bloc administratif — photo 1'),ph('Bloc administratif — photo 2'),N('Nombre de cabines de sanitaires'),et('Sanitaires (latrines)'),ph('Sanitaires — photo 1'),ph('Sanitaires — photo 2'),cf('Point d\'eau potable'),cf('Électricité'),et('Clôture'),et('Aire de jeux / terrain de sport'),cf('Mobilier (tables-bancs, bureaux)'));
+    if(sd)F.push(et('Laboratoire'),et('Salle informatique'),et('Bibliothèque / centre de documentation'),et('Salle des professeurs'));else F.push(et('Cantine'),et('Salle préscolaire adaptée'));
+    if(op==='ouverture')F.push(R('Taux global d\'exécution des infrastructures',TAUX8),N('Effectif prévu à l\'ouverture'),D('Date d\'ouverture prévue'));
+    F.push(sec('Personnel et gestion'),cf('Chef d\'établissement / directeur désigné et qualifié'),N('Nombre d\'enseignants disponibles'),cf('Enseignants qualifiés pour les niveaux concernés'),cf('Gestion administrative (registres, dossiers)'),cf('Gestion pédagogique (programmes, emplois du temps)'),cf('Matériel didactique disponible'))}
+  if(st==='Privé'&&['creation','ouverture','homologation','extension','erection'].includes(op))F.push(sec('Promoteur et dossier (CNCSEP)'),T('Nom du promoteur'),cf('Dossier administratif complet'),cf('Casier judiciaire du promoteur'),cf('Responsable pédagogique qualifié'),cf('Règlement intérieur'),cf('Assurance des locaux et des élèves'));
+  F.push(sec('Conclusion de la visite'),R('Avis de l\'équipe de visite',['Favorable','Favorable sous réserves','Défavorable']),A('Observations'),A('Recommandations'),T('Chef de l\'équipe de visite (nom)'),T('Visa du promoteur / responsable (nom)'),mkF('Pièces jointes (PDF, photos du site)','file'));
+  return F}
+function visitForm8(op,niv,st){
+  const O=OPS8.find(x=>x[0]===op),N=NIV8.find(x=>x[0]===niv);
+  return{id:null,title:'Visite de conformité — '+O[1]+' — '+N[1]+' ('+st+')',description:'Fiche numérique de visite technique. Renseignez chaque contrôle ; les réponses « conforme » alimentent le taux de conformité du rapport.',confirmMsg:'Merci : la fiche de visite a été transmise à la DEPS.',opens:'',closes:'',active:true,fields:visitFields8(op,niv,st),visit:{op,niv,st}}}
+function carteFields8(){
+  const sec=n=>mkF(n,'section'),T=(l,o,ck)=>{const q=mkF(l,'text',o);if(ck)q.ck=ck;return q},N=(l,ck)=>{const q=mkF(l,'number');if(ck)q.ck=ck;return q};
+  const dr=mkF('DRENAET','drenaet',{r:1});dr.ck='dren';const ie=mkF('IEPP / circonscription','iepp',{r:1});ie.ck='iepp';
+  return[sec('Identification de l\'école'),dr,ie,T('Dénomination de l\'école',{r:1},'nom'),T('Localité'),T('S/Préfecture ou Commune',{r:1},'sp'),T('Département',{r:1},'dep'),T('Région',{},'reg'),mkF('Zone','radio',{o:['Urbaine (U)','Rurale (R)']}),mkF('Statut','radio',{o:['Public','Privé','Confessionnel','Communautaire']}),mkF('Ordre d\'enseignement','radio',{o:['Préscolaire','Primaire','Collège','Lycée']}),(()=>{const q=mkF('Base (secondaire)','radio',{o:['Base 1','Base 2','Base 3','Base 4']});q.ck='base';return q})(),
+   sec('Effectifs'),N('Effectif','eff'),N('Nombre de classes','cl'),
+   sec('Champs avancés (carte scolaire détaillée)'),T('Superficie du terrain (m²)'),N('Population de 6 à 11 ans','pop'),mkF('Date d\'ouverture programmée','date'),T('Structure de financement'),T('Coût estimatif (FCFA)'),mkF('Observations','textarea')]}
+const carteForm8=()=>({id:null,title:'Fiche école — carte scolaire',description:'Mise à jour de la carte scolaire (copie des champs avancés de la plateforme IEPP) : renseignée par IEPP, consolidée par sous-préfecture, département, DRENAET et au niveau national.',confirmMsg:'Merci : la fiche école a été transmise.',opens:'',closes:'',active:true,fields:carteFields8(),carte:true});
+async function visitList8(){try{[forms,subs]=await Promise.all([S.formsList(),S.subList()])}catch(e){}}
+async function viewVisit8(){
+  await visitList8();await geoLoad8().catch(()=>{});
+  const vf=forms.filter(f=>f.visit),cf=forms.filter(f=>f.carte),vs=subs.filter(s=>vf.some(f=>f.id===s.formId));
+  const rows=vs.slice(0,200).map(s=>{const f=fById(s.formId),c=conf8(f,s),g=ck=>{const q=(f.fields||[]).find(x=>x.ck===ck);return q?valTxt((s.data||{})[q.id]):''};
+    return `<tr><td><b>${esc(s.ref)}</b></td><td>${esc(g('nom')||'—')}</td><td>${esc(g('dren')||'—')}</td><td>${esc((OPS8.find(o=>o[0]===(f.visit||{}).op)||[0,'—'])[1])}</td><td>${c.pct==null?'—':'<b style="color:'+(c.pct>=85?'#087a43':c.pct>=60?'#B45F00':'#B3261E')+'">'+c.pct+' %</b>'}</td><td>${stChip(s.status)}</td><td><button class="ib2 e" data-v8="sopen" data-id="${esc(s.id)}" title="Ouvrir">${ic('eye')}</button><button class="ib2" data-v8="fiche" data-id="${esc(s.id)}" title="Fiche imprimable">${ic('print')}</button></td></tr>`}).join('');
+  show(head('building','Visites et conformité','Visites techniques, conformité des établissements et carte scolaire')+`<div class="mbody">
+   <div class="v6note">${ic('help')}<span>Créez une fiche numérique préremplie selon l'opération et le niveau (elle reste entièrement modifiable dans l'éditeur), partagez le lien aux équipes de visite (brouillon et reprise possibles, pièces jointes PDF/photos), puis validez, suivez et imprimez les rapports.</span></div>
+   <h4 class="h4s">${ic('plus')} Nouvelle fiche de visite</h4>
+   <div class="v8grid"><label>Opération<select id="vOp">${OPS8.map(o=>`<option value="${o[0]}">${esc(o[1])}</option>`).join('')}</select></label><label>Niveau<select id="vNv">${NIV8.map(o=>`<option value="${o[0]}">${esc(o[1])}</option>`).join('')}</select></label><label>Statut<select id="vSt"><option>Public</option><option>Privé</option></select></label></div>
+   <div class="macts" style="padding:8px 0 14px"><button class="btn btn-g sm" data-v8="vnew">${ic('plus')} Créer la fiche</button><button class="btn btn-w sm" data-v8="vpdf">${ic('up')} Importer une fiche PDF / Word</button><button class="btn btn-w sm" data-v8="cnew">${ic('building')} Fiche école — carte scolaire</button></div>
+   <div class="v6tb7"><button class="btn btn-w sm" data-v8="carte">${ic('bars')} Carte scolaire consolidée</button><button class="btn btn-w sm" data-v8="geo">${ic('pin')} DRENAET / IEPP</button><button class="btn btn-w sm" data-v8="hdr">${ic('edit')} En-tête des rapports</button><button class="btn btn-w sm" data-v8="mark">${ic('flag')} Marquer un formulaire comme fiche de visite</button><button class="btn btn-w sm" data-v8="synth">${ic('print')} Rapport de synthèse</button></div>
+   <h4 class="h4s" style="margin-top:12px">Fiches de visite (${vf.length}) · fiches école (${cf.length})</h4>
+   <div class="v8fl">${[...vf,...cf].map(f=>`<button class="btn btn-w sm" data-fm="edit" data-id="${esc(f.id)}">${ic('edit')} ${esc(f.title)}</button>`).join('')||'<span class="mnote">Aucune fiche créée pour le moment.</span>'}</div>
+   <h4 class="h4s" style="margin-top:14px">Visites reçues (${vs.length})</h4><div class="tw"><table class="ut dt"><thead><tr><th>Réf.</th><th>Établissement</th><th>DRENAET</th><th>Opération</th><th>Conformité</th><th>Statut</th><th></th></tr></thead><tbody>${rows||'<tr><td colspan="7"><div class="empty" style="padding:14px">Aucune visite reçue.</div></td></tr>'}</tbody></table></div></div>`,true);
+}
+async function newForm8(d,msg){await viewFormEdit(null,d);toast(msg||'Brouillon prérempli ouvert : adaptez-le puis enregistrez')}
+function markDlg8(){
+  const L=forms.filter(f=>!f.visit&&!f.carte);if(!L.length)return toast('Aucun autre formulaire à marquer');
+  show(head('flag','Marquer comme fiche de visite','Pour le rapport de conformité et le suivi')+`<div class="mbody"><label class="fg">Formulaire<select id="mkF">${L.map(f=>`<option value="${esc(f.id)}">${esc(f.title)}</option>`).join('')}</select></label><label class="fg">Opération<select id="mkO">${OPS8.map(o=>`<option value="${o[0]}">${esc(o[1])}</option>`).join('')}</select></label>
+   <p class="mnote">Astuce : dans l'éditeur, ouvrez une question à choix et cochez la ou les réponses « conforme » pour calculer le taux de conformité.</p><div class="macts" style="padding:10px 0 0"><button class="btn btn-g sm" data-v8="markok">${ic('check')} Marquer</button><button class="btn btn-w sm" data-v8="visit">Retour</button></div></div>`)}
+function carteAgg8(){
+  const cfs=forms.filter(f=>f.carte||(f.fields||[]).some(q=>q.ck==='eff'));const L=[];
+  subs.filter(s=>cfs.some(f=>f.id===s.formId)).forEach(s=>{const f=fById(s.formId),g=ck=>{const q=(f.fields||[]).find(x=>x.ck===ck);return q?(s.data||{})[q.id]:''};
+    L.push({sp:x8(g('sp')).trim().toUpperCase(),dep:x8(g('dep')).trim().toUpperCase(),dren:x8(g('dren')),eff:+g('eff')||0,cl:+g('cl')||0,pop:+g('pop')||0,base:x8(g('base'))})});
+  return L}
+function viewCarte8(){
+  const L=carteAgg8(),ct=V8.ct;const key={sp:'sp',dep:'dep',dren:'dren',nat:null}[ct];
+  const m=new Map();L.forEach(r=>{const k=key?(r[key]||'(non renseigné)'):'CÔTE D\'IVOIRE';const a=m.get(k)||{n:0,eff:0,cl:0,pop:0};a.n++;a.eff+=r.eff;a.cl+=r.cl;a.pop+=r.pop;m.set(k,a)});
+  const rows=[...m.entries()].sort((a,b)=>a[0].localeCompare(b[0],'fr')).map(([k,a])=>[k,a.n,a.eff,a.cl,a.cl?Math.round(a.eff/a.cl*10)/10:'—',a.pop,a.pop?Math.round(a.eff*1000/a.pop)/10+' %':'—']);
+  V8.rows=[['Zone','Écoles','Effectif','Classes','Élèves / classe','Population 6-11 ans','Taux de couverture'],...rows];
+  const tab=(k,l)=>`<button class="v6t${ct===k?' on':''}" data-v8="ctab" data-id="${k}">${l}</button>`;
+  show(head('bars','Carte scolaire consolidée','Sous-préfectures · départements · DRENAET · national')+`<div class="mbody"><div class="v6tabs">${tab('sp','Sous-préfecture / commune')}${tab('dep','Département')}${tab('dren','Région (DRENAET)')}${tab('nat','National')}</div>
+   <div class="tw"><table class="ut dt"><thead><tr>${V8.rows[0].map(h=>`<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.map(r=>`<tr>${r.map((c,i)=>`<td>${i?esc(c):'<b>'+esc(c)+'</b>'}</td>`).join('')}</tr>`).join('')||`<tr><td colspan="7"><div class="empty" style="padding:14px">Aucune fiche école reçue. Créez la « Fiche école — carte scolaire », partagez son lien aux IEPP, puis revenez ici.</div></td></tr>`}</tbody></table></div>
+   <p class="mnote">${['Base 1','Base 2','Base 3','Base 4'].map(b=>b+' : '+L.filter(r=>r.base===b).length).join(' · ')} (secondaire).</p><p class="mnote">${L.length} fiche(s) école prise(s) en compte. Les sommes viennent des champs « Effectif », « Nombre de classes » et « Population 6-11 ans ».</p>
+   <div class="macts" style="padding:12px 0 0"><button class="btn btn-g sm" data-v8="cexp">${ic('down')} Exporter (Excel / CSV)</button><button class="btn btn-w sm" data-v8="visit">Retour</button></div></div>`,true)}
+async function synth8(){
+  await visitList8();const vf=forms.filter(f=>f.visit),vs=subs.filter(s=>vf.some(f=>f.id===s.formId));if(!vs.length)return toast('Aucune visite reçue à synthétiser');
+  const h=hdr8(),A=window.__A||{};
+  const rows=vs.map(s=>{const f=fById(s.formId),c=conf8(f,s),g=ck=>{const q=(f.fields||[]).find(x=>x.ck===ck);return q?valTxt((s.data||{})[q.id]):''};
+    return `<tr><td>${esc(s.ref)}</td><td>${esc(g('nom'))}</td><td>${esc(g('dren'))}</td><td>${esc(g('sp'))}</td><td>${esc((OPS8.find(o=>o[0]===(f.visit||{}).op)||[0,''])[1])}</td><td>${c.pct==null?'—':c.pct+' %'}</td><td>${esc(avis8(c.pct))}</td><td>${esc((SUBST[s.status]||[s.status])[0])}</td></tr>`}).join('');
+  const w=window.open('','_blank');if(!w)return toast('Fenêtre bloquée : autorisez les pop-up.');
+  w.document.open();w.document.write(`<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Rapport de synthèse</title><style>body{font:12px Arial;padding:18px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #999;padding:4px 6px;text-align:left}th{background:#0C2036;color:#fff}.c{text-align:center}h1{text-align:center;border-top:3px solid #FF6A00;border-bottom:3px solid #00A859;padding:6px;font-size:16px}.bar{position:fixed;top:8px;right:8px}.bar button{padding:8px 14px;font-weight:700;background:#FF6A00;color:#fff;border:0;border-radius:8px}@media print{.bar{display:none}}</style></head><body><div class="bar"><button onclick="print()">Imprimer / PDF</button></div><div class="c"><b>${esc(h.rep)}</b><br>${esc(h.devise)}<br>${esc(h.min)}<br><b>${esc(h.dir)}</b></div><h1>RAPPORT DE SYNTHÈSE DES VISITES DE CONFORMITÉ</h1><table><thead><tr><th>Réf.</th><th>Établissement</th><th>DRENAET</th><th>Sous-préfecture</th><th>Opération</th><th>Conformité</th><th>Avis indicatif</th><th>Statut</th></tr></thead><tbody>${rows}</tbody></table><p>${vs.length} visite(s) · ${esc(new Date().toLocaleDateString('fr-FR'))} · ${esc(h.pied)}</p></body></html>`);w.document.close()}
+
+/* ---------- clics v18 ---------- */
+document.addEventListener('click',async e=>{
+  const t=e.target.closest('[data-v8]');if(!t)return;const a=t.dataset.v8,id=t.dataset.id;
+  if(a==='webcam'){return webcam8(id,t.dataset.cam==='1',t.closest('.q'))}
+  if(a==='fclr'){const r=t.closest('.q');delete PF8[id];const i=r.querySelector('input[type=file]'),h=r.querySelector('input[type=hidden]');if(i)i.value='';if(h)h.value='';r.querySelector('.v8fs').textContent='Aucun fichier';t.hidden=true;return}
+  if(a==='dclr'){try{localStorage.removeItem(dK8())}catch(x){}const f=document.getElementById('pfForm');if(f){f.reset();condApply8(f)}const s=document.getElementById('v8ds');if(s)s.textContent='Brouillon effacé.';return}
+  if(!isSA())return;
+  try{
+   if(a==='cq'||a==='cv'||a==='okv'||a==='cohbtn'){/* géré par l'événement change */ if(a==='cohbtn'){syncMeta();const p=coh8(FB.fields);if(!p.length){toast('Aucune incohérence : les conditions sont valides');const x=$$b('#fmEditErr');if(x)x.textContent='';return}
+      if(!confirm('Incohérences détectées :\n\n- '+p.map(x=>x.m).join('\n- ')+'\n\nRéparer automatiquement (retire les conditions invalides) ?'))return;cohFix8(FB.fields);drawFields();drawPrev();saveDraft();toast(p.length+' incohérence(s) réparée(s)')}return}
+   if(a==='ext')return viewExt8(id);if(a==='extok')return extOk8(id);
+   if(a==='visit')return viewVisit8();if(a==='geo')return viewGeo8();if(a==='gdadd'||a==='giadd'||a==='gdel')return geoAct8(a,t);
+   if(a==='hdr')return viewHdr8();if(a==='hdrok')return hdrOk8(false);if(a==='hdrrst')return hdrOk8(true);
+   if(a==='vnew')return newForm8(visitForm8($$b('#vOp').value,$$b('#vNv').value,$$b('#vSt').value));
+   if(a==='cnew')return newForm8(carteForm8(),'Fiche école prérenseignée ouverte : enregistrez-la puis partagez le lien aux IEPP');
+   if(a==='vpdf'){ov.classList.remove('open');document.body.classList.remove('mdl-lock');return openDoc6()}
+   if(a==='mark')return markDlg8();
+   if(a==='markok'){const f=forms.find(x=>x.id===$$b('#mkF').value);if(!f)return;await S.formSave({...f,visit:{op:$$b('#mkO').value,niv:'',st:''},updated:new Date().toISOString()});toast('Formulaire marqué comme fiche de visite');return viewVisit8()}
+   if(a==='carte'){await visitList8();return viewCarte8()}
+   if(a==='ctab'){V8.ct=id;return viewCarte8()}
+   if(a==='cexp'){dl('carte_scolaire_'+V8.ct+'_'+fToday()+'.csv',csv(V8.rows));return}
+   if(a==='synth')return synth8();
+   if(a==='sopen'){if(!subs.find(x=>x.id===id))await visitList8();return viewSub(id)}
+   if(a==='sedit')return viewSubEdit8(id);if(a==='seditok')return subEditOk8(id);
+   if(a==='sst'){const st=t.dataset.st;if(st==='rejet'&&!confirm('Rejeter cette réponse ? Elle reste consultable et l\'historique garde la trace.'))return;
+      const s=subs.find(x=>x.id===id);await S.subUpdate(id,{status:st,note:(($$b('#sbNote')||{}).value)||(s&&s.note)||''});if(s)s.status=st;log('Statut de réponse',(s&&s.ref)+' → '+st);return viewSub(id)}
+   if(a==='fiche'){const s=subs.find(x=>x.id===id);if(!s)return;return fiche8([s],(fById(s.formId)||{}).visit?null:'FICHE DE RÉPONSE')}
+   if(a==='fget'){const s=subs.find(x=>x.id===id);if(s&&s.files&&s.files[t.dataset.k])fdl8(s.files[t.dataset.k]);return}
+  }catch(x){toast(x.message||String(x))}});
+/* conditions : changements dans l'éditeur */
+document.addEventListener('change',e=>{
+  const t=e.target;if(!t.dataset||!t.dataset.v8||!FB)return;const a=t.dataset.v8,q=FB.fields.find(x=>x.id===t.dataset.id);if(!q)return;
+  if(a==='cq'){if(t.value)q.cond={q:t.value,v:[]};else delete q.cond;drawFields();drawPrev();saveDraft();return}
+  if(a==='cv'){const box=t.closest('.v8cv');q.cond=q.cond||{q:'',v:[]};q.cond.v=[...box.querySelectorAll('[data-v8="cv"]:checked')].map(x=>x.value);drawPrev();saveDraft();return}
+  if(a==='okv'){const box=t.closest('.v8cv');const v=[...box.querySelectorAll('[data-v8="okv"]:checked')].map(x=>x.value);if(v.length)q.ok=v;else delete q.ok;saveDraft();return}
+});
+
 function fCard(f){
   const st=fState(f),n=subs.filter(s=>s.formId===f.id).length,nf=(f.fields||[]).filter(x=>x.type!=='section').length;
   return `<div class="fcard"><div class="fc-h"><span class="mi" style="width:44px;height:44px;font-size:22px;border-radius:14px">${ic('doc')}</span><div><b>${esc(f.title)}</b><small>${nf} question${nf>1?'s':''} · ${n} réponse${n>1?'s':''}</small></div><span class="sp ${st==='on'?'on':st==='soon'?'mc':'off'}" style="margin-left:auto">${FSTAT[st]}</span></div>
    <div class="fc-l">${ic('link')}<span>${esc(formLink(f.id)||'(adresse du site à renseigner)')}</span></div>
    <div class="ab"><button class="btn btn-o sm" data-fm="share" data-id="${esc(f.id)}">${ic('share')} Partager le lien</button>
     ${(f.quiz||f.eval)?`<button class="ib2 k" data-sc="open" data-id="${esc(f.id)}" title="Résultats notés">${ic('star')}</button>`:''}<button class="ib2 e" data-fm="edit" data-id="${esc(f.id)}" title="Modifier">${ic('edit')}</button><button class="ib2" data-fm="resp" data-id="${esc(f.id)}" title="Voir les réponses">${ic('inbox')}</button>
-    <button class="ib2 t" data-fm="toggle" data-id="${esc(f.id)}" title="${f.active===false?'Ouvrir':'Fermer'} le formulaire">${ic('power')}</button><button class="ib2 k" data-fm="dup" data-id="${esc(f.id)}" title="Dupliquer">${ic('copy')}</button><button class="ib2 d" data-fm="del" data-id="${esc(f.id)}" title="Supprimer">${ic('trash')}</button></div></div>`;
+    <button class="ib2 t" data-fm="toggle" data-id="${esc(f.id)}" title="${f.active===false?'Ouvrir':'Fermer'} le formulaire">${ic('power')}</button><button class="ib2 k" data-fm="dup" data-id="${esc(f.id)}" title="Dupliquer">${ic('copy')}</button><button class="ib2 d" data-fm="del" data-id="${esc(f.id)}" title="Supprimer">${ic('trash')}</button><button class="ib2 k" data-v7="tomodel" data-id="${esc(f.id)}" title="Garder comme modèle">${ic('book')}</button><label class="v7ck" title="Sélectionner pour suppression groupée"><input type="checkbox" data-v7f="${esc(f.id)}"> Sélectionner</label></div></div>`;
 }
 function rForms(){
   return `<div class="pubset"><label>Adresse publique du site (utilisée pour construire les liens)<input id="pubUrl" placeholder="https://votre-compte.github.io/statmen/" value="${esc((()=>{try{return localStorage.getItem('statmen_pub_url')||''}catch(e){return ''}})()||(location.protocol!=='file:'?pubBase():''))}"></label><button class="btn btn-w sm" data-fm="saveurl">${ic('check')} Enregistrer</button></div>
@@ -5178,18 +5723,18 @@ async function ddReindex(){
 const subRows=()=>{const q=plain(RV.q);return subs.filter(s=>(!RV.form||s.formId===RV.form)&&(!RV.st||s.status===RV.st)&&(!q||plain(s.ref+' '+s.formTitle+' '+Object.values(s.data||{}).map(valTxt).join(' ')).includes(q))).sort((a,b)=>String(b.at).localeCompare(String(a.at)))};
 const stChip=s=>`<span class="rb" style="--c:${(SUBST[s]||['?','#888'])[1]}">${(SUBST[s]||[s])[0]}</span>`;
 function subTable(){
-  const L2=subRows();if(!L2.length)return `<tr><td colspan="6"><div class="empty">Aucune réception ne correspond.</div></td></tr>`;
+  const L2=subRows();if(!L2.length)return `<tr><td colspan="7"><div class="empty">Aucune réception ne correspond.</div></td></tr>`;
   return L2.slice(0,200).map(s=>{const prev=Object.entries(s.data||{}).filter(([k,v])=>valTxt(v)!=='').slice(0,3).map(([k,v])=>`${esc(s.labels&&s.labels[k]||'')}: ${esc(valTxt(v))}`).join(' · ');
-   return `<tr><td><b>${esc(s.ref)}</b></td><td>${dt(s.at)}</td><td>${esc(s.formTitle)}</td><td class="trunc" title="${esc(prev)}">${prev}</td><td>${stChip(s.status)}</td>
-   <td><div class="ab"><button class="ib2 e" data-fm="vsub" data-id="${esc(s.id)}" title="Voir">${ic('eye')}</button><button class="ib2 t" data-fm="sval" data-id="${esc(s.id)}" title="Valider" ${s.status==='valide'?'disabled':''}>${ic('check')}</button><button class="ib2 k" data-fm="scor" data-id="${esc(s.id)}" title="Renvoyer à corriger" ${s.status==='corriger'?'disabled':''}>${ic('undo')}</button><button class="ib2 d" data-fm="sdel" data-id="${esc(s.id)}" title="Supprimer">${ic('trash')}</button></div></td></tr>`}).join('')+(L2.length>200?`<tr><td colspan="6"><div class="empty">Affichage limité à 200 lignes : affinez les filtres ou exportez.</div></td></tr>`:'');
+   return `<tr><td><input type="checkbox" data-v7sub="${esc(s.id)}" aria-label="Sélectionner"></td><td><b>${esc(s.ref)}</b></td><td>${dt(s.at)}</td><td>${esc(s.formTitle)}</td><td class="trunc" title="${esc(prev)}">${prev}</td><td>${stChip(s.status)}</td>
+   <td><div class="ab"><button class="ib2 e" data-fm="vsub" data-id="${esc(s.id)}" title="Voir">${ic('eye')}</button><button class="ib2 t" data-fm="sval" data-id="${esc(s.id)}" title="Valider" ${s.status==='valide'?'disabled':''}>${ic('check')}</button><button class="ib2 k" data-fm="scor" data-id="${esc(s.id)}" title="Renvoyer à corriger" ${s.status==='corriger'?'disabled':''}>${ic('undo')}</button><button class="ib2 d" data-fm="sdel" data-id="${esc(s.id)}" title="Supprimer">${ic('trash')}</button></div></td></tr>`}).join('')+(L2.length>200?`<tr><td colspan="7"><div class="empty">Affichage limité à 200 lignes : affinez les filtres ou exportez.</div></td></tr>`:'');
 }
 function rRecv(){
   const c=s=>subs.filter(x=>x.status===s).length;
   return `<div class="mstat"><div style="--c:#FF6A00"><b>${c('recu')}</b><small>reçues (à traiter)</small></div><div style="--c:#00A859"><b>${c('valide')}</b><small>validées</small></div><div style="--c:#D8195B"><b>${c('corriger')}</b><small>à corriger</small></div><div style="--c:#7B3FF2"><b>${subs.length}</b><small>au total</small></div></div>
   <div class="mtools"><input id="rcQ" placeholder="Rechercher une référence, un mot…" value="${esc(RV.q)}"><select id="rcF"><option value="">Tous les formulaires</option>${forms.map(f=>`<option value="${esc(f.id)}"${RV.form===f.id?' selected':''}>${esc(f.title)}</option>`).join('')}</select>
    <select id="rcS"><option value="">Tous les statuts</option>${Object.keys(SUBST).map(k=>`<option value="${k}"${RV.st===k?' selected':''}>${SUBST[k][0]}</option>`).join('')}</select>
-   <button class="btn btn-w sm" data-fm="ddidx" title="Prendre en compte les réponses déjà reçues dans le contrôle des doublons">${ic('shield')} Indexer les doublons</button><button class="btn btn-w sm" data-fm="expcsv">${ic('down')} CSV</button><button class="btn btn-w sm" data-fm="expxls">${ic('down')} Excel</button></div>
-  <div class="tw"><table class="ut" style="min-width:860px"><thead><tr><th>Référence</th><th>Reçu le</th><th>Formulaire</th><th>Aperçu</th><th>Statut</th><th>Actions</th></tr></thead><tbody id="rcBody">${subTable()}</tbody></table></div>`;
+   <button class="btn btn-w sm" data-fm="ddidx" title="Prendre en compte les réponses déjà reçues dans le contrôle des doublons">${ic('shield')} Indexer les doublons</button><button class="btn btn-w sm" data-fm="expcsv">${ic('down')} CSV</button><button class="btn btn-w sm" data-fm="expxls">${ic('down')} Excel</button><button class="btn btn-w sm dng" data-v7="delsubs">${ic('trash')} Supprimer la sélection</button><button class="btn btn-w sm" data-v7="trash">${ic('trash')} Corbeille</button></div>
+  <div class="tw"><table class="ut" style="min-width:860px"><thead><tr><th style="width:30px"><input type="checkbox" data-v7="allsub" aria-label="Tout sélectionner"></th><th>Référence</th><th>Reçu le</th><th>Formulaire</th><th>Aperçu</th><th>Statut</th><th>Actions</th></tr></thead><tbody id="rcBody">${subTable()}</tbody></table></div>`;
 }
 function viewSub(id){
   const s=subs.find(x=>x.id===id);if(!s)return;const f=fById(s.formId);
@@ -5247,7 +5792,7 @@ box.addEventListener('click',async e=>{
    if(a==='resp'){RV.form=id;return viewRem('recv')}
    if(a==='toggle'&&f){await S.formSave({...f,active:f.active===false});log('Formulaire '+(f.active===false?'ouvert':'fermé'),f.title);return viewRem('forms')}
    if(a==='dup'&&f){const n={...JSON.parse(JSON.stringify(f)),id:newFormId(),title:f.title+' (copie)',active:false,created:new Date().toISOString()};const kk0=f.quiz?((await S.keyGet(f.id))||{}):null,mp={};n.fields.forEach(q=>{const o=q.id;q.id=fid();mp[o]=q.id});if(f.quiz){n.phase=f.phase==='post'?'pre':f.phase==='pre'?'post':f.phase;if(f.phase==='daily'){n.jour=(+f.jour||1)+1;n.title=/jour\s*\d+/i.test(f.title)?f.title.replace(/jour\s*(\d+)/i,(m,d)=>'JOUR '+((+d)+1)):f.title+' (jour '+n.jour+')'}}delete n.expected;await S.formSave(n);if(kk0){const nk={};Object.keys(kk0).forEach(o=>{if(mp[o])nk[mp[o]]=kk0[o]});await S.keySave(n.id,nk)}log('Formulaire dupliqué',f.title);toast('Copie créée (fermée)');return viewRem('forms')}
-   if(a==='del'&&f){const n=subsOf(f).length;if(!confirm('Supprimer le formulaire « '+f.title+' » ?'+(n?'\n\nSes '+n+' réception(s) seront conservées mais le lien ne fonctionnera plus.':'')))return;await S.formDel(id);log('Formulaire supprimé',f.title);return viewRem('forms')}
+   if(a==='del'&&f){const n=subsOf(f).length;if(!confirm('Supprimer le formulaire « '+f.title+' » ?'+(n?'\n\nSes '+n+' réception(s) seront conservées mais le lien ne fonctionnera plus.':'')))return;await S.formDel(id);log('Formulaire supprimé',f.title);toast('Formulaire placé dans la corbeille');return viewRem('forms')}
    /* éditeur */
    if(a==='addq'){syncMeta();const k=$$b('#fmAddT').value,q=mkF(k==='section'?'Nouvelle section':'Nouvelle question',k,{o:['select','radio','checkbox'].includes(k)?['Choix 1','Choix 2']:[]});FB.fields.push(q);fbOpen=q.id;drawFields();drawPrev();const el=$$b(`[data-q="${q.id}"]`);if(el)el.scrollIntoView({behavior:'smooth',block:'center'});return}
    if(a==='qedit'){fbOpen=fbOpen===id?null:id;return drawFields()}
@@ -5259,7 +5804,7 @@ box.addEventListener('click',async e=>{
    if(a==='vsub')return viewSub(id);
    if(a==='sval'||a==='scor'){const s=subs.find(x=>x.id===id);await S.subUpdate(id,{status:a==='sval'?'valide':'corriger'});if(a==='scor')await ddRelease(s);else await ddEnsure(s);s.status=a==='sval'?'valide':'corriger';log('Réception '+(a==='sval'?'validée':'renvoyée à corriger'),s.ref);updRemBadge();return viewRem('recv')}
    if(a==='ssave'){const s=subs.find(x=>x.id===id),st=t.dataset.st,note=$$b('#sbNote').value.trim();await S.subUpdate(id,{status:st,note});if(st==='corriger')await ddRelease(s);else await ddEnsure(s);s.status=st;log('Réception traitée ('+SUBST[st][0]+')',s.ref);toast('Réception mise à jour');return viewRem('recv')}
-   if(a==='sdel'){const s=subs.find(x=>x.id===id);if(!confirm('Supprimer la réception '+s.ref+' ?\n\nLes empreintes anti-doublons de cette réponse seront libérées : la personne pourra de nouveau remplir le formulaire.'))return;await ddRelease(s);await S.subDel(id);subs=subs.filter(x=>x.id!==id);log('Réception supprimée',s.ref);return viewRem('recv')}
+   if(a==='sdel'){const s=subs.find(x=>x.id===id);if(!confirm('Supprimer la réception '+s.ref+' ?\n\nLes empreintes anti-doublons de cette réponse seront libérées : la personne pourra de nouveau remplir le formulaire.'))return;await ddRelease(s);await S.subDel(id);subs=subs.filter(x=>x.id!==id);log('Réception supprimée',s.ref);toast('Réponse placée dans la corbeille');return viewRem('recv')}
    if(a==='ddidx'){if(!confirm('Indexer les réponses déjà reçues pour que l\'anti-doublon les prenne en compte ?'))return;const r=await ddReindex();toast(r.n+' empreinte(s) indexée(s)'+(r.dup?' · '+r.dup+' doublon(s) déjà présent(s) à examiner':' · aucun doublon existant détecté'));return}
    if(a==='expcsv')return exportSubs('csv');if(a==='expxls')return exportSubs('xls');
    if(a==='expcons'){const ff=fById(RV.cf);if(!ff)return;const l=subsOf(ff);return dl('consolidation_'+plain(ff.title).replace(/\W+/g,'_').slice(0,30)+'_'+fToday()+'.csv',csv(matrix(ff,RV.cv==='valide'?l.filter(s=>s.status==='valide'):l)))}
