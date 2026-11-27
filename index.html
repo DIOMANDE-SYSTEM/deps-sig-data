@@ -1359,6 +1359,74 @@ body:not(.is-in) .auth-btn #authTxt{display:inline!important}
 </style>
 <style>.qins{display:flex;gap:8px;align-items:center;margin:2px 0 14px;padding:12px 16px;border-radius:12px;background:linear-gradient(135deg,#EF4458,#F6603F);color:#fff;font:800 12.5px var(--f-head);box-shadow:0 8px 18px rgba(239,68,88,.3)}.qins svg{width:15px;height:15px}.zrh.dq{background:linear-gradient(135deg,#6D3AE0,#9B74F2)}.ty.dq{background:#F8E1EB;color:#B5235F}.dqc .zrc{margin:12px 0}</style>
 <style>.zrh.ev{background:linear-gradient(135deg,#2BA37F,#0E8F6A)}.ty.ev{background:#DDF3EA;color:#0B6B4F}.evl{max-height:340px;overflow:auto;font-size:12.5px}.evl div{padding:8px 10px;border-bottom:1px solid #EEF2F6}.evl em{color:#8695A6;font-style:normal}</style>
+<style>
+/* ===== v16 ===== */
+.v6row{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 14px}
+.v6tb{display:flex;flex-wrap:wrap;gap:7px;align-items:center;margin:4px 0 14px;padding:10px;border-radius:16px;background:linear-gradient(135deg,#FFF4EA,#EAF8F1);border:1px solid #F3DCC6}
+.v6b{display:inline-flex;align-items:center;gap:6px;border:1.5px solid #D9E3EC;background:#fff;color:#0C2036;font:700 12.5px var(--f-body);padding:8px 12px;border-radius:12px;cursor:pointer;transition:transform .15s,box-shadow .15s,border-color .15s}
+.v6b:hover{transform:translateY(-1px);box-shadow:0 6px 14px rgba(12,32,54,.12);border-color:var(--orange)}
+.v6b.hold{background:var(--orange);border-color:var(--orange);color:#fff}
+.v6b .ico{width:15px;height:15px}
+.v6st{font:600 11.5px var(--f-body);color:#007A41;margin-left:auto}
+.v6warn{display:flex;gap:10px;align-items:flex-start;padding:10px 14px;border-radius:14px;background:#FFF3D6;border:1px solid #F5D78A;color:#6A4B00;font:600 13px var(--f-body);margin:6px 0}
+.v6warn .ico{flex:none;width:18px;height:18px}
+#v6dock{position:fixed;left:16px;bottom:16px;z-index:120;display:none;gap:8px;flex-wrap:wrap;max-width:calc(100vw - 32px)}
+body.mdl-lock #v6dock{display:none!important}
+.v6pill{display:inline-flex;align-items:center;gap:8px;border:0;border-radius:999px;padding:11px 16px;font:800 13px var(--f-body);color:#fff;background:#0B6BCB;box-shadow:0 10px 26px rgba(11,107,203,.4);cursor:pointer;max-width:320px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.v6pill.on{background:linear-gradient(135deg,#FF6A00,#00A859)}
+.v6pill .ico{width:16px;height:16px;flex:none}
+.v6ov{position:fixed;inset:0;z-index:160;background:rgba(8,24,43,.55);backdrop-filter:blur(4px);display:none;align-items:flex-start;justify-content:center;padding:4vh 14px;overflow-y:auto}
+.v6ov.open{display:flex}
+.v6box{width:min(640px,100%);background:#fff;border-radius:22px;box-shadow:0 40px 90px rgba(0,0,0,.45);margin:auto;overflow:hidden;border-top:6px solid var(--green)}
+.v6box.wide{width:min(900px,100%)}
+.v6h{display:flex;align-items:flex-start;gap:12px;padding:16px 20px;background:linear-gradient(90deg,#FFF4EA,#fff)}
+.v6h b{font:800 19px var(--f-head);display:block;color:#0C2036}.v6h small{color:#34495E;font-weight:600;font-size:12.5px}
+.v6x{margin-left:auto;border:0;background:#EEF2F6;border-radius:12px;width:36px;height:36px;display:grid;place-items:center;cursor:pointer;flex:none}
+.v6c{padding:16px 20px 22px;max-height:78vh;overflow:auto}
+.v6note{display:flex;gap:10px;padding:12px 14px;border-radius:14px;background:#EAF4FF;border:1px solid #BBD8F5;color:#0B3B6B;font:600 12.8px/1.5 var(--f-body);margin-bottom:12px}.v6note .ico{flex:none;width:18px;height:18px}
+.v6tabs{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 14px}
+.v6t{border:1.5px solid #D9E3EC;background:#fff;border-radius:999px;padding:7px 13px;font:700 12.5px var(--f-body);cursor:pointer;color:#0C2036}
+.v6t.on{background:#0C2036;color:#fff;border-color:#0C2036}
+.v6list{display:grid;gap:6px;max-height:46vh;overflow:auto;padding:2px}
+.v6li{display:flex;gap:10px;align-items:center;padding:9px 12px;border-radius:12px;background:#F6F9FC;border:1px solid #E6ECF2;font:600 13px/1.4 var(--f-body);color:#0C2036}
+.v6li>span{flex:1}.v6li s{color:#B3261E;display:block}.v6li b{color:#007A41;display:block}
+.v6li.err{background:#FDECEA;border-color:#F4B9B3}.v6li.warn{background:#FFF8E5;border-color:#F5E0A3}.v6li.sec{background:#E7F6EE}
+.v6li .ico{flex:none;width:17px;height:17px}
+.v6in{width:100%;border:1.5px solid #D9E3EC;border-radius:10px;padding:7px 10px;font:600 13px var(--f-body);color:#0C2036;background:#fff}
+.v6in.sm{font-size:12px}
+.v6rv{display:grid;grid-template-columns:24px 150px 1fr 1fr;gap:8px;align-items:center;padding:6px 0;border-bottom:1px solid #EEF2F6}
+.v6rv select{border:1.5px solid #D9E3EC;border-radius:10px;padding:7px;font:600 12px var(--f-body)}
+@media(max-width:640px){.v6rv{grid-template-columns:24px 1fr}.v6rv .v6in,.v6rv select{grid-column:2}}
+.v6grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.v6card{border-radius:16px;border:1.5px solid #E6ECF2;border-left:6px solid var(--c);padding:12px 14px;background:#fff;display:grid;gap:4px;align-content:start}
+.v6card b{font:800 14.5px var(--f-head);color:#0C2036}.v6card small{color:#34495E;font-size:12.5px;font-weight:600}.v6card em{font:700 10.5px var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--c);font-style:normal}
+.v6c label.btn{color:#fff;flex-direction:row;align-items:center;gap:8px}
+.v6det{margin-top:14px;font:600 13px var(--f-body)}.v6det summary{cursor:pointer;font-weight:800;color:#0B6BCB}
+.v6qr{border-top:1px dashed #D9E3EC;margin-top:10px}.v6wa{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.v6wa input{flex:1;min-width:200px;border:1.5px solid #D9E3EC;border-radius:12px;padding:9px 12px;font:600 13px var(--f-body)}
+/* ===== couleurs et animations du formulaire public ===== */
+.pf-card .pf-h h1{color:#0B6BCB;letter-spacing:.2px}
+.pf-card .pf-h p{color:#0C2036;font-weight:700}
+.pfq .pf-h h1{color:#fff;text-shadow:0 2px 0 rgba(0,0,0,.2)}
+.pfq .pf-h p{color:#FFF6DB}
+.pf-card .qs h4{display:inline-block;color:#fff;background:linear-gradient(90deg,#FF6A00,#FF8A2B);padding:7px 16px;border-radius:12px;box-shadow:0 6px 14px rgba(255,106,0,.28)}
+.pf-card .qs:nth-of-type(3n+2) h4{background:linear-gradient(90deg,#00A859,#2BBF77);box-shadow:0 6px 14px rgba(0,168,89,.28)}
+.pf-card .qs:nth-of-type(3n) h4{background:linear-gradient(90deg,#0B6BCB,#3C93E8);box-shadow:0 6px 14px rgba(11,107,203,.28)}
+.pf-card .qs p{color:#0B3B6B;font-weight:700}
+.pf-card .rq{color:#D12600;font-weight:900}
+.pf-card .pf-note,.pf-card .pf-warn{color:#0C2036}
+.pf-card .pf-sub{background:linear-gradient(90deg,#00A859,#0B6BCB)!important;color:#fff!important;border:0!important;font-weight:800}
+@media(prefers-reduced-motion:no-preference){
+ @keyframes v6vib{0%,84%,100%{transform:none}86%{transform:translateX(-2px) rotate(-.5deg)}88%{transform:translateX(2px) rotate(.5deg)}90%{transform:translateX(-2px) rotate(-.4deg)}92%{transform:translateX(2px) rotate(.4deg)}94%{transform:translateX(-1px)}96%{transform:translateX(1px)}}
+ @keyframes v6pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.035)}}
+ @keyframes v6blink{0%,100%{opacity:1}50%{opacity:.35}}
+ .pf-card .pf-h h1{animation:v6vib 5.5s ease-in-out infinite}
+ .pf-card .qs h4{animation:v6vib 6.5s ease-in-out infinite 1.2s}
+ .pf-card .rq{animation:v6blink 1.8s ease-in-out infinite}
+ .pf-card .pf-sub{animation:v6pulse 2.6s ease-in-out infinite}
+ @keyframes v6glow{0%,100%{box-shadow:0 10px 26px rgba(11,107,203,.4)}50%{box-shadow:0 0 0 7px rgba(255,106,0,.28),0 10px 26px rgba(255,106,0,.45)}}
+ .v6pill.on{animation:v6glow 2.2s ease-in-out infinite}
+}
+</style>
 </head>
 <body>
 <div class="print-head" aria-hidden="true"><table><tr><td class="l" style="width:22%"><img data-asset="dep" alt=""></td><td class="c"><b>RÉPUBLIQUE DE CÔTE D'IVOIRE</b><i>Union – Discipline – Travail</i><span>MINISTÈRE DE L'ÉDUCATION NATIONALE, DE L'ALPHABÉTISATION ET DE L'ENSEIGNEMENT TECHNIQUE</span><em>DIRECTION DES ÉTUDES, DE LA PLANIFICATION ET DES STATISTIQUES (DEPS)</em></td><td class="r" style="width:22%"><img data-asset="armPng" alt=""></td></tr></table><div class="tri2"></div><div class="pt"><b id="phTitle"></b><span id="phDate"></span></div></div>
@@ -4602,6 +4670,372 @@ xf.onchange=async()=>{const f=xf.files[0];xf.value='';if(f){try{await xlStart(f)
 box.addEventListener('click',async e=>{const t=e.target.closest('[data-xl]');if(!t)return;try{if(t.dataset.xl==='go')await xlGo()}catch(x){toast(x.message||'Erreur')}});
 /* mémorise la vue courante pour la réactualiser après saisie de l'effectif attendu */
 {const a=viewDash,b=viewDaily,c=viewEval;viewDash=async function(x){viewCur.fn=viewDash;viewCur.arg=x;return a(x)};viewDaily=async function(x){viewCur.fn=viewDaily;viewCur.arg=x;return b(x)};viewEval=async function(x){viewCur.fn=viewEval;viewCur.arg=x;return c(x)}}
+
+/* ================= v16 : conception des formulaires — brouillons, assistant, import, bibliothèque, Excel, partage, sauvegardes ================= */
+const L6={get(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}};
+const V6={did:null,min:null,tmr:null};
+const dl6=(blob,name)=>{const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1500)};
+const slug6=s=>nrm(s||'formulaire').replace(/\s+/g,'-').slice(0,40)||'formulaire';
+const hm6=t=>new Date(t).toLocaleString('fr-FR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+const edOpen=()=>!!(FB&&$$b('#fmTitle')&&ov.classList.contains('open'));
+const cp6=o=>JSON.parse(JSON.stringify(o));
+
+/* ---------- fenêtre secondaire (n'écrase jamais l'éditeur) ---------- */
+const P6=document.createElement('div');P6.id='v6ov';P6.className='v6ov';P6.innerHTML='<div class="v6box" id="v6box"></div>';document.body.appendChild(P6);
+const v6box=P6.firstChild,p6b=s=>v6box.querySelector(s);
+const p6=(t,sub,body,wide)=>{v6box.className='v6box'+(wide?' wide':'');v6box.innerHTML=`<div class="v6h"><div><b>${t}</b><small>${sub||''}</small></div><button class="v6x" data-v6="x" aria-label="Fermer">${ic('x')}</button></div><div class="v6c">${body}</div>`;P6.classList.add('open')};
+const p6x=()=>P6.classList.remove('open');
+P6.addEventListener('mousedown',e=>{if(e.target===P6)p6x()});
+
+/* ---------- brouillons ---------- */
+const drafts6=()=>L6.get('sd6_drafts',[]);
+function saveDraft(){
+  if(!edOpen())return;syncMeta();
+  if(!FB.title&&!FB.fields.length)return;
+  const a=drafts6();V6.did=V6.did||('d'+Date.now().toString(36)+Math.random().toString(36).slice(2,5));
+  const d={id:V6.did,title:FB.title||'(sans titre)',saved:Date.now(),n:FB.fields.filter(x=>x.type!=='section').length,src:FB.id||null,form:cp6(FB)};
+  const i=a.findIndex(x=>x.id===d.id);if(i<0)a.unshift(d);else a[i]=d;
+  if(!L6.set('sd6_drafts',a.slice(0,30)))return;
+  const s=$$b('#v6st');if(s)s.textContent='Brouillon enregistré à '+new Date().toLocaleTimeString('fr-FR',{hour:'2-digit',minute:'2-digit'});
+  updDock()}
+function rmDraft(id){if(!id)return;L6.set('sd6_drafts',drafts6().filter(x=>x.id!==id));updDock()}
+function updDock(){
+  let d=$('#v6dock');if(!d){d=document.createElement('div');d.id='v6dock';document.body.appendChild(d)}
+  const n=drafts6().length,m=V6.min;
+  d.style.display=(isSA()&&(n||m))?'flex':'none';
+  const h=(m?`<button class="v6pill on" data-v6="resume">${ic('edit')} Reprendre : ${esc((m.fb&&m.fb.title)||'formulaire en cours')}</button>`:'')+(n?`<button class="v6pill" data-v6="drafts">${ic('layers')} Brouillons (${n})</button>`:'');if(d.dataset.h!==h){d.dataset.h=h;d.innerHTML=h}}
+setInterval(()=>{if(edOpen())saveDraft();else updDock()},5000);
+document.addEventListener('input',e=>{if(edOpen()&&box.contains(e.target)){clearTimeout(V6.tmr);V6.tmr=setTimeout(saveDraft,1500)}});
+document.addEventListener('click',e=>{if(!edOpen())return;const x=e.target.closest('[data-x]');if(x&&box.contains(x)){saveDraft();toast('Conception conservée dans « Brouillons »')}const c=e.target.closest('[data-fm="tab"]');if(c&&box.contains(c)){rmDraft(V6.did);V6.did=null}},true);
+ov.addEventListener('mousedown',e=>{if(e.target===ov&&edOpen())saveDraft()},true);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&P6.classList.contains('open')){p6x();e.stopImmediatePropagation();return}if(e.key==='Escape'&&edOpen())saveDraft()},true);
+
+/* ---------- instantanés (sauvegarde avant toute modification d'un formulaire existant) ---------- */
+async function snap6(f){
+  let keys=null;if(f.quiz){try{keys=await S.keyGet(f.id)}catch(e){}}
+  const a=L6.get('sd6_snap',[]);a.unshift({at:Date.now(),id:f.id,title:f.title,form:cp6(f),keys});L6.set('sd6_snap',a.slice(0,40))}
+
+/* ---------- enveloppes (rien n'est supprimé : les fonctions d'origine sont conservées) ---------- */
+{const o=viewFormEdit;viewFormEdit=async function(id,draft,did){V6.did=did||null;V6.min=null;await o(id,draft);tb6();updDock()}}
+{const o=saveForm;saveForm=async function(){
+  try{if(FB&&FB.id){const old=forms.find(x=>x.id===FB.id);if(old){await snap6(old);const n=subs.filter(s=>s.formId===FB.id).length;
+    if(n){syncMeta();const gone=(old.fields||[]).filter(q=>q.type!=='section'&&!FB.fields.some(x=>x.id===q.id)),chg=(old.fields||[]).filter(q=>{const x=FB.fields.find(y=>y.id===q.id);return x&&q.type!==x.type&&q.type!=='section'});
+      if((gone.length||chg.length)&&!confirm(`Ce formulaire a déjà ${n} réponse(s). ${gone.length} question(s) supprimée(s) et ${chg.length} question(s) changée(s) de type : les réponses déjà reçues restent conservées, mais ces colonnes peuvent ne plus s'afficher correctement. Une copie de l'ancienne version a été sauvegardée. Continuer ?`))return}}}}catch(e){}
+  await o();if(!$$b('#fmTitle')){rmDraft(V6.did);V6.did=null;V6.min=null;updDock()}}}
+{const o=viewShare;viewShare=async function(id){await o(id);sh6(id)}}
+{const o=viewNewForm;viewNewForm=function(){o();const b=$$b('.mbody');if(b)b.insertAdjacentHTML('afterbegin',`<div class="v6row">${bar6()}</div>`)}}
+{const o=viewRem;viewRem=async function(t){await o(t);if(RV.tab==='forms'){const b=$$b('.mbody');if(b&&!b.querySelector('.v6row'))b.insertAdjacentHTML('afterbegin',`<div class="v6row">${bar6()}</div>`)}updDock()}}
+const bar6=()=>`<button class="v6b" data-v6="lib">${ic('star')} Bibliothèque de modèles</button><button class="v6b" data-v6="doc">${ic('up')} Importer un document</button><button class="v6b" data-v6="xltpl">${ic('down')} Modèle Excel</button><button class="v6b" data-v6="xlin">${ic('sheet')} Importer un Excel normalisé</button><button class="v6b" data-v6="ai">${ic('bolt')} Assistant de conception</button><button class="v6b" data-v6="drafts">${ic('layers')} Brouillons (${drafts6().length})</button><button class="v6b" data-v6="bk">${ic('shield')} Sauvegardes</button>`;
+function tb6(){
+  const l=$$b('#fbList');if(!l||$$b('#v6tb'))return;const h=l.previousElementSibling;if(!h)return;
+  const n=FB.id?subs.filter(s=>s.formId===FB.id).length:0;
+  h.insertAdjacentHTML('beforebegin',`${n?`<div class="v6warn">${ic('alert')}<span>Ce formulaire a déjà <b>${n} réponse${n>1?'s':''}</b>. Vos modifications ne touchent pas aux réponses reçues ; une copie de la version actuelle est sauvegardée avant l'enregistrement.</span></div>`:''}
+   <div class="v6tb" id="v6tb"><button type="button" class="v6b hold" data-v6="hold">${ic('clock')} Mettre en attente</button><button type="button" class="v6b" data-v6="min">${ic('arrowdown')} Réduire</button><button type="button" class="v6b" data-v6="ai">${ic('bolt')} Assistant</button><button type="button" class="v6b" data-v6="doc">${ic('up')} Importer un document</button><button type="button" class="v6b" data-v6="lib">${ic('star')} Bibliothèque</button><button type="button" class="v6b" data-v6="xlout">${ic('down')} Exporter en Excel</button><button type="button" class="v6b" data-v6="xltpl">${ic('sheet')} Modèle Excel</button><button type="button" class="v6b" data-v6="xlin">${ic('up')} Importer Excel</button><button type="button" class="v6b" data-v6="tplsave">${ic('copy')} Enregistrer comme modèle</button><span id="v6st" class="v6st">Enregistrement automatique actif</span></div>`)}
+
+/* ================= ASSISTANT INTÉGRÉ (règles hors ligne — pas d'IA générative) ================= */
+const DICT6={ecole:'école',ecoles:'écoles',eleve:'élève',eleves:'élèves',etablissement:'établissement',etablissements:'établissements',evaluation:'évaluation',evaluations:'évaluations',reponse:'réponse',reponses:'réponses',donnees:'données',donnee:'donnée',numero:'numéro',telephone:'téléphone',prenom:'prénom',prenoms:'prénoms',activite:'activité',activites:'activités',region:'région',regions:'régions',departement:'département',prefecture:'préfecture',sante:'santé',scolarite:'scolarité',annee:'année',annees:'années',deuxieme:'deuxième',troisieme:'troisième',quatrieme:'quatrième',cinquieme:'cinquième',sixieme:'sixième',seance:'séance',modele:'modèle',probleme:'problème',problemes:'problèmes',systeme:'système',theme:'thème',themes:'thèmes',mathematiques:'mathématiques',mathematique:'mathématique',francais:'français',ecriture:'écriture',pedagogique:'pédagogique',pedagogiques:'pédagogiques',qualite:'qualité',tres:'très',apres:'après',deja:'déjà',periode:'période',duree:'durée',frequence:'fréquence',recu:'reçu',recus:'reçus',reunion:'réunion',reseau:'réseau',generale:'générale',general:'général',specifique:'spécifique',resultat:'résultat',resultats:'résultats',precisez:'précisez',preciser:'préciser',precision:'précision',etat:'état',effectifs:'effectifs',ressources:'ressources',difficultes:'difficultés',difficulte:'difficulté',recommandation:'recommandation',strategie:'stratégie',elementaire:'élémentaire',secondaire:'secondaire',presence:'présence',present:'présent',presente:'présente',diplome:'diplôme',deroulement:'déroulement',realise:'réalisé',realisee:'réalisée',realises:'réalisés',controle:'contrôle',animateur:'animateur',facilitateur:'facilitateur',anterieur:'antérieur',different:'différent',differents:'différents',equipe:'équipe',equipes:'équipes',electronique:'électronique',elementaires:'élémentaires',categorie:'catégorie',categories:'catégories'};
+const rxD6=new RegExp('(^|[^A-Za-zÀ-ÿ])('+Object.keys(DICT6).join('|')+')(?![A-Za-zÀ-ÿ])','gi');
+const keepCase6=(src,dst)=>src===src.toUpperCase()&&src.length>1?dst.toUpperCase():src[0]===src[0].toUpperCase()?dst[0].toUpperCase()+dst.slice(1):dst;
+const QW6=/^((?:[A-Za-z]?\d+[\.\)\-–:\s]*)*)\s*(quel|quelle|quels|quelles|combien|comment|pourquoi|quand|où|qui|que|quoi|est-ce|avez-vous|êtes-vous|etes-vous|disposez-vous|existe-t-il|y a-t-il|peut-on|pouvez-vous|lequel|laquelle|lesquels|lesquelles)\b/i;
+function fixText(s,label){
+  let t=String(s==null?'':s).replace(/[ \t\u00A0]{2,}/g,' ').trim();if(!t)return t;
+  t=t.replace(/c[oô]te d['’ ]?ivoire/gi,"Côte d'Ivoire");
+  t=t.replace(/\b(est[ -]ce|qu'est[ -]ce|etes[ -]vous|êtes[ -]vous|avez[ -]vous|peut[ -]on|pouvez[ -]vous|disposez[ -]vous)\b/gi,m=>{const x=m.toLowerCase().replace(/ /g,'-').replace(/^etes/,'êtes');return keepCase6(m,x)});
+  t=t.replace(/\by a[ -]t[ -]il\b/gi,m=>keepCase6(m,'y a-t-il'));
+  t=t.replace(rxD6,(m,p,w)=>p+keepCase6(w,DICT6[w.toLowerCase()]));
+  t=t.replace(/\s+([,.])(?=\s|$)/g,'$1').replace(/([A-Za-zÀ-ÿ\)»"'’])([?!:;])(?=\s|$)/g,'$1 $2').replace(/([,;])(?=[A-Za-zÀ-ÿ])/g,'$1 ').replace(/([a-zà-ÿ]{2})\.(?=[A-ZÀ-Ý])/g,'$1. ');
+  t=t.replace(/\?{2,}/g,'?').replace(/!{2,}/g,'!').replace(/,{2,}/g,',').replace(/ {2,}/g,' ');
+  t=t.replace(/^((?:[A-Za-z]?\d+[\.\)\-–:\s]*)*)([a-zà-ÿ])/,(m,p,c)=>p+c.toUpperCase());
+  if(label&&QW6.test(t)&&!/[?:.!…]\s*$/.test(t))t+=' ?';
+  return t.trim()}
+const LIBEX6=[["ecole ou etablissement scolaire ?","Quel est le nom de l'ecole"],["donnees de l eleve","Numero de telephone"],["Avez vous participe a la formation","etes vous present"],["Quelle est votre fonction  ","Activite realisee,durée"]];
+const OPT6=[[/(genre|sexe)\b/,['Masculin','Féminin']],[/(satisfai|apprecie|qualite|clarte|organisation|contenu|animation|supports?)/,SCALE],[/(avez-vous|disposez|existe|y a-t-il|est-ce que|possedez|etes-vous|êtes-vous|participe|utilisez)/,['Oui','Non']],[/(fonction|poste|profession)/,['Directeur(trice)','Enseignant(e)','Conseiller(ère) pédagogique','Inspecteur(trice)','Autre']],[/(niveau|classe)\b/,['CP1','CP2','CE1','CE2','CM1','CM2']],[/(frequence|souvent|regularite)/,['Jamais','Rarement','Souvent','Toujours']],[/(connaissance|maitris|competence|aise)/,['Très bien','Bien','Passablement','Pas du tout']],[/(conforme|respect|tenue)/,['Conforme','Partiellement conforme','Non conforme']]];
+const optGuess6=lab=>{const n=nrm(fixText(lab,true));for(const[r,o]of OPT6)if(r.test(n))return o.slice();return null};
+function diag6(){
+  const r=[],q=FB.fields.filter(x=>x.type!=='section'),seen={};
+  q.forEach((x,i)=>{const n=nrm(x.label);if(n&&seen[n])r.push(['err',`Question en double : « ${x.label} »`]);seen[n]=1;
+    if(x.label.length>160)r.push(['warn',`« ${x.label.slice(0,60)}… » : intitulé trop long (${x.label.length} caractères). Raccourcissez ou déplacez le détail dans l'aide.`]);
+    if(['select','radio','checkbox'].includes(x.type)&&(x.options||[]).length<2)r.push(['err',`« ${x.label} » : moins de 2 choix de réponse.`]);
+    if((x.options||[]).length!==new Set((x.options||[]).map(nrm)).size)r.push(['warn',`« ${x.label} » : deux choix identiques.`]);
+    if(/^[A-ZÀ-Ý\s\d'’\-.:]{18,}$/.test(x.label))r.push(['warn',`« ${x.label.slice(0,50)}… » : intitulé tout en majuscules (moins lisible).`]);
+    if(FB.quiz&&['select','radio','checkbox'].includes(x.type)&&!((FB.keys||{})[x.id]||{a:[]}).a.length)r.push(['warn',`« ${x.label.slice(0,60)} » : aucune bonne réponse définie (question non notée).`])});
+  if(!FB.description)r.push(['warn','Aucune description : ajoutez une phrase pour expliquer le but du formulaire.']);
+  if(!q.some(x=>x.type==='tel'||/nom|prenom/.test(nrm(x.label))))r.push(['warn','Aucune question d\'identification (nom, prénoms, téléphone) : utile pour retrouver les répondants.']);
+  return r}
+function openAI(tab){
+  tab=tab||'fix';const ed=edOpen()||!!V6.min;
+  const T=(k,l)=>`<button class="v6t${tab===k?' on':''}" data-v6="aitab" data-id="${k}">${l}</button>`;
+  let body=`<div class="v6note">${ic('help')}<span><b>Assistant intégré, sans connexion ni clé.</b> Il fonctionne par règles (dictionnaire d'accents et de termes courants, ponctuation française, détection des questions, modèles par type d'activité). Ce n'est pas une IA générative : il propose, vous relisez et validez avant tout ajout au formulaire.</span></div><div class="v6tabs">${T('fix','Corriger l\'orthographe et la forme')}${T('chk','Contrôler et proposer des réponses')}${T('gen','Générer depuis une activité')}${T('free','Corriger un texte libre')}</div>`;
+  if(tab==='fix'||tab==='chk'){if(!edOpen()){body+=`<div class="empty" style="padding:18px">Ouvrez (ou créez) un formulaire dans l'éditeur, puis relancez l'assistant.</div>`}
+    else if(tab==='fix'){syncMeta();const ch=[];const add=(w,qid,oi,b,lab)=>{const a=fixText(b,lab);if(a!==b)ch.push({w,qid,oi,b,a})};
+      add('title',null,null,FB.title,true);add('desc',null,null,FB.description,false);add('conf',null,null,FB.confirmMsg,false);
+      FB.fields.forEach(q=>{add('q',q.id,null,q.label,q.type!=='section');if(q.help)add('h',q.id,null,q.help,false);(q.options||[]).forEach((o,i)=>add('o',q.id,i,o,false))});
+      V6.fix=ch;
+      body+=ch.length?`<p class="mnote">${ch.length} correction${ch.length>1?'s':''} proposée${ch.length>1?'s':''}. Décochez celles que vous refusez.</p><div class="v6list">${ch.map((c,i)=>`<label class="v6li"><input type="checkbox" checked data-fx="${i}"><span><s>${esc(c.b)}</s><b>${esc(c.a)}</b></span></label>`).join('')}</div><div class="macts" style="padding:12px 0 0"><button class="btn btn-o sm" data-v6="fxgo">${ic('check')} Appliquer la sélection</button></div>`:`<div class="empty" style="padding:18px">${ic('check')} Aucune faute détectée par l'assistant.</div>`}
+    else{const d=diag6();V6.sug=[];FB.fields.forEach(q=>{if(['select','radio','checkbox'].includes(q.type)&&(q.options||[]).length<2){const g=optGuess6(q.label);if(g)V6.sug.push({qid:q.id,label:q.label,o:g})}});
+      body+=`<h4 class="h4s">${ic('search')} Contrôle de clarté</h4>${d.length?`<div class="v6list">${d.map(x=>`<div class="v6li ${x[0]}">${ic(x[0]==='err'?'alert':'help')}<span>${esc(x[1])}</span></div>`).join('')}</div>`:`<div class="empty" style="padding:14px">${ic('check')} Aucun problème détecté.</div>`}
+       <h4 class="h4s" style="margin-top:16px">${ic('layers')} Propositions de réponses</h4>${V6.sug.length?`<div class="v6list">${V6.sug.map((s,i)=>`<label class="v6li"><input type="checkbox" checked data-sg="${i}"><span><b>${esc(s.label)}</b><br><small>${s.o.map(esc).join(' · ')}</small></span></label>`).join('')}</div><div class="macts" style="padding:12px 0 0"><button class="btn btn-o sm" data-v6="sggo">${ic('check')} Ajouter ces choix</button></div>`:`<p class="mnote">Aucune question à choix incomplète n'a pu recevoir de proposition.</p>`}`}}
+  if(tab==='gen'){body+=`<div class="fg"><label>Titre de l'activité<input id="aiT" maxlength="120" placeholder="Ex. Atelier de formation des formateurs régionaux ASER"></label>
+   <div class="mrow"><label>Type de formulaire<select id="aiK"><option value="auto">Détecter automatiquement</option><option value="coll">Collecte de données</option><option value="pres">Fiche de présence</option><option value="sat">Évaluation à chaud (satisfaction)</option><option value="pre">Pré-test</option><option value="post">Post-test</option><option value="daily">Daily Quiz</option><option value="sup">Suivi de mission / supervision</option><option value="rap">Rapport d'activité</option></select></label><label>Questions par thème<input type="number" id="aiN" min="1" max="4" value="2"></label></div>
+   <label>Description de l'activité (but, public, lieu, dates)<textarea id="aiD" style="min-height:70px" placeholder="Ex. Atelier de 3 jours à Bouaké pour outiller les formateurs régionaux sur la remontée des données ASER."></textarea></label>
+   <label>Thèmes ou points à couvrir (un par ligne, ou séparés par des virgules)<textarea id="aiH" style="min-height:90px" placeholder="Ex.&#10;Sigle et objectifs de l'ASER&#10;Plateforme de remontée&#10;Utilisation des résultats"></textarea></label>
+   <div class="macts" style="padding:0"><button class="btn btn-o sm" data-v6="aigen">${ic('bolt')} Proposer un formulaire</button></div><div id="aiOut"></div></div>`}
+  if(tab==='free'){body+=`<div class="fg"><label>Collez votre texte (question, consigne, message…)<textarea id="frT" style="min-height:110px"></textarea></label><div class="macts" style="padding:0"><button class="btn btn-o sm" data-v6="frgo">${ic('check')} Corriger</button></div><label>Texte corrigé<textarea id="frO" style="min-height:110px" readonly></textarea></label><div class="macts" style="padding:0"><button class="btn btn-w sm" data-v6="frcp">${ic('copy')} Copier</button></div><details class="v6det"><summary>Exemples de corrections</summary><div class="v6list">${LIBEX6.map(x=>`<div class="v6li"><span><s>${esc(x[0]||x[1])}</s><b>${esc(fixText(x[0]||x[1],true))}</b></span></div>`).join('')}</div></details></div>`}
+  p6('Assistant de conception',ed?'Propositions à valider avant intégration':'',body,true)}
+
+/* générateur par modèles */
+const ID6=()=>[mkF('Nom','text',{r:1}),mkF('Prénoms','text',{r:1}),mkF('Fonction','select',{r:1,o:['Directeur(trice)','Enseignant(e)','Conseiller(ère) pédagogique','Inspecteur(trice)','Formateur(trice)','Autre']}),mkF('DRENAET','drenaet',{r:1}),mkF('IEPP','iepp',{r:1}),mkF('Contact téléphonique','tel',{r:1})];
+const STEM6=['Parmi les affirmations suivantes, laquelle est exacte au sujet de « T » ?','Que signifie ou à quoi sert « T » ?','Dans quel cas met-on en pratique « T » ?','Quelle erreur faut-il éviter à propos de « T » ?'];
+function kind6(t,d,k){if(k&&k!=='auto')return k;const n=nrm(t+' '+d);if(/post ?test|posttest/.test(n))return'post';if(/pre ?test|pretest/.test(n))return'pre';if(/daily|quotidien/.test(n))return'daily';if(/satisf|a chaud|evaluation de la formation|appreciation/.test(n))return'sat';if(/presence|emargement|liste des participants/.test(n))return'pres';if(/supervision|mission|visite|suivi/.test(n))return'sup';if(/rapport|compte rendu/.test(n))return'rap';return'coll'}
+function genForm(sp){
+  const th=String(sp.h||'').split(/\n|;|,(?=\s*[A-ZÀ-Ý0-9])/).map(x=>x.trim()).filter(Boolean),n=Math.max(1,Math.min(4,+sp.n||2)),k=kind6(sp.t,sp.d,sp.k),T=sp.t||'Formulaire';
+  const F=[],Q=(l,t,o)=>F.push(mkF(l,t,o)),S6=l=>F.push(mkF(l,'section'));
+  const out={title:T,description:sp.d||'',fields:F,notes:[]};
+  S6('Identification');ID6().forEach(x=>F.push(x));
+  if(k==='pre'||k==='post'||k==='daily'){out.quiz=true;out.phase=k;if(k==='daily')out.jour=1;S6(k==='pre'?'Pré-test':k==='post'?'Post-test':'Daily Quiz');
+    (th.length?th:['Thème 1','Thème 2','Thème 3']).forEach(h=>{for(let i=0;i<n;i++)Q(STEM6[i%4].replace('T',h),'radio',{r:1,o:['Proposition A (à rédiger)','Proposition B (à rédiger)','Proposition C (à rédiger)']})});
+    out.notes.push('Les énoncés et propositions sont des squelettes : rédigez-les, puis cochez la bonne réponse et les points dans l\'éditeur (les questions sans bonne réponse ne sont pas notées).')}
+  else if(k==='sat'){out.eval=true;S6('Appréciation de la formation');(th.length?th:['Organisation générale','Contenu des modules','Qualité de l\'animation','Durée de l\'atelier','Supports et documents remis']).forEach(h=>Q(h+' ?','radio',{r:1,o:SCALE.slice()}));S6('Vos suggestions');Q('Ce qui vous a le plus apporté','textarea');Q('Ce qui peut être amélioré','textarea');Q('Vos recommandations','textarea')}
+  else if(k==='pres'){S6('Présence');Q('Date','date',{r:1});Q('Lieu de l\'activité','text',{r:1});Q('Présence','radio',{r:1,o:['Présent(e)','Absent(e)','Excusé(e)']});(th.length?th:[]).forEach(h=>Q('Présent(e) à la séance : '+h,'radio',{o:['Oui','Non']}))}
+  else if(k==='sup'){S6('Visite / supervision');Q('Date de la visite','date',{r:1});Q('Structure visitée','text',{r:1});(th.length?th:['Tenue des documents','Pratiques de classe','Utilisation des données']).forEach(h=>Q(h,'radio',{r:1,o:['Conforme','Partiellement conforme','Non conforme']}));Q('Difficultés rencontrées','textarea');Q('Recommandations','textarea')}
+  else if(k==='rap'){S6('Rapport d\'activité');Q('Date','date',{r:1});Q('Lieu','text',{r:1});Q('Nombre de participants','number',{r:1,min:0});(th.length?th:['Déroulement','Résultats obtenus']).forEach(h=>Q(h,'textarea'));Q('Difficultés','textarea');Q('Recommandations','textarea')}
+  else{S6('Données à remonter');Q('Date de la collecte','date',{r:1});(th.length?th:['Effectif total','Effectif des filles','Effectif des garçons']).forEach(h=>Q(h,'number',{r:1,min:0}));Q('Observations','textarea')}
+  out.kind=k;out.fields=F;return out}
+const KIND6={pre:'Pré-test',post:'Post-test',daily:'Daily Quiz',sat:'Évaluation à chaud',pres:'Fiche de présence',sup:'Suivi de mission',rap:'Rapport d\'activité',coll:'Collecte de données'};
+function showGen(g){
+  V6.gen=g;
+  p6b('#aiOut').innerHTML=`<h4 class="h4s" style="margin-top:14px">${ic('star')} Proposition — ${KIND6[g.kind]} (${g.fields.filter(x=>x.type!=='section').length} questions)</h4>${g.notes.map(x=>`<p class="mnote">${esc(x)}</p>`).join('')}
+   <div class="v6list">${g.fields.map((q,i)=>`<label class="v6li${q.type==='section'?' sec':''}"><input type="checkbox" checked data-gq="${i}"><span><input class="v6in" data-gl="${i}" value="${esc(q.label)}"> <small>${FTYPES[q.type][0]}${(q.options||[]).length?' · '+q.options.map(esc).join(' / '):''}</small></span></label>`).join('')}</div>
+   <div class="macts" style="padding:12px 0 0">${edOpen()?`<button class="btn btn-o sm" data-v6="gadd">${ic('plus')} Ajouter au formulaire en cours</button>`:''}<button class="btn btn-g sm" data-v6="gnew">${ic('edit')} Créer un brouillon avec cette sélection</button></div>`}
+function takeGen(){const g=V6.gen;return g.fields.map((q,i)=>{const c=p6b(`[data-gq="${i}"]`);if(!c||!c.checked)return null;const l=p6b(`[data-gl="${i}"]`).value.trim();return{...q,label:l||q.label}}).filter(Boolean)}
+
+/* ================= EXCEL NORMALISÉ ================= */
+const XTYPES6=Object.keys(FTYPES).map(k=>FTYPES[k][0]);
+const typeFromLabel6=s=>{const n=nrm(s);if(!n)return'text';for(const k of Object.keys(FTYPES))if(nrm(FTYPES[k][0])===n)return k;
+  if(/section|titre/.test(n))return'section';if(/unique|radio|bouton/.test(n))return'radio';if(/multiple|case|checkbox/.test(n))return'checkbox';if(/liste|deroul|select/.test(n))return'select';if(/drenaet/.test(n))return'drenaet';if(/iepp/.test(n))return'iepp';if(/long|paragraphe|commentaire/.test(n))return'textarea';if(/nombre|numer|chiffre/.test(n))return'number';if(/date/.test(n))return'date';if(/mail/.test(n))return'email';if(/tel|contact/.test(n))return'tel';return'text'};
+async function ej6(){if(!window.ExcelJS)await loadScript('https://cdn.jsdelivr.net/npm/exceljs@4.4.0/dist/exceljs.min.js')}
+async function buildXlsx6(form,keys,empty){
+  await ej6();const wb=new ExcelJS.Workbook();wb.creator='SIG-DATA — DEPS / MENAET';wb.created=new Date();
+  const hd=(ws,row)=>{row.eachCell(c=>{c.font={bold:true,color:{argb:'FFFFFFFF'}};c.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FFFF6A00'}};c.alignment={vertical:'middle',wrapText:true};c.border={bottom:{style:'medium',color:{argb:'FF00A859'}}}});row.height=34};
+  const c0=wb.addWorksheet('CONSIGNES');c0.getColumn(1).width=120;
+  ['MODÈLE NORMALISÉ DE FORMULAIRE — SIG-DATA (DEPS / MENAET)','','1. Renseignez l\'onglet INFOS (titre, description, type de formulaire).','2. Dans l\'onglet QUESTIONS, une ligne = une question (ou un titre de section).','3. TYPE : choisissez dans la liste déroulante (Texte court, Choix unique, Liste déroulante, Choix multiples, Titre de section…).','4. CHOIX : pour les listes et les choix, séparez les réponses par un point-virgule ( ; ).','5. Évaluation notée (pré-test, post-test, daily quiz) : indiquez BONNE(S) RÉPONSE(S) (identique(s) à un choix) et POINTS.','6. Ne renommez pas les onglets ni les titres de colonnes. Ajoutez autant de lignes que nécessaire.','7. Enregistrez, puis dans SIG-DATA : Formulaires → Nouveau → « Importer un Excel normalisé ». Le formulaire arrive en brouillon : vous le relisez avant de l\'enregistrer.'].forEach((t,i)=>{const c=c0.getCell(i+1,1);c.value=t;c.alignment={wrapText:true};if(!i)c.font={bold:true,size:14,color:{argb:'FFFF6A00'}}});
+  const wi=wb.addWorksheet('INFOS');wi.columns=[{width:34},{width:70}];hd(wi,wi.addRow(['RUBRIQUE','VALEUR']));
+  const kind=form.eval?'Évaluation de la formation':form.quiz?(form.phase==='post'?'Post-test':form.phase==='daily'?'Daily Quiz':'Pré-test'):'Formulaire standard';
+  [['Titre du formulaire',form.title||''],['Description',form.description||''],['Message après envoi',form.confirmMsg||''],['Type de formulaire',kind],['Jour (Daily Quiz)',form.jour||''],['Effectif attendu',form.expected||''],['Date d\'ouverture',form.opens||''],['Date de clôture',form.closes||'']].forEach(r=>wi.addRow(r));
+  wi.getColumn(2).alignment={wrapText:true,vertical:'top'};
+  wi.dataValidations.add('B5',{type:'list',allowBlank:false,formulae:['"Formulaire standard,Pré-test,Post-test,Daily Quiz,Évaluation de la formation"']});
+  const wq=wb.addWorksheet('QUESTIONS',{views:[{state:'frozen',ySplit:1}]});
+  wq.columns=[{width:6},{width:24},{width:60},{width:14},{width:50},{width:36},{width:40},{width:9},{width:9},{width:9}];
+  hd(wq,wq.addRow(['N°','TYPE','QUESTION (ou titre de section)','OBLIGATOIRE','CHOIX (séparés par ;)','AIDE / PRÉCISION','BONNE(S) RÉPONSE(S)','POINTS','MIN','MAX']));
+  let rows=[];
+  if(empty)rows=[['Titre de section','Identification','','','','','','','',''],['Texte court','Nom et prénoms','Oui','','','','','','',''],['Choix unique','Exemple de question à choix ?','Oui','Proposition A; Proposition B; Proposition C','','Proposition B','2','','',''],['Texte long','Vos observations','Non','','Quelques lignes suffisent','','','','','']].map(r=>[r[0],r[1],r[2],r[3],r[4],r[5],r[6],r[7],r[8],r[9]]);
+  else{let i=0;for(const q of form.fields){const k=(keys||{})[q.id];rows.push([FTYPES[q.type][0],q.label,q.required?'Oui':'Non',(q.options||[]).join('; '),q.help||'',k?(k.a||[]).join('; '):'',k?k.p:'',q.min===''||q.min==null?'':q.min,q.max===''||q.max==null?'':q.max])}}
+  rows.forEach((r,i)=>{const row=wq.addRow([i+1,r[0],r[1],r[2],r[3],r[4],r[5],r[6],r[7],r[8]]);row.alignment={wrapText:true,vertical:'top'};if(r[0]==='Titre de section'){row.font={bold:true,color:{argb:'FF007A41'}};row.fill={type:'pattern',pattern:'solid',fgColor:{argb:'FFE7F6EE'}}}});
+  const last=Math.max(200,rows.length+60);
+  for(let r=2;r<=last;r++){wq.getCell(r,2).dataValidation={type:'list',allowBlank:true,formulae:['"'+XTYPES6.join(',')+'"']};wq.getCell(r,4).dataValidation={type:'list',allowBlank:true,formulae:['"Oui,Non"']}}
+  const wl=wb.addWorksheet('LISTES');wl.getColumn(1).width=34;hd(wl,wl.addRow(['TYPES DE QUESTION DISPONIBLES']));XTYPES6.forEach(x=>wl.addRow([x]));
+  return wb}
+async function dlXlsx6(form,keys,empty,name){const wb=await buildXlsx6(form,keys,empty);dl6(new Blob([await wb.xlsx.writeBuffer()],{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'}),name)}
+async function exportForm6(){
+  if(!edOpen()&&!FB)return;syncMeta();let keys=FB.keys||{};
+  await dlXlsx6(FB,keys,false,'FORMULAIRE_'+slug6(FB.title).toUpperCase()+'.xlsx');toast('Formulaire exporté en Excel')}
+async function readXlsx6(file){
+  const ext=(file.name.split('.').pop()||'').toLowerCase();
+  if(['csv','txt','tsv'].includes(ext)){const rows=parseCSV(await file.text());return{generic:true,head:rows[0]||[],rows:rows.slice(1)}}
+  await ej6();const wb=new ExcelJS.Workbook();await wb.xlsx.load(await file.arrayBuffer());
+  const wq=wb.worksheets.find(w=>/question/i.test(w.name)),wi=wb.worksheets.find(w=>/info/i.test(w.name));
+  const grid=ws=>{const a=[];ws.eachRow({includeEmpty:false},(r,i)=>{const x=[];r.eachCell({includeEmpty:true},(c,j)=>x[j-1]=cvs(c));a.push(x)});return a};
+  if(wq){const info={};if(wi)grid(wi).forEach(r=>{const k=nrm(r[0]||'');if(k&&r[1]!=null)info[k]=r[1]});return{tpl:true,info,rows:grid(wq)}}
+  const ws=wb.worksheets[0];if(!ws)throw new Error('Fichier vide');const g=grid(ws);return{generic:true,head:g[0]||[],rows:g.slice(1)}}
+function xl2form6(d){
+  if(d.generic){const fl=[];d.head.forEach((h,i)=>{if(!h||!String(h).trim())return;const vals=d.rows.map(r=>r[i]);const x=xlInfer(String(h),vals,i);fl.push(mkF(x.label,x.type,{o:x.o,r:false}))});return{title:'',description:'',fields:fl,keys:{},notes:['Colonnes du fichier converties en questions.']}}
+  const hi=d.rows.findIndex(r=>r.some(c=>/^question/.test(nrm(c)))&&r.some(c=>/^type/.test(nrm(c))));if(hi<0)throw new Error('Onglet QUESTIONS : en-têtes introuvables (TYPE, QUESTION…).');
+  const H=d.rows[hi].map(c=>nrm(c)),col=p=>H.findIndex(x=>x.startsWith(p));const cT=col('type'),cQ=col('question'),cR=col('obligatoire'),cC=col('choix'),cA=col('aide'),cB=col('bonne'),cP=col('points'),cMi=col('min'),cMa=col('max');
+  const fl=[],keys={},iv=k=>{const e=Object.keys(d.info).find(x=>x.includes(k));return e?d.info[e]:''},sp=s=>String(s||'').split(/;|\||\n/).map(x=>x.trim()).filter(Boolean);
+  for(const r of d.rows.slice(hi+1)){const lab=String(r[cQ]==null?'':r[cQ]).trim();if(!lab)continue;const t=typeFromLabel6(r[cT]);let o=cC>=0?sp(r[cC]):[];
+    const q=mkF(lab,t,{r:/^(oui|o|1|x|vrai)/i.test(nrm(r[cR])),o:['select','radio','checkbox'].includes(t)?o:[],h:cA>=0&&r[cA]!=null?String(r[cA]):'',min:cMi>=0&&r[cMi]!==''&&r[cMi]!=null?r[cMi]:'',max:cMa>=0&&r[cMa]!==''&&r[cMa]!=null?r[cMa]:''});
+    if(['select','radio','checkbox'].includes(t)&&q.options.length<2)q.options=(q.options.length?q.options:[]).concat(['À compléter 1','À compléter 2']).slice(0,Math.max(2,q.options.length));
+    fl.push(q);
+    if(cB>=0&&t!=='section'){const a=sp(r[cB]).map(v=>q.options.find(x=>nrm(x)===nrm(v))).filter(Boolean);if(a.length)keys[q.id]={a,p:cP>=0&&+r[cP]>=0&&r[cP]!==''?+r[cP]:1}}}
+  const ty=nrm(iv('type')),meta={title:String(iv('titre')||'').trim(),description:String(iv('description')||'').trim(),confirmMsg:String(iv('message')||'').trim(),opens:'',closes:''};
+  const dt=v=>v instanceof Date?v.toISOString().slice(0,10):/^\d{4}-\d{2}-\d{2}/.test(String(v||''))?String(v).slice(0,10):'';meta.opens=dt(iv('ouverture'));meta.closes=dt(iv('cloture'));
+  const o={...meta,fields:fl,keys,notes:[]};
+  if(/evaluation de la formation|satisf/.test(ty))o.eval=true;else if(/post/.test(ty)){o.quiz=true;o.phase='post'}else if(/daily/.test(ty)){o.quiz=true;o.phase='daily';o.jour=Math.max(1,+iv('jour')||1)}else if(/pre/.test(ty)||Object.keys(keys).length){o.quiz=true;o.phase='pre'}
+  const ex=+iv('effectif');if(ex>0)o.expected=ex;return o}
+async function importXl6(file){
+  const d=await readXlsx6(file),f=xl2form6(d);
+  if(edOpen()){syncMeta();FB.fields.push(...f.fields);FB.keys=Object.assign(FB.keys||{},f.keys||{});if(!FB.title&&f.title)FB.title=f.title;if(!FB.description&&f.description)FB.description=f.description;
+    const t=$$b('#fmTitle'),de=$$b('#fmDesc');if(t)t.value=FB.title;if(de)de.value=FB.description;drawFields();drawPrev();saveDraft();toast(f.fields.length+' question(s) ajoutée(s) au formulaire en cours');return}
+  await viewFormEdit(null,{id:null,title:f.title||file.name.replace(/\.[^.]+$/,''),description:f.description||'',confirmMsg:f.confirmMsg||'',opens:f.opens||'',closes:f.closes||'',active:true,fields:f.fields,quiz:!!f.quiz,eval:!!f.eval,keys:f.keys||{},phase:f.quiz?(f.phase||'pre'):undefined,jour:f.phase==='daily'?f.jour||1:undefined,expected:f.expected});
+  toast('Brouillon créé depuis Excel : relisez-le avant d\'enregistrer')}
+function pick6(accept,cb){const i=document.createElement('input');i.type='file';i.accept=accept;i.style.display='none';i.onchange=async()=>{const f=i.files[0];i.remove();if(f)try{await cb(f)}catch(e){toast(e.message||String(e))}};document.body.appendChild(i);i.click()}
+
+/* ================= IMPORT DE DOCUMENTS (Word, PDF, image, texte) ================= */
+async function docText6(file,st){
+  const ext=(file.name.split('.').pop()||'').toLowerCase();
+  if(['txt','md'].includes(ext))return file.text();
+  if(ext==='docx'){st('Lecture du document Word…');if(!window.mammoth)await loadScript('https://cdn.jsdelivr.net/npm/mammoth@1.8.0/mammoth.browser.min.js');return(await mammoth.extractRawText({arrayBuffer:await file.arrayBuffer()})).value}
+  if(ext==='pdf'){st('Lecture du PDF…');if(!window.pdfjsLib){await loadScript('https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js');pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js'}
+    const pdf=await pdfjsLib.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;let out='';
+    for(let p=1;p<=pdf.numPages;p++){const c=await(await pdf.getPage(p)).getTextContent();let y=null,line='';for(const it of c.items){const yy=Math.round(it.transform[5]);if(y!==null&&Math.abs(yy-y)>3){out+=line+'\n';line=''}y=yy;line+=it.str+(it.hasEOL?'\n':'')}out+=line+'\n'}
+    if(out.replace(/\s/g,'').length>40)return out;
+    st('PDF numérisé : reconnaissance du texte (OCR)…');let ocr='';for(let p=1;p<=Math.min(pdf.numPages,12);p++){const pg=await pdf.getPage(p),vp=pg.getViewport({scale:2}),cv=document.createElement('canvas');cv.width=vp.width;cv.height=vp.height;await pg.render({canvasContext:cv.getContext('2d'),viewport:vp}).promise;ocr+=await ocr6(cv,st,p)+'\n'}return ocr}
+  if(['png','jpg','jpeg','webp','bmp','gif'].includes(ext)){st('Reconnaissance du texte de l\'image (OCR)…');return ocr6(file,st,1)}
+  throw new Error('Format non pris en charge. Utilisez Word (.docx), PDF, image, ou collez le texte.')}
+async function ocr6(src,st,p){if(!window.Tesseract)await loadScript('https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js');
+  const r=await Tesseract.recognize(src,'fra',{logger:m=>{if(m.status==='recognizing text')st('OCR page '+p+' : '+Math.round(m.progress*100)+' %')}});return r.data.text||''}
+function inferType6(lab,o,multi){
+  const n=nrm(lab);if(o.length>=2)return multi||/plusieurs|cochez toutes|choix multiples/.test(n)?'checkbox':'radio';
+  if(/e ?mail|courriel/.test(n))return'email';if(/telephone|contact|whatsapp|numero de tel/.test(n))return'tel';if(/date/.test(n))return'date';if(/\b(nombre|effectif|combien|total|age)\b/.test(n))return'number';if(/observation|commentaire|decrivez|expliquez|suggestion|recommandation|difficulte|justifiez|precisez/.test(n))return'textarea';return'text'}
+function parseTxt6(txt){
+  const L=String(txt).replace(/\r/g,'').split('\n').map(x=>x.replace(/[ \t\u00A0]+/g,' ').trim()).filter(Boolean);
+  const rOpt=/^(?:[-–—•·▪○◦□☐☑✓*]|\(?[a-hA-H]\)|[a-hA-H][\.\)])\s*(\S.*)$/,rQ=/^(?:(?:question|q)\s*\d+[\.\)\-–:]*|\d{1,3}[\.\)\-–:]|\(\d{1,3}\)|[A-Z]\.\d+[\.\)\-–:]*)\s*(\S.*)$/i,rSec=/^(?:(?:partie|section|rubrique|chapitre|module|th[eè]me)\b.{0,70}|[IVX]{1,4}\s*[\.\-–)]\s*\S.{0,70})$/i;
+  const items=[];let cur=null,title='',desc=[];
+  const push=()=>{if(cur){cur.label=cur.label.replace(/[._…]{3,}/g,'').replace(/\s*[☐□]\s*/g,' ').replace(/\s+/g,' ').trim();if(/\*\s*$/.test(cur.label)){cur.req=true;cur.label=cur.label.replace(/\s*\*+\s*$/,'')}items.push(cur);cur=null}};
+  for(const l of L){
+    if(!items.length&&!cur&&!title&&l.length<140&&!/\?\s*$/.test(l)&&!rQ.test(l)&&!rOpt.test(l)){title=l;continue}
+    if(rSec.test(l)&&!/\?\s*$/.test(l)||(/^[A-ZÀ-Ý0-9 '’\-:.,/&]{6,80}$/.test(l)&&/[A-ZÀ-Ý]{4}/.test(l)&&!/\?/.test(l)&&!rQ.test(l))){push();items.push({kind:'s',label:l.replace(/^[IVX]+\s*[\.\-–)]\s*/,'')});continue}
+    const mq=l.match(rQ);const mo=l.match(rOpt);
+    if(mq){push();cur={kind:'q',label:mq[1],o:[],req:false};
+      const m=cur.label.match(/^(.*?)[\s:]*\b(oui)\s*[\/|,]?\s*(non)\s*(?:[\/|,]\s*(ne sait pas))?\s*\??\s*$/i);if(m&&m[1]){cur.label=m[1]+(/\?\s*$/.test(l)?' ?':'');cur.o=['Oui','Non'].concat(m[4]?['Ne sait pas']:[])}continue}
+    if(mo&&cur){cur.o.push(mo[1].replace(/[._…]{3,}/g,'').replace(/\s*[☐□]\s*/g,' ').trim());continue}
+    if(cur&&!cur.o.length&&/^[a-zà-ÿ]/.test(l)&&!/[?:]\s*$/.test(cur.label)){cur.label+=' '+l;continue}
+    if(cur&&cur.o.length&&/^[a-zà-ÿ]/.test(l)){cur.o[cur.o.length-1]+=' '+l;continue}
+    if(/\?\s*$/.test(l)||/[._…]{4,}/.test(l)||/:\s*$/.test(l)){push();cur={kind:'q',label:l,o:[],req:false};continue}
+    if(!items.length&&!cur){if(!title&&l.length<140)title=l;else desc.push(l)}
+  }
+  push();items.forEach(x=>{if(x.kind==='q'){x.o=x.o.filter(Boolean);x.label=fixText(x.label,true);x.type=inferType6(x.label,x.o,false)}});
+  return{title,description:desc.join(' ').slice(0,600),items}}
+function reviewRows6(items){return items.map((x,i)=>`<div class="v6rv"><input type="checkbox" checked data-rq="${i}"><select data-rt="${i}">${Object.keys(FTYPES).map(k=>`<option value="${k}"${(x.kind==='s'?'section':x.type)===k?' selected':''}>${FTYPES[k][0]}</option>`).join('')}</select><input class="v6in" data-rl="${i}" value="${esc(x.label)}"><input class="v6in sm" data-ro="${i}" value="${esc((x.o||[]).join(' ; '))}" placeholder="Choix (séparés par ;)"></div>`).join('')}
+function openDoc6(){
+  p6('Importer un document','Word, PDF, image/scan ou texte collé → formulaire numérique',`<div class="v6note">${ic('help')}<span>Dépôt possible : termes de référence, questionnaire, fiche technique, rapport, grille de collecte. Le contenu est lu <b>dans votre navigateur</b> (rien n'est envoyé à un serveur de l'application), converti en questions, puis <b>vous relisez et corrigez</b> avant la création du brouillon. La reconnaissance d'un scan (OCR) dépend de la netteté et peut contenir des erreurs ; elle nécessite une connexion internet.</span></div>
+   <div class="fg"><label class="btn btn-g sm" style="cursor:pointer;justify-self:start">${ic('up')} Choisir un fichier<input type="file" id="dcF" accept=".docx,.pdf,.png,.jpg,.jpeg,.webp,.bmp,.txt,.xlsx,.xls,.csv" hidden></label><div class="mnote" id="dcSt"></div>
+   <label>… ou collez le texte du document<textarea id="dcT" style="min-height:110px"></textarea></label><div class="macts" style="padding:0"><button class="btn btn-o sm" data-v6="dcgo">${ic('bolt')} Analyser le texte collé</button></div><div id="dcOut"></div></div>`,true);
+  p6b('#dcF').onchange=async e=>{const f=e.target.files[0];if(!f)return;const st=m=>{p6b('#dcSt').textContent=m};
+    try{if(/\.(xlsx|xls|csv)$/i.test(f.name)){P6.classList.remove('open');return await importXl6(f)}
+      const t=await docText6(f,st);p6b('#dcT').value=t;st('Texte lu : '+t.length+' caractères.');analyse6(t)}catch(x){st('');toast(x.message||String(x))}}}
+function analyse6(t){const r=parseTxt6(t);V6.doc=r;const o=p6b('#dcOut');
+  o.innerHTML=r.items.length?`<h4 class="h4s" style="margin-top:14px">${ic('star')} ${r.items.filter(x=>x.kind==='q').length} question(s) détectée(s) — à vérifier</h4><div class="fg"><label>Titre du formulaire<input id="dcTi" value="${esc(r.title)}"></label></div><div class="v6list">${reviewRows6(r.items)}</div><div class="macts" style="padding:12px 0 0">${edOpen()?`<button class="btn btn-o sm" data-v6="dcadd">${ic('plus')} Ajouter au formulaire en cours</button>`:''}<button class="btn btn-g sm" data-v6="dcnew">${ic('edit')} Créer un brouillon</button></div>`:`<div class="empty" style="padding:16px">Aucune question reconnue. Vérifiez que le texte contient des questions numérotées ou terminées par « ? ».</div>`}
+function takeDoc6(){const r=V6.doc,F=[];r.items.forEach((x,i)=>{const c=p6b(`[data-rq="${i}"]`);if(!c||!c.checked)return;const t=p6b(`[data-rt="${i}"]`).value,l=p6b(`[data-rl="${i}"]`).value.trim();if(!l)return;let o=p6b(`[data-ro="${i}"]`).value.split(/;/).map(z=>z.trim()).filter(Boolean);
+  if(['select','radio','checkbox'].includes(t)&&o.length<2)o=o.concat(['À compléter 1','À compléter 2']).slice(0,Math.max(2,o.length));F.push(mkF(l,t,{r:x.req,o:['select','radio','checkbox'].includes(t)?o:[]}))});return F}
+
+/* ================= BIBLIOTHÈQUE ================= */
+const CATS6=['Tous','Modèles de la plateforme','Atelier / formation','Mission / supervision','Collecte de données','Tests et quiz','Satisfaction','Mes modèles','Formulaires passés'];
+function libItems6(){
+  const A=[];
+  TEMPLATES.forEach(t=>A.push({k:'T:'+t.k,cat:'Modèles de la plateforme',n:t.n,d:t.d,c:t.c,tp:t}));
+  const G=(k,cat,n,d,c,sp)=>A.push({k,cat,n,d,c,gen:{k:sp.k,t:n,d:sp.d||d,h:sp.h||'',n:sp.n||1}});
+  G('G:pres','Atelier / formation','Fiche de présence d\'atelier','Présence nominative des participants, par séance.','#00A859',{k:'pres',h:'Séance du jour 1\nSéance du jour 2'});
+  G('G:sat','Satisfaction','Évaluation à chaud d\'un atelier','Appréciation de l\'organisation, du contenu et de l\'animation.','#0B6BCB',{k:'sat'});
+  G('G:sup','Mission / supervision','Fiche de suivi de mission / supervision','Observations de visite et recommandations.','#FF6A00',{k:'sup'});
+  G('G:coll','Collecte de données','Grille de collecte des effectifs','Effectifs totaux, filles, garçons, observations.','#7B3FF2',{k:'coll'});
+  G('G:rap','Atelier / formation','Fiche technique / rapport d\'activité','Déroulement, résultats, difficultés, recommandations.','#E23B00',{k:'rap'});
+  G('G:pre','Tests et quiz','Squelette de pré-test (à rédiger)','Identification + questions à choix par thème, à compléter.','#FF6A00',{k:'pre',h:'Thème 1\nThème 2\nThème 3\nThème 4\nThème 5',n:2});
+  G('G:post','Tests et quiz','Squelette de post-test (à rédiger)','Même structure que le pré-test, pour mesurer la progression.','#00A859',{k:'post',h:'Thème 1\nThème 2\nThème 3\nThème 4\nThème 5',n:2});
+  G('G:daily','Tests et quiz','Squelette de Daily Quiz (à rédiger)','Quiz du soir : identification + questions de la journée.','#0B6BCB',{k:'daily',h:'Acquis du jour',n:5});
+  L6.get('sd6_lib',[]).forEach(m=>A.push({k:'M:'+m.id,cat:'Mes modèles',n:m.n,d:m.d||'Modèle personnel',c:'#1F6FEB',mine:m}));
+  forms.forEach(f=>A.push({k:'F:'+f.id,cat:'Formulaires passés',n:f.title,d:((f.fields||[]).filter(x=>x.type!=='section').length)+' question(s)'+(f.quiz?' · noté':f.eval?' · évaluation':''),c:'#6B7C8F',form:f}));
+  return A}
+function openLib6(cat,q){
+  cat=cat||V6.cat||'Tous';q=q==null?(V6.q||''):q;V6.cat=cat;V6.q=q;const nq=nrm(q);
+  const L=libItems6().filter(x=>(cat==='Tous'||x.cat===cat)&&(!nq||nrm(x.n+' '+x.d).includes(nq)));
+  p6('Bibliothèque de formulaires','Choisir, dupliquer et adapter — rien n\'est publié tant que vous n\'enregistrez pas',`<div class="fg"><label>Rechercher<input id="lbQ" value="${esc(q)}" placeholder="Atelier, mission, pré-test…"></label></div><div class="v6tabs">${CATS6.map(c=>`<button class="v6t${c===cat?' on':''}" data-v6="lbcat" data-id="${esc(c)}">${c}</button>`).join('')}</div>
+   <div class="v6grid">${L.map(x=>`<div class="v6card" style="--c:${x.c}"><b>${esc(x.n)}</b><small>${esc(x.d)}</small><em>${x.cat}</em><div class="macts" style="padding:8px 0 0"><button class="btn btn-w sm" data-v6="lbprev" data-id="${esc(x.k)}">${ic('eye')} Aperçu</button><button class="btn btn-o sm" data-v6="lbuse" data-id="${esc(x.k)}">${ic('copy')} Dupliquer et adapter</button></div></div>`).join('')||'<div class="empty" style="padding:18px">Aucun modèle trouvé.</div>'}</div>
+   ${cat==='Tous'||cat==='Atelier / formation'?`<details class="v6det"><summary>Exemples de corrections de questions</summary><div class="v6list">${LIBEX6.map(x=>`<div class="v6li"><span><s>${esc(x[0]||x[1])}</s><b>${esc(fixText(x[0]||x[1],true))}</b></span></div>`).join('')}</div></details>`:''}`,true);
+  const i=p6b('#lbQ');if(i){i.oninput=()=>{const p=i.selectionStart;openLib6(V6.cat,i.value);const j=p6b('#lbQ');j.focus();j.setSelectionRange(p,p)}}}
+async function libForm6(x){
+  if(x.tp){const tp=x.tp,fl=tp.f();return{id:null,title:tp.k==='vide'?'':tp.n,description:tp.desc,confirmMsg:'',opens:'',closes:'',active:true,fields:fl,quiz:!!tp.quiz,eval:!!tp.eval,keys:tp.keys?tp.keys(fl):{},phase:tp.quiz?(tp.phase||'pre'):undefined,jour:tp.phase==='daily'?1:undefined}}
+  if(x.gen){const g=genForm(x.gen);return{id:null,title:g.title,description:g.description,confirmMsg:'',opens:'',closes:'',active:true,fields:g.fields,quiz:!!g.quiz,eval:!!g.eval,keys:{},phase:g.quiz?g.phase:undefined,jour:g.jour}}
+  if(x.mine)return{...cp6(x.mine.form),id:null,keys:cp6(x.mine.keys||{})};
+  if(x.form){const f=x.form;let keys=null;if(f.quiz){try{keys=await S.keyGet(f.id)}catch(e){}}const c=cp6(f),map={};c.fields=c.fields.map(q=>{const n=fid();map[q.id]=n;return{...q,id:n}});const k2={};Object.entries(keys||{}).forEach(([a,b])=>{if(map[a])k2[map[a]]=b});delete c.updated;delete c.by;return{...c,id:null,title:'Copie de '+c.title,keys:k2,active:true}}}
+async function libUse6(k){const x=libItems6().find(y=>y.k===k);if(!x)return;const d=await libForm6(x);
+  if(edOpen()&&confirm('Ajouter les questions de « '+x.n+' » au formulaire en cours ?\n\nOK = ajouter à la suite · Annuler = créer un nouveau brouillon')){syncMeta();FB.fields.push(...d.fields);FB.keys=Object.assign(FB.keys||{},d.keys||{});drawFields();drawPrev();saveDraft();p6x();return toast('Questions ajoutées au formulaire en cours')}
+  p6x();await viewFormEdit(null,d);toast('Copie ouverte en brouillon : adaptez-la puis enregistrez')}
+async function libPrev6(k){const x=libItems6().find(y=>y.k===k);if(!x)return;const d=await libForm6(x);
+  p6(esc(x.n),esc(x.d),`<div class="pf-card" style="box-shadow:none;margin:0"><div class="pf-h"><span class="pf-ico sm">${ic('doc')}</span><div><h1 style="font-size:22px">${esc(d.title||x.n)}</h1>${d.description?`<p>${esc(d.description)}</p>`:''}</div></div>${formBody({fields:d.fields},'v')}</div><div class="macts" style="padding:12px 0 0"><button class="btn btn-w sm" data-v6="lib">${ic('arrowup')} Retour à la bibliothèque</button><button class="btn btn-o sm" data-v6="lbuse" data-id="${esc(k)}">${ic('copy')} Dupliquer et adapter</button></div>`,true)}
+
+/* ================= SAUVEGARDES ================= */
+function openBk6(){
+  const sn=L6.get('sd6_snap',[]);
+  p6('Sauvegardes et protection des données','Les formulaires publiés et les réponses reçues ne sont jamais modifiés par ces outils',`<div class="v6note">${ic('shield')}<span>Avant chaque modification d'un formulaire existant, une <b>copie de l'ancienne version</b> est conservée ici (40 dernières). Les réponses déjà reçues ne sont jamais touchées. Les brouillons restent sur cet appareil.</span></div>
+   <div class="macts" style="padding:12px 0"><button class="btn btn-o sm" data-v6="bkexp">${ic('down')} Télécharger une sauvegarde complète (.json)</button><button class="btn btn-w sm" data-v6="bkimp">${ic('up')} Restaurer depuis un fichier (n'écrase rien)</button></div>
+   <h4 class="h4s">${ic('clock')} Versions précédentes (${sn.length})</h4><div class="v6list">${sn.map((s,i)=>`<div class="v6li"><span><b>${esc(s.title)}</b><br><small>${hm6(s.at)} · ${(s.form.fields||[]).filter(x=>x.type!=='section').length} questions</small></span><button class="btn btn-w sm" data-v6="snrest" data-id="${i}">${ic('undo')} Restaurer</button></div>`).join('')||'<p class="mnote">Aucune version antérieure pour le moment.</p>'}</div>`,true)}
+async function bkExp6(){
+  const fl=await S.formsList(),keys={};for(const f of fl)if(f.quiz){try{const k=await S.keyGet(f.id);if(k)keys[f.id]=k}catch(e){}}
+  const o={app:'SIG-DATA',version:16,date:new Date().toISOString(),forms:fl,keys,library:L6.get('sd6_lib',[]),drafts:drafts6()};
+  dl6(new Blob([JSON.stringify(o,null,1)],{type:'application/json'}),'SIG-DATA_sauvegarde_formulaires_'+new Date().toISOString().slice(0,10)+'.json');toast('Sauvegarde téléchargée')}
+async function bkImp6(f){
+  const o=JSON.parse(await f.text());if(o.app!=='SIG-DATA'||!Array.isArray(o.forms))throw new Error('Fichier de sauvegarde non reconnu.');
+  const cur=new Set((await S.formsList()).map(x=>x.id));let n=0;for(const x of o.forms){if(cur.has(x.id))continue;await S.formSave(x);if(x.quiz&&o.keys&&o.keys[x.id])await S.keySave(x.id,o.keys[x.id]);n++}
+  const lib=L6.get('sd6_lib',[]);(o.library||[]).forEach(m=>{if(!lib.some(z=>z.id===m.id))lib.push(m)});L6.set('sd6_lib',lib);
+  toast(n+' formulaire(s) restauré(s) · les formulaires existants n\'ont pas été modifiés');await viewRem('forms')}
+async function snRest6(i){const s=L6.get('sd6_snap',[])[i];if(!s)return;if(!confirm('Restaurer la version du '+hm6(s.at)+' de « '+s.title+' » ? La version actuelle sera elle-même sauvegardée.'))return;
+  const cur=(await S.formsList()).find(x=>x.id===s.id);if(cur)await snap6(cur);await S.formSave(s.form);if(s.keys)await S.keySave(s.id,s.keys);toast('Version restaurée');p6x();await viewRem('forms')}
+
+/* ================= PARTAGE : lien, WhatsApp, QR ================= */
+function sh6(id){
+  const f=forms.find(x=>x.id===id);if(!f)return;const link=formLink(id);const q=$$b('.qrbox');if(!q||!link||$$b('.v6qr'))return;
+  q.insertAdjacentHTML('afterend',`<div class="v6qr"><div class="macts" style="padding:12px 0 0"><button class="btn btn-o sm" data-v6="qrpng" data-id="${esc(id)}">${ic('down')} Télécharger le QR (PNG)</button><button class="btn btn-w sm" data-v6="qrsvg" data-id="${esc(id)}">${ic('down')} QR (SVG)</button><button class="btn btn-g sm" data-v6="qrwa" data-id="${esc(id)}">${ic('send')} Partager le QR par WhatsApp</button><button class="btn btn-w sm" data-copy="${esc(f.title+' — merci de renseigner ce formulaire : '+link)}">${ic('copy')} Copier le message</button></div>
+   <div class="v6wa"><input id="v6wn" inputmode="tel" placeholder="N° WhatsApp du destinataire (ex. 07 00 00 00 00)"><button class="btn btn-g sm" data-v6="wanum" data-id="${esc(id)}">${ic('send')} Envoyer à ce numéro</button></div><p class="mnote">Numéro à 10 chiffres : l'indicatif +225 (Côte d'Ivoire) est ajouté automatiquement. Sinon, saisissez-le en format international.</p></div>`)}
+async function qrBlob6(id,png){
+  const f=forms.find(x=>x.id===id),svg=$$b('#qrOut svg');if(!svg)throw new Error('Le code QR n\'est pas encore affiché.');
+  const c=svg.cloneNode(true);c.setAttribute('width',1000);c.setAttribute('height',1000);if(!c.getAttribute('xmlns'))c.setAttribute('xmlns','http://www.w3.org/2000/svg');const xml=new XMLSerializer().serializeToString(c);
+  if(!png)return new Blob([xml],{type:'image/svg+xml'});
+  const img=new Image();await new Promise((r,j)=>{img.onload=r;img.onerror=()=>j(new Error('Image QR illisible'));img.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(xml)});
+  const N=1000,pad=70,cv=document.createElement('canvas');cv.width=N+pad*2;cv.height=N+pad*2+150;const x=cv.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,cv.width,cv.height);x.imageSmoothingEnabled=false;x.drawImage(img,pad,pad,N,N);
+  x.fillStyle='#0C2036';x.textAlign='center';x.font='bold 44px sans-serif';const w=String(f.title).split(' '),ls=[''];w.forEach(t=>{if((ls[ls.length-1]+' '+t).length>34)ls.push(t);else ls[ls.length-1]=(ls[ls.length-1]+' '+t).trim()});ls.slice(0,2).forEach((l,i)=>x.fillText(l,cv.width/2,N+pad*2+20+i*52));
+  x.fillStyle='#00A859';x.font='600 30px sans-serif';x.fillText('Scannez pour ouvrir le formulaire · DEPS / MENAET',cv.width/2,cv.height-24);
+  return new Promise(r=>cv.toBlob(r,'image/png'))}
+async function qrWa6(id){
+  const f=forms.find(x=>x.id===id),link=formLink(id),msg=`${f.title} — merci de renseigner ce formulaire : ${link}`,b=await qrBlob6(id,true),file=new File([b],'QR-'+slug6(f.title)+'.png',{type:'image/png'});
+  if(navigator.canShare&&navigator.canShare({files:[file]})){try{await navigator.share({files:[file],text:msg,title:f.title});return}catch(e){if(e&&e.name==='AbortError')return}}
+  dl6(b,file.name);window.open('https://wa.me/?text='+encodeURIComponent(msg),'_blank','noopener');toast('QR téléchargé : joignez l\'image dans la conversation WhatsApp')}
+
+/* ================= CLIC ================= */
+document.addEventListener('click',async e=>{
+  const t=e.target.closest('[data-v6]');if(!t)return;if(!isSA()){return}
+  const a=t.dataset.v6,id=t.dataset.id;
+  try{
+   if(a==='x')return p6x();
+   if(a==='hold'){saveDraft();toast('Conception mise en attente — retrouvez-la dans « Brouillons »');return hide()}
+   if(a==='min'){saveDraft();V6.min={fb:FB,did:V6.did};ov.classList.remove('open');document.body.classList.remove('mdl-lock');updDock();return toast('Fenêtre réduite : cliquez sur « Reprendre » pour revenir')}
+   if(a==='resume'){const m=V6.min;if(!m)return;if(FB===m.fb&&$$b('#fmTitle')){ov.classList.add('open');document.body.classList.add('mdl-lock');V6.min=null;updDock();return}
+      const d=drafts6().find(x=>x.id===m.did);V6.min=null;if(d)return viewFormEdit(null,d.form,d.id);return updDock()}
+   if(a==='drafts'){const a2=drafts6();return p6('Brouillons en attente','Enregistrés automatiquement sur cet appareil',a2.length?`<div class="v6list">${a2.map(d=>`<div class="v6li"><span><b>${esc(d.title)}</b><br><small>${hm6(d.saved)} · ${d.n} question(s)${d.src?' · modification d\'un formulaire existant':''}</small></span><button class="btn btn-o sm" data-v6="dres" data-id="${d.id}">${ic('edit')} Reprendre</button><button class="ib2 d" data-v6="ddel" data-id="${d.id}" title="Supprimer">${ic('trash')}</button></div>`).join('')}</div>`:'<div class="empty" style="padding:18px">Aucun brouillon.</div>')}
+   if(a==='dres'){const d=drafts6().find(x=>x.id===id);if(!d)return;p6x();return viewFormEdit(null,d.form,d.id)}
+   if(a==='ddel'){if(!confirm('Supprimer ce brouillon ?'))return;rmDraft(id);return t.closest('.v6li').remove()}
+   if(a==='ai'||a==='aitab')return openAI(a==='aitab'?id:'fix');
+   if(a==='fxgo'){syncMeta();const ch=V6.fix||[];let n=0;ch.forEach((c,i)=>{const k=p6b(`[data-fx="${i}"]`);if(!k||!k.checked)return;n++;
+      if(c.w==='title')FB.title=c.a;else if(c.w==='desc')FB.description=c.a;else if(c.w==='conf')FB.confirmMsg=c.a;else{const q=FB.fields.find(x=>x.id===c.qid);if(!q)return;if(c.w==='q')q.label=c.a;else if(c.w==='h')q.help=c.a;else q.options[c.oi]=c.a}});
+      $$b('#fmTitle').value=FB.title;$$b('#fmDesc').value=FB.description;$$b('#fmConf').value=FB.confirmMsg;drawFields();drawPrev();saveDraft();toast(n+' correction(s) appliquée(s)');return openAI('fix')}
+   if(a==='sggo'){const S2=V6.sug||[];let n=0;S2.forEach((s,i)=>{const k=p6b(`[data-sg="${i}"]`);if(!k||!k.checked)return;const q=FB.fields.find(x=>x.id===s.qid);if(q){q.options=s.o.slice();n++}});drawFields();drawPrev();saveDraft();toast(n+' question(s) complétée(s)');return openAI('chk')}
+   if(a==='aigen'){const g=genForm({t:p6b('#aiT').value.trim(),k:p6b('#aiK').value,n:p6b('#aiN').value,d:p6b('#aiD').value.trim(),h:p6b('#aiH').value});if(!p6b('#aiT').value.trim())return toast('Indiquez le titre de l\'activité');return showGen(g)}
+   if(a==='gadd'){const F=takeGen();syncMeta();FB.fields.push(...F);drawFields();drawPrev();saveDraft();p6x();return toast(F.length+' élément(s) ajouté(s)')}
+   if(a==='gnew'){const g=V6.gen,F=takeGen();p6x();return viewFormEdit(null,{id:null,title:g.title,description:g.description,confirmMsg:'',opens:'',closes:'',active:true,fields:F,quiz:!!g.quiz,eval:!!g.eval,keys:{},phase:g.quiz?g.phase:undefined,jour:g.jour})}
+   if(a==='frgo'){p6b('#frO').value=String(p6b('#frT').value).split('\n').map(l=>fixText(l,true)).join('\n');return}
+   if(a==='frcp'){await navigator.clipboard.writeText(p6b('#frO').value);return toast('Texte copié')}
+   if(a==='doc')return openDoc6();
+   if(a==='dcgo'){const x=p6b('#dcT').value;if(x.trim().length<10)return toast('Collez d\'abord le texte');return analyse6(x)}
+   if(a==='dcadd'){const F=takeDoc6();syncMeta();FB.fields.push(...F);if(!FB.title){const v=p6b('#dcTi').value.trim();if(v){FB.title=v;$$b('#fmTitle').value=v}}drawFields();drawPrev();saveDraft();p6x();return toast(F.length+' question(s) ajoutée(s)')}
+   if(a==='dcnew'){const F=takeDoc6(),ti=p6b('#dcTi').value.trim();p6x();return viewFormEdit(null,{id:null,title:ti,description:V6.doc.description||'',confirmMsg:'',opens:'',closes:'',active:true,fields:F})}
+   if(a==='lib'){try{forms=await S.formsList()}catch(e){}return openLib6('Tous','')}
+   if(a==='lbcat')return openLib6(id,'');
+   if(a==='lbuse')return libUse6(id);
+   if(a==='lbprev')return libPrev6(id);
+   if(a==='tplsave'){syncMeta();const n=prompt('Nom du modèle personnel :',FB.title||'');if(!n)return;const m=L6.get('sd6_lib',[]);m.unshift({id:'m'+Date.now().toString(36),n:n.trim(),d:'Modèle personnel',form:{...cp6(FB),id:null},keys:cp6(FB.keys||{})});L6.set('sd6_lib',m.slice(0,60));return toast('Modèle enregistré dans la bibliothèque')}
+   if(a==='xltpl'){await dlXlsx6({title:'',description:'',fields:[]},{},true,'MODELE_FORMULAIRE_SIG-DATA.xlsx');return toast('Modèle Excel téléchargé')}
+   if(a==='xlout')return exportForm6();
+   if(a==='xlin')return pick6('.xlsx,.xls,.csv',importXl6);
+   if(a==='bk')return openBk6();
+   if(a==='bkexp')return bkExp6();
+   if(a==='bkimp')return pick6('.json',bkImp6);
+   if(a==='snrest')return snRest6(+id);
+   if(a==='qrpng'){const f=forms.find(x=>x.id===id);dl6(await qrBlob6(id,true),'QR-'+slug6(f.title)+'.png');return toast('QR téléchargé')}
+   if(a==='qrsvg'){const f=forms.find(x=>x.id===id);dl6(await qrBlob6(id,false),'QR-'+slug6(f.title)+'.svg');return toast('QR téléchargé')}
+   if(a==='qrwa')return qrWa6(id);
+   if(a==='wanum'){const f=forms.find(x=>x.id===id);let d=$$b('#v6wn').value.replace(/\D/g,'');if(d.length===10)d='225'+d;if(d.length<8)return toast('Numéro WhatsApp invalide');window.open('https://wa.me/'+d+'?text='+encodeURIComponent(`${f.title} — merci de renseigner ce formulaire : ${formLink(id)}`),'_blank','noopener');return}
+  }catch(x){toast(x.message||String(x))}});
+updDock();
 
 function fCard(f){
   const st=fState(f),n=subs.filter(s=>s.formId===f.id).length,nf=(f.fields||[]).filter(x=>x.type!=='section').length;
