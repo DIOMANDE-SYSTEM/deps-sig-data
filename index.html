@@ -1456,6 +1456,7 @@ body.mdl-lock #v6dock{display:none!important}
 .v8fl{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0}
 .v8cam{position:fixed;inset:0;background:rgba(0,0,0,.8);z-index:99999;display:grid;place-items:center}.v8cam>div{background:#fff;padding:12px;border-radius:16px;max-width:94vw}.v8cam video{max-width:90vw;max-height:70vh;border-radius:10px;background:#000}.v8cb{display:flex;gap:8px;justify-content:center;margin-top:10px}
 </style>
+<style>.v8g{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}.v8gs{font:600 12.5px var(--f-body);color:#34495E}.v8gm{font:700 12.5px var(--f-body);color:#0B6BCB}.v8sg canvas{width:100%;max-width:520px;height:150px;border:2px dashed #0B6BCB;border-radius:14px;background:#fff;touch-action:none;cursor:crosshair;display:block}.v8sg small{display:block;margin:4px 0 8px;color:#6B7B8C}</style>
 </head>
 <body>
 <div class="print-head" aria-hidden="true"><table><tr><td class="l" style="width:22%"><img data-asset="dep" alt=""></td><td class="c"><b>RÉPUBLIQUE DE CÔTE D'IVOIRE</b><i>Union – Discipline – Travail</i><span>MINISTÈRE DE L'ÉDUCATION NATIONALE, DE L'ALPHABÉTISATION ET DE L'ENSEIGNEMENT TECHNIQUE</span><em>DIRECTION DES ÉTUDES, DE LA PLANIFICATION ET DES STATISTIQUES (DEPS)</em></td><td class="r" style="width:22%"><img data-asset="armPng" alt=""></td></tr></table><div class="tri2"></div><div class="pt"><b id="phTitle"></b><span id="phDate"></span></div></div>
@@ -5267,7 +5268,7 @@ function condApply8(root){
   return h}}
 {const o=collect;collect=function(f,root){
   const r=o(f,root);
-  (f.fields||[]).forEach(q=>{if(q.type==='file'&&r.errs[q.id]&&PF8[q.id])delete r.errs[q.id]});
+  (f.fields||[]).forEach(q=>{if((q.type==='file'||q.type==='sign')&&r.errs[q.id]&&PF8[q.id])delete r.errs[q.id]});
   const hid=condHidden8(f.fields||[],r.data);
   hid.forEach(id=>{delete r.errs[id];if(id in r.data)r.data[id]=Array.isArray(r.data[id])?[]:''});
   return r}}
@@ -5384,6 +5385,7 @@ function extra8(s,f){
   let h='';
   if(s.files&&Object.keys(s.files).length)h+=`<h4 class="h4s" style="margin-top:14px">${ic('clip')} Pièces jointes</h4><div class="v8fl">${Object.keys(s.files).map(k=>`<button class="btn btn-w sm" data-v8="fget" data-id="${esc(s.id)}" data-k="${esc(k)}">${ic('down')} ${esc((f&&(f.fields.find(q=>q.id===k)||{}).label)||'Pièce')} — ${esc(s.files[k].n)}</button>`).join('')}</div>`;
   if(f&&(f.fields||[]).some(q=>q.ok)){const c=conf8(f,s);if(c.n)h+=`<div class="v8cf"><b>${c.pct}%</b><span>de conformité (${c.ok} conforme(s) / ${c.n} contrôle(s)) — avis indicatif : <b>${avis8(c.pct)}</b></span><i style="width:${c.pct}%"></i></div>`}
+  if(f){const g=(f.fields||[]).filter(isGps8).map(q=>{const v=x8((s.data||{})[q.id]).match(/(-?\d+(?:\.\d+)?)\s*[,;]\s*(-?\d+(?:\.\d+)?)/);return v?`<a class="btn btn-w sm" target="_blank" rel="noopener" href="https://www.openstreetmap.org/?mlat=${v[1]}&mlon=${v[2]}#map=17/${v[1]}/${v[2]}">${ic('pin')} Voir ${esc(lblClean(q.label))} sur la carte</a>`:''}).join('');if(g)h+=`<h4 class="h4s" style="margin-top:14px">${ic('pin')} Localisation</h4><div class="v8fl">${g}</div>`}
   return h+hist8(s)}
 {const o=viewSub;viewSub=function(id){o(id);
   const s=subs.find(x=>x.id===id);if(!s)return;const f=fById(s.formId),ac=$$b('.macts');if(!ac)return;
@@ -5391,12 +5393,12 @@ function extra8(s,f){
   ac.insertAdjacentHTML('beforeend',`<button class="btn btn-w sm" data-v8="sedit" data-id="${esc(s.id)}">${ic('edit')} Corriger les réponses</button><button class="btn btn-w sm" data-v8="sst" data-id="${esc(s.id)}" data-st="instr">En instruction</button><button class="btn btn-w sm dng" data-v8="sst" data-id="${esc(s.id)}" data-st="rejet">Rejeter</button><button class="btn btn-o sm" data-v8="fiche" data-id="${esc(s.id)}">${ic('print')} Fiche / rapport</button>`)}}
 function viewSubEdit8(id){
   const s=subs.find(x=>x.id===id);if(!s)return;const f=fById(s.formId);if(!f)return toast('Formulaire d\'origine introuvable');
-  show(head('edit','Corriger la réponse '+esc(s.ref),esc(f.title)+' — corrections tracées dans l\'historique')+`<div class="mbody"><div class="v6note">${ic('shield')}<span>Les valeurs d'origine ne sont pas perdues : chaque correction est inscrite dans l'historique avec la date et l'auteur.</span></div><div id="v8ed" class="pf-card" style="box-shadow:none;margin:0">${formBody({...f,fields:f.fields.filter(q=>q.type!=='file')},'e')}</div><div class="rg" id="v8eE" role="alert" style="color:#B3261E;font-weight:700"></div>
+  show(head('edit','Corriger la réponse '+esc(s.ref),esc(f.title)+' — corrections tracées dans l\'historique')+`<div class="mbody"><div class="v6note">${ic('shield')}<span>Les valeurs d'origine ne sont pas perdues : chaque correction est inscrite dans l'historique avec la date et l'auteur.</span></div><div id="v8ed" class="pf-card" style="box-shadow:none;margin:0">${formBody({...f,fields:f.fields.filter(q=>q.type!=='file'&&q.type!=='sign')},'e')}</div><div class="rg" id="v8eE" role="alert" style="color:#B3261E;font-weight:700"></div>
    <div class="macts" style="padding:14px 0 0"><button class="btn btn-g sm" data-v8="seditok" data-id="${esc(s.id)}">${ic('check')} Enregistrer la correction</button><button class="btn btn-w sm" data-v8="sopen" data-id="${esc(s.id)}">Annuler</button></div></div>`,true);
   const r=$$b('#v8ed');Object.keys(s.data||{}).forEach(n=>{const v=s.data[n];r.querySelectorAll(`[name="${n}"]`).forEach(el=>{if(el.type==='checkbox')el.checked=Array.isArray(v)&&v.includes(el.value);else if(el.type==='radio')el.checked=el.value===v;else el.value=Array.isArray(v)?v.join(';'):v})});condApply8(r)}
 async function subEditOk8(id){
   const s=subs.find(x=>x.id===id),f=s&&fById(s.formId);if(!s||!f)return;const r=$$b('#v8ed');
-  const ff={...f,fields:f.fields.filter(q=>q.type!=='file')};const {data,errs}=collect(ff,r);
+  const ff={...f,fields:f.fields.filter(q=>q.type!=='file'&&q.type!=='sign')};const {data,errs}=collect(ff,r);
   $$('.q',r).forEach(q=>{const m=errs[q.dataset.f];q.classList.toggle('bad',!!m);const e=q.querySelector('.qe');if(e)e.textContent=m||''});
   if(Object.keys(errs).length)return err('v8eE','Corrigez les champs signalés.');
   const nd={...s.data,...data},chg=Object.keys(nd).filter(k=>valTxt(nd[k])!==valTxt((s.data||{})[k]));
@@ -5428,8 +5430,8 @@ function ficheHTML8(items,title,f){
       if(q.type==='section'){rows+=`<tr class="sc"><td colspan="2">${esc(q.label)}</td></tr>`;return}
       const v=(s.data||{})[q.id],t=valTxt(v)||'—';let cls='';
       if(q.ok&&q.ok.length&&v&&v!=='Sans objet')cls=q.ok.includes(v)?'ok':'ko';
-      let ex='';if(q.type==='file'&&s.files&&s.files[q.id]&&/^data:image/.test(s.files[q.id].d))ex=`<br><img src="${s.files[q.id].d}" style="max-width:260px;max-height:200px;margin-top:4px">`;
-      else if(q.type==='file'&&s.files&&s.files[q.id])ex=' (document PDF joint : '+esc(s.files[q.id].n)+')';
+      let ex='';if((q.type==='file'||q.type==='sign')&&s.files&&s.files[q.id]&&/^data:image/.test(s.files[q.id].d))ex=`<br><img src="${s.files[q.id].d}" style="max-width:260px;max-height:200px;margin-top:4px">`;
+      else if((q.type==='file'||q.type==='sign')&&s.files&&s.files[q.id])ex=' (document PDF joint : '+esc(s.files[q.id].n)+')';
       rows+=`<tr><th>${esc(lblClean(q.label))}</th><td class="${cls}">${esc(t)}${ex}</td></tr>`});
     const sum=c.n?`<div class="sm"><b>Taux de conformité : ${c.pct} %</b> (${c.ok} conforme(s) sur ${c.n} contrôle(s)) — avis indicatif de la plateforme : <b>${avis8(c.pct)}</b></div>`:'';
     return `<section>${head}<h1>${esc(title||h.titre)}</h1><p class="rf">Référence ${esc(s.ref)} · ${esc(s.formTitle||'')} · reçue le ${esc(dt(s.at))} · statut : ${esc((SUBST[s.status]||[s.status])[0])}</p>${sum}<table class="dd">${rows}</table>
@@ -5469,7 +5471,7 @@ function visitFields8(op,niv,st){
   const nom=T('Nom de l\'établissement ou du projet',{r:1});nom.ck='nom';
   const dr=mkF('DRENAET','drenaet',{r:1});dr.ck='dren';const ie=mkF('IEPP / circonscription','iepp',{r:1});ie.ck='iepp';
   const reg=T('Région');reg.ck='reg';const dep=T('Département');dep.ck='dep';const sp=T('Sous-préfecture ou commune',{r:1});sp.ck='sp';
-  F.push(sec('Identification de la visite'),dr,ie,reg,dep,sp,T('Localité / village'),nom,R('Statut',['Public','Privé']),R('Zone',['Urbaine (U)','Rurale (R)']),...(sd?[bs]:[]),D('Date de la visite',{r:1}),A('Équipe de visite (noms et fonctions)',{r:1}),T('Contact du promoteur / responsable'),T('Coordonnées GPS (latitude, longitude)'));
+  F.push(sec('Identification de la visite'),dr,ie,reg,dep,sp,T('Localité / village'),nom,R('Statut',['Public','Privé']),R('Zone',['Urbaine (U)','Rurale (R)']),...(sd?[bs]:[]),D('Date de la visite',{r:1}),A('Équipe de visite (noms et fonctions)',{r:1}),T('Contact du promoteur / responsable'),mkF('Coordonnées GPS (latitude, longitude)','gps',{h:'Cliquez sur « Détecter ma position » une fois sur le site'}));
   if(op==='creation')F.push(sec('Justification de la création'),N('Population scolarisable dans la zone'),N('Effectif attendu'),T('Établissement le plus proche (nom)'),R('Distance du plus proche établissement',['Moins de 3 km','3 à 5 km','Plus de 5 km']),cf('Demande de la communauté / lettre d\'engagement'),cf('Terrain disponible et sécurisé'),T('Structure de financement'),N('Coût estimatif (FCFA)'));
   if(op!=='rehab'){const bo=R('Bornage du terrain',['Réalisé','Partiel','Non réalisé']);bo.ok=['Réalisé'];
     F.push(sec('Bornage du terrain (photos)'),bo,N('Nombre de bornes posées'),cf('Plan de bornage / levé du géomètre disponible'),T('Géomètre ou service ayant réalisé le bornage'),ph('Photo borne 1 (angle Nord)'),ph('Photo borne 2 (angle Est)'),ph('Photo borne 3 (angle Sud)'),ph('Photo borne 4 (angle Ouest)'),ph('Photo du site — vue d\'ensemble'))}
@@ -5489,7 +5491,7 @@ function visitFields8(op,niv,st){
     if(op==='ouverture')F.push(R('Taux global d\'exécution des infrastructures',TAUX8),N('Effectif prévu à l\'ouverture'),D('Date d\'ouverture prévue'));
     F.push(sec('Personnel et gestion'),cf('Chef d\'établissement / directeur désigné et qualifié'),N('Nombre d\'enseignants disponibles'),cf('Enseignants qualifiés pour les niveaux concernés'),cf('Gestion administrative (registres, dossiers)'),cf('Gestion pédagogique (programmes, emplois du temps)'),cf('Matériel didactique disponible'))}
   if(st==='Privé'&&['creation','ouverture','homologation','extension','erection'].includes(op))F.push(sec('Promoteur et dossier (CNCSEP)'),T('Nom du promoteur'),cf('Dossier administratif complet'),cf('Casier judiciaire du promoteur'),cf('Responsable pédagogique qualifié'),cf('Règlement intérieur'),cf('Assurance des locaux et des élèves'));
-  F.push(sec('Conclusion de la visite'),R('Avis de l\'équipe de visite',['Favorable','Favorable sous réserves','Défavorable']),A('Observations'),A('Recommandations'),T('Chef de l\'équipe de visite (nom)'),T('Visa du promoteur / responsable (nom)'),mkF('Pièces jointes (PDF, photos du site)','file'));
+  F.push(sec('Conclusion de la visite'),R('Avis de l\'équipe de visite',['Favorable','Favorable sous réserves','Défavorable']),A('Observations'),A('Recommandations'),T('Chef de l\'équipe de visite (nom)'),mkF('Signature du chef de l\'équipe de visite','sign'),T('Visa du promoteur / responsable (nom)'),mkF('Signature du promoteur / responsable','sign'),sec('Témoins'),T('Nom du témoin 1'),mkF('Signature du témoin 1','sign'),T('Nom du témoin 2'),mkF('Signature du témoin 2','sign'),mkF('Pièces jointes (PDF, photos du site)','file'));
   return F}
 function visitForm8(op,niv,st){
   const O=OPS8.find(x=>x[0]===op),N=NIV8.find(x=>x[0]===niv);
@@ -5545,11 +5547,56 @@ async function synth8(){
   const w=window.open('','_blank');if(!w)return toast('Fenêtre bloquée : autorisez les pop-up.');
   w.document.open();w.document.write(`<!doctype html><html lang="fr"><head><meta charset="utf-8"><title>Rapport de synthèse</title><style>body{font:12px Arial;padding:18px}table{border-collapse:collapse;width:100%}th,td{border:1px solid #999;padding:4px 6px;text-align:left}th{background:#0C2036;color:#fff}.c{text-align:center}h1{text-align:center;border-top:3px solid #FF6A00;border-bottom:3px solid #00A859;padding:6px;font-size:16px}.bar{position:fixed;top:8px;right:8px}.bar button{padding:8px 14px;font-weight:700;background:#FF6A00;color:#fff;border:0;border-radius:8px}@media print{.bar{display:none}}</style></head><body><div class="bar"><button onclick="print()">Imprimer / PDF</button></div><div class="c"><b>${esc(h.rep)}</b><br>${esc(h.devise)}<br>${esc(h.min)}<br><b>${esc(h.dir)}</b></div><h1>RAPPORT DE SYNTHÈSE DES VISITES DE CONFORMITÉ</h1><table><thead><tr><th>Réf.</th><th>Établissement</th><th>DRENAET</th><th>Sous-préfecture</th><th>Opération</th><th>Conformité</th><th>Avis indicatif</th><th>Statut</th></tr></thead><tbody>${rows}</tbody></table><p>${vs.length} visite(s) · ${esc(new Date().toLocaleDateString('fr-FR'))} · ${esc(h.pied)}</p></body></html>`);w.document.close()}
 
+
+/* ---------- v20 : géolocalisation automatique + signatures (écran, souris, fichier) ---------- */
+FTYPES.gps=['Coordonnées GPS (détection automatique)','pin'];FTYPES.sign=['Signature (écran / souris / fichier)','edit'];
+const GPSRE8=/\bgps\b|g[ée]olocalisation|coordonn[ée]es/i;
+const isGps8=q=>q&&(q.type==='gps'||(q.type==='text'&&GPSRE8.test(q.label||'')));
+{const o=fieldHTML;fieldHTML=function(f,k){
+  if(f.type==='sign')return signHTML8(f,k);
+  if(f.type==='gps'||(f.type==='text'&&GPSRE8.test(f.label||''))){
+    let h=o({...f,type:'text'},k);
+    return h.replace('<div class="qe" role="alert"></div></div>',`<div class="v8g"><button type="button" class="btn btn-g sm" data-v8="gps" data-id="${f.id}">${ic('pin')} Détecter ma position</button><a class="v8gm" target="_blank" rel="noopener" hidden>Voir sur la carte</a><span class="v8gs"></span></div><div class="qe" role="alert"></div></div>`)}
+  return o(f,k)}}
+function gpsGet8(t){
+  const r=t.closest('.q'),i=r.querySelector('input[name]'),s=r.querySelector('.v8gs'),m=r.querySelector('.v8gm');
+  if(!navigator.geolocation){s.textContent='Géolocalisation indisponible sur cet appareil : saisissez les coordonnées à la main.';return}
+  s.textContent='Recherche de la position… (acceptez la demande de localisation)';t.disabled=true;
+  navigator.geolocation.getCurrentPosition(p=>{t.disabled=false;const la=p.coords.latitude.toFixed(6),lo=p.coords.longitude.toFixed(6);
+    i.value=la+', '+lo;i.dispatchEvent(new Event('input',{bubbles:true}));i.dispatchEvent(new Event('change',{bubbles:true}));
+    s.textContent='✓ Position détectée (précision ± '+Math.round(p.coords.accuracy)+' m). Vous pouvez la corriger à la main.';m.href='https://www.openstreetmap.org/?mlat='+la+'&mlon='+lo+'#map=17/'+la+'/'+lo;m.hidden=false},
+   e=>{t.disabled=false;s.textContent=e.code===1?'Localisation refusée : autorisez-la dans le navigateur (cadenas de l\'adresse) puis réessayez, ou saisissez à la main.':e.code===3?'Délai dépassé : sortez à l\'air libre, activez le GPS du téléphone puis réessayez.':'Position introuvable : activez le GPS / la localisation ('+(location.protocol==='file:'?'le site doit être ouvert en HTTPS, pas depuis un fichier':'réessayez')+').'},
+   {enableHighAccuracy:true,timeout:25000,maximumAge:0})}
+function signHTML8(f,k){
+  const id=(k||'q')+'_'+f.id,req=f.required?'<i class="rq" title="Obligatoire">*</i>':'';
+  return `<div class="q" data-f="${f.id}"><label class="ql" for="${id}">${esc(lblClean(f.label))}${req}</label>${f.help?`<small class="qh">${esc(f.help)}</small>`:''}
+   <div class="v8sg"><canvas width="640" height="220" data-sg="${f.id}" id="${id}" aria-label="Zone de signature"></canvas><small>Signez avec le doigt, le stylet ou la souris dans le cadre.</small>
+   <div class="v8f"><button type="button" class="btn btn-g sm" data-v8="sgok" data-id="${f.id}">${ic('check')} Valider la signature</button><button type="button" class="btn btn-w sm" data-v8="sgclr" data-id="${f.id}">${ic('undo')} Effacer</button><label class="btn btn-w sm" style="cursor:pointer">${ic('image')} Importer une capture / un fichier<input type="file" data-v8file="${f.id}" data-cam="0" accept=".pdf,image/*" hidden></label><span class="v8fs" data-fs="${f.id}">Non signé</span><button type="button" class="ib2 d" data-v8="fclr" data-id="${f.id}" hidden title="Retirer">${ic('trash')}</button></div></div>
+   <input type="hidden" name="${f.id}" value=""><div class="qe" role="alert"></div></div>`}
+const SG8=new WeakMap();
+document.addEventListener('pointerdown',e=>{const c=e.target.closest&&e.target.closest('canvas[data-sg]');if(!c)return;e.preventDefault();c.setPointerCapture&&c.setPointerCapture(e.pointerId);
+  const r=c.getBoundingClientRect(),x=(e.clientX-r.left)*c.width/r.width,y=(e.clientY-r.top)*c.height/r.height,g=c.getContext('2d');g.lineWidth=3.2;g.lineCap='round';g.lineJoin='round';g.strokeStyle='#0C2036';g.beginPath();g.moveTo(x,y);g.lineTo(x+.1,y+.1);g.stroke();SG8.set(c,{d:1,x,y,n:(SG8.get(c)||{}).n||0})});
+document.addEventListener('pointermove',e=>{const c=e.target.closest&&e.target.closest('canvas[data-sg]');if(!c)return;const st=SG8.get(c);if(!st||!st.d)return;e.preventDefault();
+  const r=c.getBoundingClientRect(),x=(e.clientX-r.left)*c.width/r.width,y=(e.clientY-r.top)*c.height/r.height,g=c.getContext('2d');g.beginPath();g.moveTo(st.x,st.y);g.lineTo(x,y);g.stroke();st.x=x;st.y=y;st.n++});
+['pointerup','pointercancel','pointerleave'].forEach(ev=>document.addEventListener(ev,e=>{const c=e.target.closest&&e.target.closest('canvas[data-sg]');if(!c)return;const st=SG8.get(c);if(st)st.d=0},true));
+function sgSave8(t){
+  const r=t.closest('.q'),c=r.querySelector('canvas'),id=t.dataset.id,st=SG8.get(c);
+  if(!st||st.n<3)return toast('Signez d\'abord dans le cadre, ou importez une capture / un fichier.');
+  const o=document.createElement('canvas');o.width=c.width;o.height=c.height;const g=o.getContext('2d');g.fillStyle='#fff';g.fillRect(0,0,o.width,o.height);g.drawImage(c,0,0);
+  let d=o.toDataURL('image/png');if(d.length>70000)d=o.toDataURL('image/jpeg',.7);
+  const old=PF8[id];delete PF8[id];if(fsz8()+d.length>900000){if(old)PF8[id]=old;return toast('Total des pièces jointes trop lourd : retirez une photo.')}
+  PF8[id]={n:'signature-'+id+'.'+(d.startsWith('data:image/png')?'png':'jpg'),t:d.startsWith('data:image/png')?'image/png':'image/jpeg',d};
+  r.querySelector('input[type=hidden]').value='✍ Signé';const sp=r.querySelector('.v8fs');sp.textContent='✓ Signature enregistrée';
+  r.querySelector('[data-v8="fclr"]').hidden=false;r.classList.remove('bad');const qe=r.querySelector('.qe');if(qe)qe.textContent=''}
+
 /* ---------- clics v18 ---------- */
 document.addEventListener('click',async e=>{
   const t=e.target.closest('[data-v8]');if(!t)return;const a=t.dataset.v8,id=t.dataset.id;
+  if(a==='gps'){return gpsGet8(t)}
+  if(a==='sgok'){return sgSave8(t)}
+  if(a==='sgclr'){const c=t.closest('.q').querySelector('canvas');c.getContext('2d').clearRect(0,0,c.width,c.height);SG8.set(c,{d:0,n:0});return}
   if(a==='webcam'){return webcam8(id,t.dataset.cam==='1',t.closest('.q'))}
-  if(a==='fclr'){const r=t.closest('.q');delete PF8[id];const i=r.querySelector('input[type=file]'),h=r.querySelector('input[type=hidden]');if(i)i.value='';if(h)h.value='';r.querySelector('.v8fs').textContent='Aucun fichier';t.hidden=true;return}
+  if(a==='fclr'){const r=t.closest('.q');delete PF8[id];const i=r.querySelector('input[type=file]'),h=r.querySelector('input[type=hidden]');if(i)i.value='';if(h)h.value='';r.querySelector('.v8fs').textContent='Aucun fichier';t.hidden=true;const cs=r.querySelector('canvas');if(cs){cs.getContext('2d').clearRect(0,0,cs.width,cs.height);SG8.set(cs,{d:0,n:0});r.querySelector('.v8fs').textContent='Non signé'}return}
   if(a==='dclr'){try{localStorage.removeItem(dK8())}catch(x){}const f=document.getElementById('pfForm');if(f){f.reset();condApply8(f)}const s=document.getElementById('v8ds');if(s)s.textContent='Brouillon effacé.';return}
   if(!isSA())return;
   try{
